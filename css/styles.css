@@ -721,6 +721,10 @@ section.reveal-visible {
   /* box-shadow: 0 4px 0 var(--bg-secondary); */
 }
 
+.ai-creative-lightbox-media {
+  cursor: zoom-in;
+}
+
 /* #myExpertise h2::before {
   content: "";
   position: absolute;

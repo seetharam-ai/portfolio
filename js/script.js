@@ -10,6 +10,7 @@ function initAll() {
     initHeroAnimations();
     initRevealOnScroll();
     initGenAIWorks();
+    initAiCreativeWorksLightbox();
     initJourney();
     initSkills();
     initDesignArchive();
@@ -306,6 +307,28 @@ function setupTabbedGallery(sectionId, containerId) {
       // Limit collection to the current tab/category for better UX
       const tabCategory = media.closest(".parallax-section") || container;
       openLightbox(media, tabCategory);
+    }
+  });
+}
+
+function initAiCreativeWorksLightbox() {
+  const section = document.getElementById("ai-creative-works");
+  if (!section) return;
+
+  section.addEventListener("click", (e) => {
+    const media = e.target.closest("img, video");
+    if (!media || !media.classList.contains("ai-creative-lightbox-media")) return;
+
+    openLightbox(media, section);
+  });
+
+  section.addEventListener("keydown", (e) => {
+    const media = e.target.closest("img, video");
+    if (!media || !media.classList.contains("ai-creative-lightbox-media")) return;
+
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      openLightbox(media, section);
     }
   });
 }

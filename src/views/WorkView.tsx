@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { useLightbox } from "../components/Lightbox";
 import { BeforeAfterSlider } from "../components/BeforeAfterSlider";
 import { KeyArtCard } from "../components/KeyArtCard";
+import { Storyboard } from "../components/Storyboard";
 import { WorkCard } from "../components/WorkCard";
 import { corrections, figmaWork, keyArt } from "../data/artwork";
 import { designTabs } from "../data/designWorks";
@@ -203,6 +204,16 @@ function WorkGrid({ category }: { category: Category }) {
   );
 }
 
+/**
+ * Gallery tiles are squares. Prefer a 2×2 hero first tile (n images fill n + 3
+ * cells); otherwise plain tiles. Pick columns so every row is complete.
+ */
+function galleryLayout(n: number) {
+  const withHero = [4, 3, 5].find((c) => (n + 3) % c === 0);
+  if (withHero) return { cols: withHero, hero: true };
+  return { cols: [4, 3, 5].find((c) => n % c === 0) ?? 4, hero: false };
+}
+
 const projectImages: LightboxItem[] = recentWorks.flatMap((w) =>
   (w.images ?? []).map((img): LightboxItem => ({ type: "img", src: img.src })),
 );
@@ -217,9 +228,29 @@ function Projects() {
           <div className="project__index">{String(i + 1).padStart(2, "0")}</div>
           <div className="project__body">
             <h2 className="project__title">{work.title}</h2>
-            <div className="prose">{work.body}</div>
+            {work.body && <div className="prose">{work.body}</div>}
+            {work.steps && <Storyboard steps={work.steps} frame={work.storyFrame} />}
+            {work.gallery && work.images && work.galleryTitle && (
+              <h4 className="gallery-title label">{work.galleryTitle}</h4>
+            )}
+            {work.gallery && work.images && (
+              <div
+                className="project__gallery"
+                style={{ gridTemplateColumns: `repeat(${galleryLayout(work.images.length).cols}, minmax(0, 1fr))` }}
+              >
+                {work.images.map((img, i) => (
+                  <button
+                    key={img.src}
+                    className={cx("media-open", i === 0 && galleryLayout(work.images!.length).hero && "is-hero")}
+                    onClick={() => openLightbox(projectImages, projectImages.findIndex((p) => p.src === img.src))}
+                  >
+                    <img src={thumb(img.src)} alt={img.alt} loading="lazy" />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
-          {work.images && (
+          {work.images && !work.gallery && (
             <div className={cx("project__media", work.imageGrid && "project__media--grid")}>
               {work.images.map((img) => (
                 <button

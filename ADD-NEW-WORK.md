@@ -7,7 +7,7 @@ All artwork for creative / artwork roles (key art, before–after corrections, F
 | Image files | `public/images/artwork/key-art/`, `public/images/artwork/before-after/`, `public/images/artwork/figma/` |
 | Titles, descriptions, which files to show | `src/data/artwork.ts` |
 
-A category appears on the site (Work → **Artwork**) as soon as it has at least one entry. The newest key art and corrections are also featured automatically on the home page.
+A category appears on the site (Work → **Artwork**) as soon as it has at least one entry. Key art sets are featured on the home page automatically; a before/after pair appears there only if you mark it `featured: true`.
 
 ---
 
@@ -47,7 +47,8 @@ A category appears on the site (Work → **Artwork**) as soon as it has at least
   description: "One or two sentences on the problem and your call.",
   before: "images/artwork/before-after/title-before.jpg",
   after: "images/artwork/before-after/title-after.jpg",
-  fixes: ["Colour", "Skin retouch", "Title legibility", "Safe area"],   // optional
+  fixes: ["Color", "Skin retouch", "Title legibility", "Safe area"],   // optional
+  featured: true,   // optional — also show it as a home page tile
 },
 ```
 

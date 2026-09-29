@@ -11,11 +11,11 @@ import { HomeSnapshot } from "./HomeSnapshot";
 // topped up with hand-picked craft pieces from src/data/artwork.ts.
 const featured = [
   ...keyArt.map((k) => ({ src: k.variants[0].src, title: k.title })),
-  ...corrections.map((c) => ({ src: c.after, title: c.title })),
+  ...corrections.filter((c) => c.featured).map((c) => ({ src: c.after, title: c.title })),
   ...featuredDefaults,
 ].slice(0, 3);
 const featuredItems: LightboxItem[] = featured.map((w) => ({ type: "img", src: w.src }));
-const latestProject = recentWorks[0];
+const latestProject = recentWorks.find((w) => w.latest) ?? recentWorks[0];
 
 export function HomeView() {
   const openLightbox = useLightbox();

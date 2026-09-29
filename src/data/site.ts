@@ -10,7 +10,7 @@ export const views = [
 
 export type ViewId = (typeof views)[number]["id"];
 
-const CV_URL = "https://drive.google.com/file/d/1LG2MgQAVIjdbkUgWvYfKx1WwqXj6U49D/view?usp=sharing";
+const CV_URL = "https://drive.google.com/file/d/1kGvXn2G3ezUDVLRpYphCGDkVA69Lj3zo/view?usp=sharing";
 const LINKEDIN_URL = "https://www.linkedin.com/in/seetha-rama-swamy-thota";
 const GITHUB_URL = "https://github.com/seetharam-ai";
 

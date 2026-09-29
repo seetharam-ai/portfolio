@@ -81,4 +81,4 @@ Merging to `main` publishes the site automatically (see the Actions tab on GitHu
 
 ## Changing the home page picks
 
-`homeFeatured` at the bottom of `src/data/artwork.ts` sets the four "Selected work" tiles. Each needs a 2:1 image (e.g. 1800×900) in `public/images/home/`, a title, a short badge and a `link`: `work/<category>` (e.g. `work/before-after`) or `work/projects/<project-id>` to open at one project — the id is the project title up to the dash, lowercased with hyphens ("The Last Meridian — …" → `the-last-meridian`).
+`homeFeatured` at the bottom of `src/data/artwork.ts` sets the four "Selected work" tiles. Each needs a 4:3 image (e.g. 1200×900) in `public/images/home/`, a title, a short badge and a `link`: `work/<category>` (e.g. `work/before-after`) or `work/projects/<project-id>` to open at one project — the id is the project title up to the dash, lowercased with hyphens ("The Last Meridian — …" → `the-last-meridian`).

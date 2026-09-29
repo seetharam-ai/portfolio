@@ -934,6 +934,15 @@ section.reveal-visible {
   gap: 1.5rem;
 }
 
+/* Extra space before sub-headings / links (was created by stray empty <p>s in the old HTML) */
+.Recent-item-text .gap-before {
+  margin-top: 1.5rem;
+}
+
+.Recent-item-text .btn-link.gap-before {
+  margin-top: calc(1.5rem + 10px);
+}
+
 .Recent-item-text p {
   font-size: var(--fs-paragraph);
   color: var(--text-secondary);

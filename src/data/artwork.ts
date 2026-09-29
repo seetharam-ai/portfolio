@@ -34,6 +34,8 @@ export interface BeforeAfter {
   after: string;
   /** Short list of what you corrected. Optional. */
   fixes?: string[];
+  /** Show this pair as a tile on the home page. */
+  featured?: boolean;
 }
 
 /** Figma (or other UI/layout) work. */
@@ -61,12 +63,37 @@ export const keyArt: KeyArtSet[] = [
 
 export const corrections: BeforeAfter[] = [
   {
+    title: "The Last Meridian — Japanese title localization",
+    description:
+      "A direct text swap dropped the vertical title onto the centre axis, covering the face and the star. Moved into the negative space of the hood and set in Mincho: focal-zone overlap cut from 53,310 px to 0 px.",
+    before: "images/artwork/before-after/last-meridian-ja-before.jpg",
+    after: "images/artwork/before-after/last-meridian-ja-after.jpg",
+    fixes: ["Title placement", "Focal zones clear", "Vertical (tategaki) type", "Visual weight 100%"],
+  },
+  {
+    title: "Gladiator: Ashes of Rome — title replacement",
+    description:
+      "The original AI generation, titled “Colosseum: The Legend of Spartacus”, re-titled as a new English master — keeping the carved-stone treatment, scale and position of the original lockup.",
+    before: "images/artwork/before-after/gladiator-title-before.jpg",
+    after: "images/artwork/before-after/gladiator-title-after.jpg",
+    fixes: ["Title replacement", "Treatment matched", "Lockup position kept"],
+  },
+  {
+    title: "Couple & bottle campaign — low-res to production composite",
+    description:
+      "A 1024 px low-resolution image rebuilt as a 2048 px production composite, preserving product identity, texture and composition — Gemini Nano Banana Pro, then Photoshop Generative Fill with Flux 2 Pro and Flux Kontext Pro.",
+    before: "images/artwork/before-after/couple-bottle-before.jpg",
+    after: "images/artwork/before-after/couple-bottle-after.jpg",
+    fixes: ["2× resolution", "People & apparel detail", "Product texture", "Composition kept"],
+  },
+  {
     title: "Sneaker campaign — AI composition to production-ready",
     description:
       "An AI-assisted composition refined in Photoshop to commercial quality: product detail restored, upscaled, color corrected and relit.",
     before: "images/artwork/before-after/sneaker-campaign-before.png",
     after: "images/artwork/before-after/sneaker-campaign-after.png",
     fixes: ["Product detail", "Upscale", "Color correction", "Lighting"],
+    featured: true,
   },
 ];
 

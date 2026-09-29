@@ -7,7 +7,7 @@ All artwork for creative / artwork roles (key art, before–after corrections, F
 | Image files | `public/images/artwork/key-art/`, `public/images/artwork/before-after/`, `public/images/artwork/figma/` |
 | Titles, descriptions, which files to show | `src/data/artwork.ts` |
 
-A category appears on the site (Work → **Artwork**) as soon as it has at least one entry. Key art sets are featured on the home page automatically; a before/after pair appears there only if you mark it `featured: true`.
+A category appears on the site (Work → **Artwork**) as soon as it has at least one entry. The home page tiles are picked by hand (see the end of this guide).
 
 ---
 
@@ -48,7 +48,6 @@ A category appears on the site (Work → **Artwork**) as soon as it has at least
   before: "images/artwork/before-after/title-before.jpg",
   after: "images/artwork/before-after/title-after.jpg",
   fixes: ["Color", "Skin retouch", "Title legibility", "Safe area"],   // optional
-  featured: true,   // optional — also show it as a home page tile
 },
 ```
 
@@ -82,4 +81,4 @@ Merging to `main` publishes the site automatically (see the Actions tab on GitHu
 
 ## Changing the home page picks
 
-`featuredDefaults` at the bottom of `src/data/artwork.ts` controls the three home-page tiles when there isn't enough new artwork to fill them.
+`homeFeatured` at the bottom of `src/data/artwork.ts` sets the four "Selected work" tiles. Each needs a 2:1 image (e.g. 1800×900) in `public/images/home/`, a title, a short badge and a `link`: `work/<category>` (e.g. `work/before-after`) or `work/projects/<project-id>` to open at one project — the id is the project title up to the dash, lowercased with hyphens ("The Last Meridian — …" → `the-last-meridian`).

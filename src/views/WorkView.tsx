@@ -1,14 +1,14 @@
 import { thumb } from "../utils/media";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useLightbox } from "../components/Lightbox";
 import { BeforeAfterSlider } from "../components/BeforeAfterSlider";
-import { KeyArtCard } from "../components/KeyArtCard";
+import { KeyArtCard, KeyArtVariants } from "../components/KeyArtCard";
 import { Storyboard } from "../components/Storyboard";
 import { WorkCard } from "../components/WorkCard";
-import { corrections, figmaWork, keyArt } from "../data/artwork";
+import { corrections, figmaWork, keyArt, series, type BeforeAfter } from "../data/artwork";
 import { designTabs } from "../data/designWorks";
 import { genAiTabs } from "../data/genAiWorks";
-import { recentWorks } from "../data/recentWorks";
+import { projectId, recentWorks } from "../data/recentWorks";
 import { aiCreativeWorks } from "../data/site";
 import { href } from "../hooks/useHashRoute";
 import { toLightboxItems, type GalleryEntry, type LightboxItem } from "../types";
@@ -63,10 +63,11 @@ const figmaEntries: GalleryEntry[] = figmaWork.map((f) => ({
   title: f.title,
   description: f.link ? (
     <>
-      {f.description}{" "}
       <a href={f.link} target="_blank">
         Open in Figma ↗
       </a>
+      <br />
+      {f.description}
     </>
   ) : (
     f.description
@@ -78,7 +79,7 @@ const figmaEntries: GalleryEntry[] = figmaWork.map((f) => ({
 // (add work in src/data/artwork.ts — see ADD-NEW-WORK.md).
 const allCategories: Category[] = [
   { id: "key-art", label: "Key art", group: "Artwork", heading: "Key art — poster, cover & background", kind: "keyart", entries: [], count: keyArt.length },
-  { id: "before-after", label: "Before / after", group: "Artwork", heading: "Artwork corrections — before & after", kind: "corrections", entries: [], count: corrections.length },
+  { id: "before-after", label: "Before / after", group: "Artwork", heading: "Artwork corrections — before & after", kind: "corrections", entries: [], count: corrections.length + series.reduce((n, s) => n + s.pairs.length, 0) },
   grid({ id: "figma", label: "Figma", group: "Artwork", heading: "Figma — layout & UI", entries: figmaEntries }),
   grid({ id: "creatives", label: "AI creatives", group: "Generative AI", heading: "AI-assisted creative works", entries: creatives }),
   ...genAiTabs
@@ -221,14 +222,39 @@ const projectImages: LightboxItem[] = recentWorks.flatMap((w) =>
 function Projects() {
   const openLightbox = useLightbox();
 
+  // "#work/projects/<id>" (e.g. from a home tile) opens straight at that project.
+  useEffect(() => {
+    const id = window.location.hash.split("/")[2];
+    if (id) document.getElementById(id)?.scrollIntoView();
+  }, []);
+
   return (
     <section aria-label="Recent projects" className="project-list">
       {recentWorks.map((work, i) => (
-        <article key={work.title} className={cx("project", work.stacked && "project--stacked")}>
+        <article key={work.title} id={projectId(work)} className={cx("project", work.stacked && "project--stacked")}>
           <div className="project__index">{String(i + 1).padStart(2, "0")}</div>
           <div className="project__body">
             <h2 className="project__title">{work.title}</h2>
             {work.body && <div className="prose">{work.body}</div>}
+            {work.variants && (
+              <div className="project__variants">
+                <KeyArtVariants
+                  title={work.title}
+                  variants={work.variants}
+                  onOpen={(i) => openLightbox(work.variants!.map((v): LightboxItem => ({ type: "img", src: v.src })), i)}
+                />
+              </div>
+            )}
+            {work.video && (
+              <video
+                className="project__video"
+                src={work.video.src}
+                poster={thumb(work.video.poster)}
+                controls
+                playsInline
+                preload="none"
+              />
+            )}
             {work.steps && <Storyboard steps={work.steps} frame={work.storyFrame} />}
             {work.gallery && work.images && work.galleryTitle && (
               <h4 className="gallery-title label">{work.galleryTitle}</h4>
@@ -283,26 +309,39 @@ function KeyArtList() {
 
 function Corrections() {
   const openLightbox = useLightbox();
+  const open = (c: BeforeAfter) =>
+    openLightbox(
+      [
+        { type: "img", src: c.before },
+        { type: "img", src: c.after },
+      ],
+      1,
+    );
   return (
     <section aria-label="Artwork corrections">
       <h2 className="grid-heading">Artwork corrections — before & after</h2>
-      <div className="ba-grid">
-        {corrections.map((c) => (
-          <BeforeAfterSlider
-            key={c.title}
-            item={c}
-            onOpen={() =>
-              openLightbox(
-                [
-                  { type: "img", src: c.before },
-                  { type: "img", src: c.after },
-                ],
-                1,
-              )
-            }
-          />
-        ))}
-      </div>
+      {/* Portraits share one row height, landscapes another: widths follow each image's ratio. */}
+      {[corrections.filter((c) => (c.ratio ?? 1) < 1), corrections.filter((c) => (c.ratio ?? 1) >= 1)].map(
+        (row, r) =>
+          row.length > 0 && (
+            <div key={r} className="ba-row">
+              {row.map((c) => (
+                <BeforeAfterSlider key={c.title} item={c} onOpen={() => open(c)} style={{ flexGrow: c.ratio ?? 1 }} />
+              ))}
+            </div>
+          ),
+      )}
+      {series.map((s) => (
+        <div key={s.title} className="ba-series">
+          <h3 className="project__title">{s.title}</h3>
+          <p className="ba-series__desc">{s.description}</p>
+          <div className="ba-grid ba-grid--wide">
+            {s.pairs.map((c) => (
+              <BeforeAfterSlider key={c.before} item={c} onOpen={() => open(c)} />
+            ))}
+          </div>
+        </div>
+      ))}
     </section>
   );
 }

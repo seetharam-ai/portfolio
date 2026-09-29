@@ -1,9 +1,17 @@
-import { useRef, useState } from "react";
+import { useRef, useState, type CSSProperties } from "react";
 import type { BeforeAfter } from "../data/artwork";
 import { Thumb } from "./Thumb";
 
 /** Drag (or use the keyboard on the slider) to compare before and after. */
-export function BeforeAfterSlider({ item, onOpen }: { item: BeforeAfter; onOpen: () => void }) {
+export function BeforeAfterSlider({
+  item,
+  onOpen,
+  style,
+}: {
+  item: BeforeAfter;
+  onOpen: () => void;
+  style?: CSSProperties;
+}) {
   const [pos, setPos] = useState(50);
   const frameRef = useRef<HTMLDivElement>(null);
 
@@ -14,7 +22,7 @@ export function BeforeAfterSlider({ item, onOpen }: { item: BeforeAfter; onOpen:
   };
 
   return (
-    <article className="ba-card">
+    <article className="ba-card" style={style}>
       <div
         ref={frameRef}
         className="ba-frame"
@@ -45,7 +53,7 @@ export function BeforeAfterSlider({ item, onOpen }: { item: BeforeAfter; onOpen:
       </div>
       <div className="work-card__body">
         <h3 className="work-card__title">{item.title}</h3>
-        <p>{item.description}</p>
+        {item.description && <p>{item.description}</p>}
         {item.fixes && (
           <ul className="keywords keywords--sm">
             {item.fixes.map((f) => (

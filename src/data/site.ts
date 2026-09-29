@@ -105,10 +105,11 @@ export const aiCreativeWorks: { title: string; src: string; alt: string }[] = [
   },
 ];
 
-export const journey: { role: string; org: string; logo: string; logoAlt: string; details: string[] }[] = [
+export const journey: { role: string; org: string; summary: string; logo: string; logoAlt: string; details: string[] }[] = [
   {
     role: "Subject Matter Expert | Global Quality & Automation",
     org: "Amazon",
+    summary: "Quality standards and automation for large-scale Amazon 3D operations — 35% fewer defects, $18M annual cost avoidance.",
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
@@ -120,6 +121,7 @@ export const journey: { role: string; org: string; logo: string; logoAlt: string
   {
     role: "Quality Assurance Lead | Global Operations",
     org: "Amazon",
+    summary: "Led 70+ QA members across Chennai, Bengaluru and Hyderabad; QA tool redesign cut manual review time by 30%.",
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
@@ -130,6 +132,7 @@ export const journey: { role: string; org: string; logo: string; logoAlt: string
   {
     role: "3D Content Creator",
     org: "Amazon",
+    summary: "Production-ready 3D assets in Maya, Substance Painter and ZBrush; PyMEL pipeline automation lifted efficiency 10%.",
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
@@ -140,6 +143,7 @@ export const journey: { role: string; org: string; logo: string; logoAlt: string
   {
     role: "Video Editor",
     org: "Amazon",
+    summary: "Post-production for Amazon Fashion; global editing SOPs and automation templates that doubled editing speed.",
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
@@ -151,6 +155,7 @@ export const journey: { role: string; org: string; logo: string; logoAlt: string
   {
     role: "2D Content Creator",
     org: "Amazon",
+    summary: "High-volume retouching and QA for Amazon 3P, Junglee and Quidsi — brands including Mango, Senco and Cotopaxi.",
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
@@ -162,6 +167,7 @@ export const journey: { role: string; org: string; logo: string; logoAlt: string
   {
     role: "Independent Designer",
     org: "Freelance",
+    summary: "Branding, UI/UX systems and motion campaigns for e-commerce and gaming clients.",
     logo: "images/sr-logo.png",
     logoAlt: "SR Logo",
     details: [

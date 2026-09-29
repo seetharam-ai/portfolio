@@ -50,9 +50,29 @@ export const productionSkills: Skill[] = [
   { name: "Adobe Audition", icon: "icons/adobe-audition.png", alt: "adobe-audition", level: 99 },
   { name: "Adobe Media Encoder", icon: "icons/media-encoder.png", alt: "media-encoder", level: 99 },
   { name: "Autodesk Maya", icon: "icons/maya.png", alt: "maya", level: 98 },
-  { name: "Blender", icon: "icons/blender.png", alt: "blender", level: 92 },
+  { name: "Blender", icon: "icons/Blender.png", alt: "blender", level: 92 },
   { name: "Unreal Engine", icon: "icons/unreal.png", alt: "unreal", level: 93 },
   { name: "ZBrush", icon: "icons/ZBrush_icon.svg", alt: "zbrush", level: 95 },
   { name: "Substance Painter", icon: "icons/painter.svg", alt: "painter", level: 100 },
   { name: "Adobe Express", icon: "icons/adobe-express.png", alt: "adobe-express", level: 97 },
 ];
+
+/** Tools highlighted in the home page snapshot (names must match the lists above). */
+export const coreToolkit = [
+  "ComfyUI - 2D, Video & 3D",
+  "Python - Scripting",
+  "Adobe Photoshop",
+  "Adobe After Effects",
+  "Adobe Premiere Pro",
+  "Autodesk Maya",
+  "Substance Painter",
+  "Blender",
+  "Unreal Engine",
+  "Figma",
+  "AWS - Cloud Computing",
+  "GitHub - Version Control",
+].map((name) => {
+  const skill = [...technicalSkills, ...productionSkills].find((s) => s.name === name);
+  if (!skill) throw new Error(`coreToolkit: unknown skill "${name}"`);
+  return skill;
+});

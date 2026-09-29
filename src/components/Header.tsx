@@ -27,7 +27,7 @@ export function Header({ current }: { current: ViewId }) {
           ))}
         </nav>
 
-        <a href={hero.cv} target="_blank" className="btn btn--ink btn--sm header-cv">
+        <a href={hero.cv} target="_blank" className="btn btn--ink header-cv">
           View CV <span aria-hidden>↗</span>
         </a>
       </div>

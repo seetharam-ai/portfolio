@@ -41,6 +41,10 @@
   --fs-mono: 12px; /* dates, IDs, counts */
   --ls-caps: 0.08em;
 
+  /* Spacing rhythm — used for all vertical spacing on the home page */
+  --space-item: 20px; /* between items in a stack, and heading → content */
+  --space-section: 80px; /* between major sections */
+
   /* Shape & space */
   --radius-lg: 22px;
   --radius: 14px;
@@ -195,14 +199,15 @@ em {
   border-color: var(--accent);
 }
 
+/* One button size everywhere (header, hero, cards, contact). */
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  height: 48px;
-  padding: 0 22px;
+  gap: 8px;
+  height: 42px;
+  padding: 0 18px;
   border-radius: 999px;
-  font-size: var(--fs-md);
+  font-size: var(--fs-base);
   font-weight: 500;
   white-space: nowrap;
   transition: transform 0.2s var(--ease), background 0.2s, color 0.2s, border-color 0.2s;
@@ -210,12 +215,6 @@ em {
 
 .btn:hover {
   transform: translateY(-1px);
-}
-
-.btn--sm {
-  height: 38px;
-  padding: 0 16px;
-  font-size: var(--fs-base);
 }
 
 .btn--accent {
@@ -490,22 +489,22 @@ border-top: 1px solid var(--ink);
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: 20px;
-  row-gap: 24px;
+  row-gap: 40px;
 }
 
 .home__intro {
-  grid-column: 1 / 8;
+grid-column: 1 / 8;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 14px;
+  gap: var(--space-item);
   padding-right: 32px;
 }
 
 .home__intro .lead {
-  max-width: 54ch;
-  font-size: clamp(17px, 1.35vw, 20px);
+max-width: 54ch;
+  font-size: var(--fs-lead);
   color: var(--ink-2);
 }
 
@@ -513,7 +512,6 @@ border-top: 1px solid var(--ink);
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 6px;
 }
 
 .keywords {
@@ -557,7 +555,7 @@ border-top: 1px solid var(--ink);
   align-self: stretch;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin: 8px 0 0;
+  margin: 0;
   border-top: 1px solid var(--ink);
 }
 
@@ -655,7 +653,7 @@ border-top: 1px solid var(--ink);
 }
 
 .home__work .section-head {
-  margin-bottom: 12px;
+  margin-bottom: var(--space-item);
 }
 
 .home-work-grid {
@@ -674,7 +672,7 @@ border-top: 1px solid var(--ink);
 .tile__media {
   position: relative;
   display: block;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 2 / 1;
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--surface-2);
@@ -1513,18 +1511,17 @@ font-size: var(--fs-base);
 }
 
 .snapshot {
-  display: grid;
+display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 16px;
+  column-gap: 32px;
+  row-gap: var(--space-section);
   align-items: start;
-  margin-top: 56px;
-  padding-top: 40px;
-  border-top: 1px solid var(--line);
+  margin-top: var(--space-section);
   scroll-margin-top: calc(var(--header-h) + 16px);
 }
 
 .snapshot .section-head {
-  margin-bottom: 12px;
+  margin-bottom: var(--space-item);
 }
 
 .snapshot__career {
@@ -1535,12 +1532,12 @@ font-size: var(--fs-base);
   grid-column: 9 / 13;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 40px;
 }
 
 .snapshot__side .label {
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: var(--space-item);
 }
 
 .snapshot__toolkit {
@@ -1830,11 +1827,30 @@ font-size: var(--fs-sm);
   color: var(--muted);
 }
 
+/* Major home sections share one heading pattern: label + title */
+.section-title {
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-h4);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.section-head--titled {
+  align-items: flex-end;
+}
+
+.section-title em {
+  color: var(--accent);
+  font-size: 1.08em;
+  white-space: nowrap;
+}
+
 /* ---------- How I work (review loop) ---------- */
 .snapshot__loop {
-  grid-column: 1 / -1;
-  margin-bottom: 36px;
-  padding: 28px 32px 24px;
+grid-column: 1 / -1;
+  padding: 28px 32px;
   border-radius: var(--radius-lg);
   background: var(--surface);
   border: 1px solid var(--line);
@@ -1844,21 +1860,7 @@ font-size: var(--fs-sm);
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin-bottom: 28px;
-}
-
-.loop-head__title {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: var(--fs-h4);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-}
-
-.loop-head__title em {
-  color: var(--accent);
-  font-size: 1.08em;
-  white-space: nowrap;
+  margin-bottom: var(--space-item);
 }
 
 .loop {
@@ -2452,12 +2454,15 @@ font-size: var(--fs-sm);
     gap: 20px;
   }
 
+  :root {
+    --space-section: 56px;
+  }
+
   .snapshot {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    margin-top: 40px;
-    padding-top: 28px;
+    gap: var(--space-section);
   }
 
   .snapshot__side {

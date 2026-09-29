@@ -160,7 +160,7 @@ export const figmaWork: FigmaWork[] = [
 ];
 
 /**
- * Home page "Selected work" tiles (4), picked by hand. Each image is a 2:1
+ * Home page "Selected work" tiles (4), picked by hand. Each image is a 4:3
  * crop made for the tile (public/images/home/); `link` is where it opens:
  * "work/<category>" or "work/projects/<project-id>" to jump to one project.
  */
@@ -172,7 +172,7 @@ export const homeFeatured = [
     link: "work/projects/the-queen-of-florence",
   },
   {
-    src: "images/home/last-meridian-trio.jpg",
+    src: "images/home/last-meridian.jpg",
     title: "The Last Meridian — localized key art for 6 markets",
     badge: "Localization",
     link: "work/projects/the-last-meridian",

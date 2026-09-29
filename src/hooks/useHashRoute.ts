@@ -7,8 +7,22 @@ export interface Route {
   sub?: string;
 }
 
+// Section anchors from the old single-page site. The CV and older shared
+// links still point at these, so map each one to its new view.
+const LEGACY: Record<string, string> = {
+  introduction: "home",
+  myExpertise: "experience",
+  "ai-creative-works": "work/creatives",
+  "generative-ai-works": "work/2d",
+  "Recent-works": "work/projects",
+  journey: "experience",
+  portfolio: "work/design",
+  "edu-certificates": "credentials",
+};
+
 function parse(hash: string): Route {
-  const [view, sub] = hash.replace(/^#\/?/, "").split("/");
+  const raw = hash.replace(/^#\/?/, "");
+  const [view, sub] = (LEGACY[raw] ?? raw).split("/");
   const known = views.some((v) => v.id === view);
   return { view: known ? (view as ViewId) : "home", sub: known ? sub : undefined };
 }

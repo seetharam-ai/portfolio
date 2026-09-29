@@ -1,18 +1,21 @@
-import { thumb } from "../utils/media";
 import { useLightbox } from "../components/Lightbox";
-import { aiCreativeWorks, expertise, hero, stats } from "../data/site";
+import { Thumb } from "../components/Thumb";
+import { corrections, featuredDefaults, keyArt } from "../data/artwork";
 import { recentWorks } from "../data/recentWorks";
-import { genAiTabs } from "../data/genAiWorks";
+import { hero, stats } from "../data/site";
 import { href } from "../hooks/useHashRoute";
 import type { LightboxItem } from "../types";
 import { HomeSnapshot } from "./HomeSnapshot";
 
-// Hand-picked highlights for the first screen.
-const featured = [aiCreativeWorks[5], aiCreativeWorks[4], aiCreativeWorks[6]];
+// First screen highlights: new artwork (key art, then corrections) leads,
+// topped up with hand-picked craft pieces from src/data/artwork.ts.
+const featured = [
+  ...keyArt.map((k) => ({ src: k.variants[0].src, title: k.title })),
+  ...corrections.map((c) => ({ src: c.after, title: c.title })),
+  ...featuredDefaults,
+].slice(0, 3);
 const featuredItems: LightboxItem[] = featured.map((w) => ({ type: "img", src: w.src }));
 const latestProject = recentWorks[0];
-const totalWorks =
-  aiCreativeWorks.length + genAiTabs.reduce((n, t) => n + t.entries.length, 0);
 
 export function HomeView() {
   const openLightbox = useLightbox();
@@ -27,42 +30,34 @@ export function HomeView() {
           <h1 className="display">
             Seetha Rama Swamy <em>Thota</em>
           </h1>
-          <p className="lead">{hero.tagline}</p>
-
-          <ul className="pill-list" aria-label="Expertise">
-            {expertise.map((e) => (
-              <li key={e.title} className="pill">
-                {e.title}
-              </li>
-            ))}
-          </ul>
+          <p className="lead">{hero.hook}</p>
 
           <div className="cta-row">
             <a href={href("work")} className="btn btn--accent">
-              Explore {totalWorks}+ works <span aria-hidden>→</span>
+              View work <span aria-hidden>→</span>
             </a>
             <a href={hero.cv} target="_blank" className="btn btn--ghost">
               Download CV <span aria-hidden>↗</span>
             </a>
           </div>
-          <div className="quick-links">
-            {hero.links
-              .filter((l) => l.label !== "View CV")
-              .map((l) => (
-                <a key={l.label} href={l.href} target="_blank" className="text-link">
-                  {l.label === "Linked in" ? "LinkedIn" : l.label} ↗
-                </a>
-              ))}
-            <a href={href("contact")} className="text-link">
-              Get in touch →
-            </a>
-            <button
-              className="text-link scroll-cue"
-              onClick={() => document.getElementById("snapshot")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              Career snapshot ↓
-            </button>
+          <div className="hero-meta">
+            <span>{hero.location}</span>
+            <a href={`mailto:${hero.email}`}>Email</a>
+            {hero.links.map((l) => (
+              <a key={l.label} href={l.href} target="_blank">
+                {l.label}
+              </a>
+            ))}
           </div>
+
+          <dl className="home__stats" aria-label="Impact">
+            {stats.map((s) => (
+              <div key={s.label} className="stat">
+                <dt className="stat__value">{s.value}</dt>
+                <dd className="stat__label">{s.label}</dd>
+              </div>
+            ))}
+          </dl>
         </section>
 
         <section className="home__portrait" aria-label="Profile">
@@ -74,40 +69,33 @@ export function HomeView() {
           </div>
         </section>
 
-        <section className="home__stats" aria-label="Impact">
-          {stats.map((s) => (
-            <div key={s.label} className="stat">
-              <span className="stat__value">{s.value}</span>
-              <span className="stat__label">{s.label}</span>
-            </div>
-          ))}
-        </section>
-
-        <section className="home__featured" aria-label="Featured work">
+        <section className="home__work" aria-labelledby="home-work">
           <div className="section-head">
-            <h2 className="label">Featured work</h2>
+            <h2 id="home-work" className="label">
+              Selected work
+            </h2>
             <a href={href("work")} className="text-link">
               All work →
             </a>
           </div>
-          <div className="featured-grid">
+          <div className="home-work-grid">
             {featured.map((w, i) => (
-              <button key={w.src} className="featured-tile" onClick={() => openLightbox(featuredItems, i)}>
-                <img src={thumb(w.src)} alt={w.alt} />
-                <span className="featured-tile__caption">{w.title}</span>
+              <button key={w.src} className="tile" onClick={() => openLightbox(featuredItems, i)}>
+                <span className="tile__media">
+                  <Thumb src={w.src} alt="" />
+                </span>
+                <span className="tile__title">{w.title}</span>
               </button>
             ))}
+            <a href={href("work", "projects")} className="tile tile--project">
+              <span className="tile__media">
+                {latestProject.images?.[0] && <Thumb src={latestProject.images[0].src} alt="" />}
+                <span className="tile__badge">Latest project</span>
+              </span>
+              <span className="tile__title">{latestProject.title}</span>
+            </a>
           </div>
         </section>
-
-        <a href={href("work", "projects")} className="home__project">
-          <span className="label">Latest project</span>
-          <h2 className="home__project-title">{latestProject.title}</h2>
-          {latestProject.images?.[0] && (
-            <img src={thumb(latestProject.images[0].src)} alt={latestProject.images[0].alt} className="home__project-img" />
-          )}
-          <span className="text-link">View case study →</span>
-        </a>
       </div>
       <HomeSnapshot />
     </>

@@ -1,10 +1,10 @@
-import { eduCertItems } from "../data/education";
-import { hero, journey } from "../data/site";
+import { EduLogo } from "../components/EduLogo";
+import { certs, education } from "../data/education";
+import { CareerTimeline } from "../components/CareerTimeline";
+import { aiStance, hero, reviewLoop } from "../data/site";
 import { aiModels, coreToolkit } from "../data/skills";
 import { href } from "../hooks/useHashRoute";
 
-const education = eduCertItems.filter((i) => i.kind === "education");
-const certs = eduCertItems.filter((i) => i.kind === "cert");
 
 /**
  * Recruiter-friendly summary below the first screen: the whole profile
@@ -13,6 +13,32 @@ const certs = eduCertItems.filter((i) => i.kind === "cert");
 export function HomeSnapshot() {
   return (
     <div className="snapshot" id="snapshot">
+      <section className="snapshot__loop" aria-labelledby="snap-how">
+        <div className="loop-head">
+          <h2 id="snap-how" className="label">
+            How I work
+          </h2>
+          <p className="loop-head__title">
+            Every asset gets the same <em>four-step</em> review.
+          </p>
+        </div>
+        <ol className="loop">
+          {reviewLoop.map((step, i) => (
+            <li key={step.title} className="loop__step">
+              <span className="loop__marker" aria-hidden>
+                {i + 1}
+              </span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+              <span className="loop__proof">{step.proof}</span>
+            </li>
+          ))}
+        </ol>
+        <p className="loop__ai">
+          <span className="dot" aria-hidden /> {aiStance}
+        </p>
+      </section>
+
       <section className="snapshot__career" aria-labelledby="snap-career">
         <div className="section-head">
           <h2 id="snap-career" className="label">
@@ -22,19 +48,7 @@ export function HomeSnapshot() {
             Full timeline →
           </a>
         </div>
-        <ol className="career-list">
-          {journey.map((job) => (
-            <li key={job.role} className="career-row">
-              <img src={job.logo} alt="" className="career-row__logo" loading="lazy" />
-              <div className="career-row__text">
-                <h3>
-                  {job.role} <span className="career-row__org">· {job.org}</span>
-                </h3>
-                <p>{job.summary}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
+        <CareerTimeline />
       </section>
 
       <aside className="snapshot__side">
@@ -45,7 +59,7 @@ export function HomeSnapshot() {
           <ul className="mini-list">
             {education.map((e) => (
               <li key={e.school} className="mini-row">
-                <img src={e.logo} alt="" loading="lazy" />
+                <EduLogo edu={e} />
                 <div>
                   <h3>{e.degree}</h3>
                   <p>
@@ -60,13 +74,16 @@ export function HomeSnapshot() {
         <div className="cv-card">
           <p className="label">Résumé</p>
           <p className="cv-card__text">The full CV with detailed responsibilities, tools and dates.</p>
-          <a href={hero.cv} target="_blank" className="btn btn--light">
+          <a href={`mailto:${hero.email}`} className="cv-card__email">
+            {hero.email}
+          </a>
+          <a href={hero.cv} target="_blank" className="btn btn--accent btn--sm">
             Download CV <span aria-hidden>↗</span>
           </a>
         </div>
       </aside>
 
-      <section className="snapshot__toolkit panel" aria-labelledby="snap-tools">
+      <section className="snapshot__toolkit" aria-labelledby="snap-tools">
         <div className="section-head">
           <h2 id="snap-tools" className="label">
             Core toolkit
@@ -84,16 +101,14 @@ export function HomeSnapshot() {
           ))}
         </ul>
         <h3 className="label snapshot__sublabel">Gen AI models — hands-on</h3>
-        <div className="chip-cloud">
+        <ul className="keywords">
           {aiModels.split(" - ").map((m) => (
-            <span key={m} className="chip chip--sm">
-              {m}
-            </span>
+            <li key={m}>{m}</li>
           ))}
-        </div>
+        </ul>
       </section>
 
-      <section className="snapshot__certs panel" aria-labelledby="snap-certs">
+      <section className="snapshot__certs" aria-labelledby="snap-certs">
         <div className="section-head">
           <h2 id="snap-certs" className="label">
             Certifications · {certs.length}

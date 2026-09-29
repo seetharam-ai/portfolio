@@ -1,6 +1,6 @@
-import { eduCertItems } from "../data/education";
+import { certs, type Cert } from "../data/education";
 
-const certs = eduCertItems.filter((i) => i.kind === "cert");
+const groups = [...new Set(certs.map((c) => c.group))];
 
 export function CredentialsView() {
   return (
@@ -12,24 +12,49 @@ export function CredentialsView() {
             Always <em>learning</em>
           </h1>
         </div>
-        <p className="view-note">{certs.length} certifications across Gen AI, UX, project management and Python.</p>
+        <p className="view-note">
+          {certs.length} certifications across Gen AI, prompt engineering, UX, project management and Python.
+        </p>
       </div>
 
-      <div className="cert-grid">
-        {certs.map((c) => (
-          <a key={c.href} href={c.href} target="_blank" className="cert">
-            <div className="cert__logo">
-              <img src={c.image} alt={c.alt} loading="lazy" />
-            </div>
-            <h2 className="cert__title">{c.title}</h2>
-            <p className="cert__id">
-              {c.isCredentialId && <span>Credential ID</span>}
-              <code>{c.credential}</code>
-            </p>
-            <span className="text-link">View certificate ↗</span>
-          </a>
-        ))}
-      </div>
+      {groups.map((g) => (
+        <section key={g} className="cert-group" aria-label={g}>
+          <h2 className="label cert-group__title">{g}</h2>
+          <div className="cert-grid">
+            {certs
+              .filter((c) => c.group === g)
+              .map((c) => (
+                <CertCard key={c.href} cert={c} />
+              ))}
+          </div>
+        </section>
+      ))}
     </div>
+  );
+}
+
+function CertCard({ cert: c }: { cert: Cert }) {
+  return (
+    <article className="cert">
+      <div className="cert__logo">
+        <img src={c.image} alt={c.alt} loading="lazy" />
+        <span className="cert__date">{c.issued}</span>
+      </div>
+      <h3 className="cert__title">{c.title}</h3>
+      <p className="cert__id">
+        {c.isCredentialId && <span>Credential ID</span>}
+        <code>{c.credential}</code>
+      </p>
+      <div className="cert__links">
+        <a href={c.href} target="_blank" className="text-link">
+          View certificate ↗
+        </a>
+        {c.verify && (
+          <a href={c.verify} target="_blank" className="text-link text-link--muted">
+            Verify ↗
+          </a>
+        )}
+      </div>
+    </article>
   );
 }

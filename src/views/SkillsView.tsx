@@ -1,39 +1,48 @@
-import type { CSSProperties } from "react";
-import { aiModels, genAiTools, productionSkills, technicalSkills, type Skill } from "../data/skills";
+import { aiModels, capabilities, genAiTools, productionSkills, technicalSkills, type Skill } from "../data/skills";
 
 export function SkillsView() {
   return (
     <div className="skills">
       <div className="view-head">
         <div>
-          <p className="label">Toolkit</p>
+          <p className="label">Skills & toolkit</p>
           <h1 className="view-title">
-            Tools I <em>work</em> with
+            What I <em>bring</em>
           </h1>
         </div>
       </div>
+
+      <section className="capabilities" aria-label="Core capabilities">
+        {capabilities.map((c, i) => (
+          <div key={c.area} className="capability">
+            <span className="capability__num">{String(i + 1).padStart(2, "0")}</span>
+            <h2 className="capability__area">{c.area}</h2>
+            <p className="capability__items">{c.items.join(" · ")}</p>
+          </div>
+        ))}
+      </section>
 
       <div className="skills__grid">
         <div className="skills__col">
           <section className="panel">
             <h2 className="label">Gen AI platforms & workflows</h2>
-            <div className="chip-cloud">
+            <ul className="link-list">
               {genAiTools.map((t) => (
-                <a key={t.href} href={t.href} target="_blank" className="chip chip--link">
-                  {t.label} <span aria-hidden>↗</span>
-                </a>
+                <li key={t.href}>
+                  <a href={t.href} target="_blank">
+                    {t.label}
+                  </a>
+                </li>
               ))}
-            </div>
+            </ul>
           </section>
           <section className="panel">
             <h2 className="label">Models — hands-on</h2>
-            <div className="chip-cloud">
+            <ul className="keywords">
               {aiModels.split(" - ").map((m) => (
-                <span key={m} className="chip">
-                  {m}
-                </span>
+                <li key={m}>{m}</li>
               ))}
-            </div>
+            </ul>
           </section>
         </div>
 
@@ -53,8 +62,6 @@ function SkillPanel({ title, skills }: { title: string; skills: Skill[] }) {
           <li key={s.name} className="skill">
             <img src={s.icon} alt="" loading="lazy" className="skill__icon" />
             <span className="skill__name">{s.name}</span>
-            <span className="skill__level">{s.level}</span>
-            <span className="skill__bar" style={{ "--w": `${s.level}%` } as CSSProperties} aria-hidden />
           </li>
         ))}
       </ul>

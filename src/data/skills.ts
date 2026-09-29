@@ -21,7 +21,7 @@ export const genAiTools = [
 ];
 
 export const aiModels =
-  "Adobe Firefly - Google nano banana & Veo (flow), Openai Image 2 - Stable diffusion - Flux - Qwen - Zimage - Wan - Ltxv - Kling";
+  "Adobe Firefly - Google Nano Banana & Veo (Flow) - OpenAI Image 2 - Stable Diffusion - Flux - Qwen - Z-Image - Wan - LTXV - Kling";
 
 export const technicalSkills: Skill[] = [
   { name: "ComfyUI - 2D, Video & 3D", icon: "icons/comfyui.png", alt: "comfyui", level: 95 },
@@ -76,3 +76,58 @@ export const coreToolkit = [
   if (!skill) throw new Error(`coreToolkit: unknown skill "${name}"`);
   return skill;
 });
+
+/** Capability areas and keywords, as listed under "Core skills" in the CV. */
+export const capabilities: { area: string; items: string[] }[] = [
+  {
+    area: "Generative AI & Prompt Engineering",
+    items: [
+      "AI image & video generation",
+      "Prompt engineering",
+      "Diffusion models",
+      "ComfyUI workflows",
+      "AI-assisted content creation (Photoshop & Firefly)",
+    ],
+  },
+  {
+    area: "Creative Production",
+    items: [
+      "Image retouching",
+      "Digital compositing",
+      "Color correction",
+      "Lighting & composition",
+      "Product imagery visualization",
+    ],
+  },
+  {
+    area: "Visual Quality & Content Operations",
+    items: [
+      "Creative QA",
+      "AI output evaluation",
+      "Product accuracy",
+      "AI artifact detection",
+      "Content validation",
+      "Editorial standards",
+      "Defect reduction",
+    ],
+  },
+  {
+    area: "Creative Automation",
+    items: [
+      "AI workflow design",
+      "Process improvement",
+      "Python automation",
+      "Workflow automation",
+      "Content pipeline optimization",
+    ],
+  },
+  {
+    area: "Leadership & Collaboration",
+    items: [
+      "Cross-functional collaboration",
+      "Stakeholder management",
+      "Team leadership",
+      "Program execution",
+    ],
+  },
+];

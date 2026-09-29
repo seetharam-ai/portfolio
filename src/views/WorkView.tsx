@@ -1,7 +1,10 @@
 import { thumb } from "../utils/media";
 import { useMemo, useState } from "react";
 import { useLightbox } from "../components/Lightbox";
+import { BeforeAfterSlider } from "../components/BeforeAfterSlider";
+import { KeyArtCard } from "../components/KeyArtCard";
 import { WorkCard } from "../components/WorkCard";
+import { corrections, figmaWork, keyArt } from "../data/artwork";
 import { designTabs } from "../data/designWorks";
 import { genAiTabs } from "../data/genAiWorks";
 import { recentWorks } from "../data/recentWorks";
@@ -13,19 +16,36 @@ import { cx } from "../utils/cx";
 interface Category {
   id: string;
   label: string;
-  group: "Generative AI" | "Case studies" | "Foundations";
+  group: "Artwork" | "Generative AI" | "Case studies" | "Foundations" | "Process";
   heading: string;
+  /** How the category renders; "grid" uses `entries`. */
+  kind: "grid" | "projects" | "keyart" | "corrections";
   entries: GalleryEntry[];
+  count: number;
 }
 
-const creatives: GalleryEntry[] = aiCreativeWorks.map((w) => ({
-  title: w.title,
-  description: "",
-  media: { kind: "image", src: w.src, alt: w.alt },
-}));
+// Counts show the curated pieces; archived extras sit behind a toggle.
+const grid = (c: Omit<Category, "kind" | "count">): Category => ({
+  ...c,
+  kind: "grid",
+  count: c.entries.filter((e) => !e.archive).length,
+});
+
+// ComfyUI node-graph screenshots are process, not finished work: they get their
+// own category so the AI creatives grid shows outputs only.
+const isWorkflowShot = (e: GalleryEntry) =>
+  e.media.kind === "image" && e.media.src.includes("comfyui-workflow-snaps/");
+const imageTab = genAiTabs.find((t) => t.id === "works-2d-content")!;
+const workflowShots = imageTab.entries.filter(isWorkflowShot);
+
+const creatives: GalleryEntry[] = [
+  ...aiCreativeWorks.map(
+    (w): GalleryEntry => ({ title: w.title, description: "", media: { kind: "image", src: w.src, alt: w.alt } }),
+  ),
+  ...imageTab.entries.filter((e) => !isWorkflowShot(e)),
+];
 
 const genAiLabels: Record<string, string> = {
-  "works-2d-content": "Image",
   "works-video-content": "Video",
   "works-3d-content": "3D",
   "works-audio-content": "Audio",
@@ -38,23 +58,58 @@ const designMeta: Record<string, { id: string; label: string }> = {
   "works-projects": { id: "motion", label: "Motion & VFX" },
 };
 
-const categories: Category[] = [
-  { id: "creatives", label: "AI creatives", group: "Generative AI", heading: "AI-assisted creative works", entries: creatives },
-  ...genAiTabs.map((t) => ({
-    id: t.id.replace(/^works-|-content$/g, ""),
-    label: genAiLabels[t.id],
-    group: "Generative AI" as const,
-    heading: t.heading,
-    entries: t.entries,
-  })),
-  { id: "projects", label: "Projects", group: "Case studies", heading: "Recent projects", entries: [] },
-  ...designTabs.map((t) => ({
-    ...designMeta[t.id],
-    group: "Foundations" as const,
-    heading: t.heading,
-    entries: t.entries,
-  })),
+const figmaEntries: GalleryEntry[] = figmaWork.map((f) => ({
+  title: f.title,
+  description: f.link ? (
+    <>
+      {f.description}{" "}
+      <a href={f.link} target="_blank">
+        Open in Figma ↗
+      </a>
+    </>
+  ) : (
+    f.description
+  ),
+  media: { kind: "image", src: f.src, alt: f.title },
+}));
+
+// Artwork categories come first and only appear once they have content
+// (add work in src/data/artwork.ts — see ADD-NEW-WORK.md).
+const allCategories: Category[] = [
+  { id: "key-art", label: "Key art", group: "Artwork", heading: "Key art — poster, cover & background", kind: "keyart", entries: [], count: keyArt.length },
+  { id: "before-after", label: "Before / after", group: "Artwork", heading: "Artwork corrections — before & after", kind: "corrections", entries: [], count: corrections.length },
+  grid({ id: "figma", label: "Figma", group: "Artwork", heading: "Figma — layout & UI", entries: figmaEntries }),
+  grid({ id: "creatives", label: "AI creatives", group: "Generative AI", heading: "AI-assisted creative works", entries: creatives }),
+  ...genAiTabs
+    .filter((t) => t !== imageTab)
+    .map((t) =>
+      grid({
+        id: t.id.replace(/^works-|-content$/g, ""),
+        label: genAiLabels[t.id],
+        group: "Generative AI",
+        heading: t.heading,
+        entries: t.entries,
+      }),
+    ),
+  { id: "projects", label: "Projects", group: "Case studies", heading: "Recent projects", kind: "projects", entries: [], count: recentWorks.length },
+  ...designTabs.map((t) =>
+    grid({
+      ...designMeta[t.id],
+      group: "Foundations",
+      heading: t.heading,
+      entries: t.entries,
+    }),
+  ),
+  grid({
+    id: "workflows",
+    label: "ComfyUI workflows",
+    group: "Process",
+    heading: "ComfyUI workflows — node graphs behind the work",
+    entries: workflowShots,
+  }),
 ];
+
+const categories = allCategories.filter((c) => c.count > 0);
 
 const PAGE = 12;
 
@@ -86,7 +141,7 @@ export function WorkView({ sub }: { sub?: string }) {
                       aria-current={active.id === c.id ? "true" : undefined}
                     >
                       {c.label}
-                      <span className="chip__count">{c.id === "projects" ? recentWorks.length : c.entries.length}</span>
+                      <span className="chip__count">{c.count}</span>
                     </a>
                   ))}
               </div>
@@ -95,7 +150,10 @@ export function WorkView({ sub }: { sub?: string }) {
         </nav>
       </div>
 
-      {active.id === "projects" ? <Projects /> : <WorkGrid key={active.id} category={active} />}
+      {active.kind === "projects" && <Projects />}
+      {active.kind === "keyart" && <KeyArtList />}
+      {active.kind === "corrections" && <Corrections />}
+      {active.kind === "grid" && <WorkGrid key={active.id} category={active} />}
     </div>
   );
 }
@@ -103,8 +161,12 @@ export function WorkView({ sub }: { sub?: string }) {
 function WorkGrid({ category }: { category: Category }) {
   const openLightbox = useLightbox();
   const [showAll, setShowAll] = useState(false);
-  const items = useMemo(() => toLightboxItems(category.entries), [category]);
-  const visible = showAll ? category.entries : category.entries.slice(0, PAGE);
+  const [showArchive, setShowArchive] = useState(false);
+  const main = category.entries.filter((e) => !e.archive);
+  const archived = category.entries.filter((e) => e.archive);
+  const shown = showArchive ? [...main, ...archived] : main;
+  const items = useMemo(() => toLightboxItems(shown), [shown]);
+  const visible = showAll || showArchive ? shown : shown.slice(0, PAGE);
 
   return (
     <section aria-label={category.heading}>
@@ -123,11 +185,18 @@ function WorkGrid({ category }: { category: Category }) {
           />
         ))}
       </div>
-      {category.entries.length > PAGE && (
+      {(main.length > PAGE || archived.length > 0) && (
         <div className="grid-more">
-          <button className="btn btn--ghost" onClick={() => setShowAll((s) => !s)}>
-            {showAll ? "Show less" : `Show all ${category.entries.length}`}
-          </button>
+          {main.length > PAGE && !showArchive && (
+            <button className="btn btn--ghost" onClick={() => setShowAll((s) => !s)}>
+              {showAll ? "Show less" : `Show all ${main.length}`}
+            </button>
+          )}
+          {archived.length > 0 && (
+            <button className="btn btn--ghost" onClick={() => setShowArchive((s) => !s)}>
+              {showArchive ? "Hide early portfolio sheets" : `Show early portfolio sheets (${archived.length})`}
+            </button>
+          )}
         </div>
       )}
     </section>
@@ -165,6 +234,44 @@ function Projects() {
           )}
         </article>
       ))}
+    </section>
+  );
+}
+
+function KeyArtList() {
+  const openLightbox = useLightbox();
+  return (
+    <section aria-label="Key art" className="keyart-list">
+      {keyArt.map((set) => {
+        const items: LightboxItem[] = set.variants.map((v) => ({ type: "img", src: v.src }));
+        return <KeyArtCard key={set.title} set={set} onOpen={(i) => openLightbox(items, i)} />;
+      })}
+    </section>
+  );
+}
+
+function Corrections() {
+  const openLightbox = useLightbox();
+  return (
+    <section aria-label="Artwork corrections">
+      <h2 className="grid-heading">Artwork corrections — before & after</h2>
+      <div className="ba-grid">
+        {corrections.map((c) => (
+          <BeforeAfterSlider
+            key={c.title}
+            item={c}
+            onOpen={() =>
+              openLightbox(
+                [
+                  { type: "img", src: c.before },
+                  { type: "img", src: c.after },
+                ],
+                1,
+              )
+            }
+          />
+        ))}
+      </div>
     </section>
   );
 }

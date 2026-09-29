@@ -10,7 +10,7 @@ export function Header({ current }: { current: ViewId }) {
           <img src={hero.logo} alt="" className="brand__logo" />
           <span className="brand__text">
             <span className="brand__name">{hero.shortName}</span>
-            <span className="brand__role">Gen AI Multimedia Specialist</span>
+            <span className="brand__role">{hero.role}</span>
           </span>
         </a>
 

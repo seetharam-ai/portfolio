@@ -31,7 +31,7 @@ export const recentWorks: RecentWork[] = [
             Watch Image QA agent Demo here ↗
           </a>
         </p>
-        <h4 className="gap-before">Features:</h4>
+        <h4>Features:</h4>
         <p>
           - Visual Fidelity Analysis: Compare raw product images with AI-generated versions <br />
           - Comprehensive Scoring: Evaluate images across 5 key dimensions: Color Accuracy, Shape & Form,
@@ -43,7 +43,7 @@ export const recentWorks: RecentWork[] = [
           - Improvement Suggestions: Get actionable recommendations for better AI image generation
           <br />- Web Interface: Easy-to-use Gradio web application
         </p>
-        <a href="https://github.com/seetharam-ai/image-qa-agent" target="_blank" className="btn-link gap-before">
+        <a href="https://github.com/seetharam-ai/image-qa-agent" target="_blank" className="btn-link">
           View GitHub Repository ↗
         </a>
       </>
@@ -62,12 +62,12 @@ export const recentWorks: RecentWork[] = [
           tracking, and session-based history, while supporting with advanced models like Flux 2
           Klein—delivering unlimited, locally powered image generation without subscription limits.
         </p>
-        <h4 className="gap-before">Tools Used:</h4>
+        <h4>Tools Used:</h4>
         <p>ComfyUI, Streamlit, Python</p>
         <a
           href="https://github.com/seetharamdesign/unlimited-ai-image-generator"
           target="_blank"
-          className="btn-link gap-before"
+          className="btn-link"
         >
           View GitHub Repository ↗
         </a>
@@ -86,7 +86,7 @@ export const recentWorks: RecentWork[] = [
         </p>
         <h4>Tools Used:</h4>
         <p>ComfyUI, Python, JSON</p>
-        <h4 className="gap-before">Key Features:</h4>
+        <h4>Key Features:</h4>
         <ul>
           <li>
             Live JSON Loading: Pick any .json file from your computer and upload it directly to the
@@ -99,7 +99,7 @@ export const recentWorks: RecentWork[] = [
             Encoders.
           </li>
         </ul>
-        <a href="https://github.com/seetharamdesign/ComfyUI-srnodes" target="_blank" className="btn-link gap-before">
+        <a href="https://github.com/seetharamdesign/ComfyUI-srnodes" target="_blank" className="btn-link">
           View GitHub Repository ↗
         </a>
       </>
@@ -119,10 +119,7 @@ export const recentWorks: RecentWork[] = [
           A custom LoRA trained on my face dataset using Flux2 Klein (fal.ai). Integrated into a ComfyUI
           workflow for controlled character generation.
         </p>
-        <div
-          className="Recent-item-media"
-          style={{ marginTop: 20, maxWidth: 400, marginLeft: "auto", marginRight: "auto" }}
-        >
+        <div className="pdf-embed">
           <iframe
             src={`${LORA_PDF}#toolbar=0&navpanes=0&view=FitH`}
             width="100%"
@@ -130,7 +127,7 @@ export const recentWorks: RecentWork[] = [
             title="Building Consistent AI Characters with LoRA"
           />
         </div>
-        <a href={LORA_PDF} target="_blank" className="btn-link" style={{ marginTop: 20 }}>
+        <a href={LORA_PDF} target="_blank" className="btn-link">
           View Full PDF ↗
         </a>
       </>
@@ -163,7 +160,7 @@ export const recentWorks: RecentWork[] = [
       {
         src: "certificates/Udemy.png",
         alt: "Udemy Certificate",
-        style: { maxWidth: 150, margin: "0 auto", background: "none", border: "none" },
+        style: { objectFit: "contain", padding: "15%" },
       },
     ],
   },

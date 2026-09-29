@@ -1,48 +1,33 @@
-import { useState } from "react";
-import { ViewAllModal } from "./components/gallery/ViewAllModal";
+import { Header } from "./components/Header";
 import { LightboxProvider } from "./components/Lightbox";
-import { Navbar } from "./components/Navbar";
-import { ScrollToTop } from "./components/ScrollToTop";
-import { AiCreativeWorks } from "./sections/AiCreativeWorks";
-import { Contact } from "./sections/Contact";
-import { DesignArchive } from "./sections/DesignArchive";
-import { Education } from "./sections/Education";
-import { Expertise } from "./sections/Expertise";
-import { GenAIWorks } from "./sections/GenAIWorks";
-import { Hero } from "./sections/Hero";
-import { Journey } from "./sections/Journey";
-import { RecentWorks } from "./sections/RecentWorks";
-import { Skills } from "./sections/Skills";
-import type { GalleryTab } from "./types";
+import { hero } from "./data/site";
+import { useHashRoute } from "./hooks/useHashRoute";
+import { ContactView } from "./views/ContactView";
+import { CredentialsView } from "./views/CredentialsView";
+import { ExperienceView } from "./views/ExperienceView";
+import { HomeView } from "./views/HomeView";
+import { SkillsView } from "./views/SkillsView";
+import { WorkView } from "./views/WorkView";
 
 export default function App() {
-  const [viewAllTab, setViewAllTab] = useState<GalleryTab | null>(null);
+  const { view, sub } = useHashRoute();
 
   return (
     <LightboxProvider>
-      <Navbar />
-
-      <div className="main-wrapper" id="main-wrapper">
-        <main>
-          <Hero />
-          <Expertise />
-          <AiCreativeWorks />
-          <GenAIWorks onViewAll={setViewAllTab} />
-          <RecentWorks />
-          <Journey />
-          <Skills />
-          <DesignArchive onViewAll={setViewAllTab} />
-          <Education />
-          <Contact />
-        </main>
-
-        <footer className="footer">
-          <p>© 2026 Seetha Ram · All rights reserved. Designed & Developed by Seetha Ram.</p>
-        </footer>
-
-        <ScrollToTop />
-        <ViewAllModal tab={viewAllTab} onClose={() => setViewAllTab(null)} />
-      </div>
+      <Header current={view} />
+      {/* Keyed so each view plays its entrance animation */}
+      <main className={`view view--${view}`} key={view}>
+        {view === "home" && <HomeView />}
+        {view === "work" && <WorkView sub={sub} />}
+        {view === "experience" && <ExperienceView />}
+        {view === "skills" && <SkillsView />}
+        {view === "credentials" && <CredentialsView />}
+        {view === "contact" && <ContactView />}
+      </main>
+      <footer className="site-footer">
+        <span>© 2026 {hero.shortName}</span>
+        <span>Designed & developed by {hero.shortName}</span>
+      </footer>
     </LightboxProvider>
   );
 }

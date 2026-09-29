@@ -1,21 +1,26 @@
-export const navLinks = [
-  { href: "#introduction", label: "Home" },
-  { href: "#ai-creative-works", label: "Creatives" },
-  { href: "#generative-ai-works", label: "GenAI" },
-  { href: "#Recent-works", label: "Recent Works" },
-  { href: "#journey", label: "Journey" },
-  { href: "#skills", label: "Skills" },
-  { href: "#portfolio", label: "Design" },
-  { href: "#edu-certificates", label: "Certifications" },
-  { href: "#contact", label: "Contact" },
-];
+/** Top-level views, switched from the header (URL hash: #work, #skills, ...). */
+export const views = [
+  { id: "home", label: "Home" },
+  { id: "work", label: "Work" },
+  { id: "experience", label: "Experience" },
+  { id: "skills", label: "Skills" },
+  { id: "credentials", label: "Credentials" },
+  { id: "contact", label: "Contact" },
+] as const;
+
+export type ViewId = (typeof views)[number]["id"];
 
 export const hero = {
-  name: "Seetha rama swamy",
+  fullName: "Seetha Rama Swamy Thota",
+  shortName: "Seetha Ram",
   role: "Gen AI Multimedia Specialist (Creative Tech)",
   tagline:
     "I create production-ready AI-generated visual content through prompt engineering, creative automation, image retouching, and 3D workflows. Backed by 10+ years in multimedia production and creative quality assurance, I transform ideas into visually compelling, technically accurate, and commercially effective experiences.",
   photo: "images/SR_Portfolio_pic.png",
+  logo: "images/sr-logo.png",
+  cv: "https://drive.google.com/file/d/1LG2MgQAVIjdbkUgWvYfKx1WwqXj6U49D/view?usp=sharing",
+  currentRole: "Subject Matter Expert · Global Quality & Automation",
+  currentOrg: "Amazon",
   links: [
     { label: "Github", href: "https://github.com/seetharam-ai" },
     {
@@ -28,6 +33,14 @@ export const hero = {
     },
   ],
 };
+
+/** Headline numbers shown on the home view (taken from the career history). */
+export const stats = [
+  { value: "10+", label: "Years in multimedia production" },
+  { value: "$18M", label: "Annual cost avoidance" },
+  { value: "35%", label: "Defect reduction in 3D ops" },
+  { value: "70+", label: "QA team members led" },
+];
 
 export const expertise: { title: string; subtitle?: string; text: string }[] = [
   {
@@ -92,9 +105,10 @@ export const aiCreativeWorks: { title: string; src: string; alt: string }[] = [
   },
 ];
 
-export const journey: { role: string; logo: string; logoAlt: string; details: string[] }[] = [
+export const journey: { role: string; org: string; logo: string; logoAlt: string; details: string[] }[] = [
   {
     role: "Subject Matter Expert | Global Quality & Automation",
+    org: "Amazon",
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
@@ -105,6 +119,7 @@ export const journey: { role: string; logo: string; logoAlt: string; details: st
   },
   {
     role: "Quality Assurance Lead | Global Operations",
+    org: "Amazon",
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
@@ -114,6 +129,7 @@ export const journey: { role: string; logo: string; logoAlt: string; details: st
   },
   {
     role: "3D Content Creator",
+    org: "Amazon",
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
@@ -123,6 +139,7 @@ export const journey: { role: string; logo: string; logoAlt: string; details: st
   },
   {
     role: "Video Editor",
+    org: "Amazon",
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
@@ -133,6 +150,7 @@ export const journey: { role: string; logo: string; logoAlt: string; details: st
   },
   {
     role: "2D Content Creator",
+    org: "Amazon",
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
@@ -143,6 +161,7 @@ export const journey: { role: string; logo: string; logoAlt: string; details: st
   },
   {
     role: "Independent Designer",
+    org: "Freelance",
     logo: "images/sr-logo.png",
     logoAlt: "SR Logo",
     details: [
@@ -152,7 +171,7 @@ export const journey: { role: string; logo: string; logoAlt: string; details: st
   },
 ];
 
-export const socialLinks = [
+export const socialLinks: { href: string; icon: string; alt: string }[] = [
   { href: "https://www.behance.net/seetharamaswamy", icon: "icons/social/behance.png", alt: "Behance" },
   { href: "https://github.com/seetharamdesign", icon: "icons/social/github.png", alt: "GitHub" },
   {

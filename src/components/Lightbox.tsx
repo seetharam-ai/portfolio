@@ -1,3 +1,4 @@
+import { full } from "../utils/media";
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import type { LightboxItem } from "../types";
 
@@ -111,7 +112,7 @@ function Lightbox({ items, index, open, onIndexChange, onClose }: LightboxProps)
           {item?.type === "img" && (
             <img
               ref={imgRef}
-              src={item.src}
+              src={full(item.src)}
               alt=""
               draggable={false}
               style={{
@@ -123,7 +124,7 @@ function Lightbox({ items, index, open, onIndexChange, onClose }: LightboxProps)
               }}
             />
           )}
-          {item?.type === "video" && <video key={item.src} src={item.src} controls playsInline loop autoPlay />}
+          {item?.type === "video" && <video key={item.src} src={full(item.src)} controls playsInline loop autoPlay />}
         </div>
         <div className="lightbox-nav">
           <span className="l-arrow prev" aria-label="Previous" onClick={stop(prev)}>

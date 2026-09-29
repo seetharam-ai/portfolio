@@ -215,6 +215,11 @@ const works2d: GalleryEntry[] = [
 
 const worksVideo: GalleryEntry[] = [
   video(
+    "Streetwear lookbook — Seedance 2.0 reference-to-video",
+    "videos/seedance-streetwear-r2v.mp4",
+    "Three outfits on one model in a sunlit skate park, shot with an extreme low-angle fisheye look. Generated with Seedance 2.0 reference-to-video, so the model and each outfit stay true to the references across cuts.",
+  ),
+  video(
     "Wan 2.2 — AI pose animation",
     "videos/SR_pose_output_1.mp4",
     "Generating realistic human motion and character animation from pose-based guidance.",

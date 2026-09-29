@@ -59,75 +59,78 @@ export const productionSkills: Skill[] = [
 
 /** Tools highlighted in the home page snapshot (names must match the lists above). */
 export const coreToolkit = [
+  "Adobe Photoshop",
+  "Adobe Illustrator",
+  "Figma",
+  "Adobe InDesign",
   "ComfyUI - 2D, Video & 3D",
   "Python - Scripting",
-  "Adobe Photoshop",
   "Adobe After Effects",
   "Adobe Premiere Pro",
   "Autodesk Maya",
   "Substance Painter",
   "Blender",
   "Unreal Engine",
-  "Figma",
-  "AWS - Cloud Computing",
-  "GitHub - Version Control",
 ].map((name) => {
   const skill = [...technicalSkills, ...productionSkills].find((s) => s.name === name);
   if (!skill) throw new Error(`coreToolkit: unknown skill "${name}"`);
   return skill;
 });
 
-/** Capability areas and keywords, as listed under "Core skills" in the CV. */
+/** Capability areas and keywords, as listed under "Core competencies" in the CV. */
 export const capabilities: { area: string; items: string[] }[] = [
   {
-    area: "Generative AI & Prompt Engineering",
+    area: "Artwork & Image Craft",
     items: [
-      "AI image & video generation",
-      "Prompt engineering",
-      "Diffusion models",
-      "ComfyUI workflows",
-      "AI-assisted content creation (Photoshop & Firefly)",
+      "Key art & poster composition",
+      "Photo manipulation & compositing",
+      "High-end retouching & restoration",
+      "Color correction & image matching",
+      "Typography & title treatment",
+      "Extension / outpainting",
+      "Crop & safe-area adaptation across formats",
     ],
   },
   {
-    area: "Creative Production",
+    area: "Video, Motion & 3D",
     items: [
-      "Image retouching",
-      "Digital compositing",
-      "Color correction",
-      "Lighting & composition",
-      "Product imagery visualization",
+      "Video editing & post-production (Premiere Pro, After Effects, DaVinci Resolve)",
+      "Motion graphics & title design",
+      "Sound, finishing & delivery",
+      "AI video generation (Veo, Kling, Seedance)",
+      "Editing SOPs & automation templates",
+      "3D modeling, texturing, lighting & rendering",
     ],
   },
   {
-    area: "Visual Quality & Content Operations",
+    area: "Quality Standards & Judgment",
     items: [
-      "Creative QA",
-      "AI output evaluation",
-      "Product accuracy",
-      "AI artifact detection",
-      "Content validation",
-      "Editorial standards",
-      "Defect reduction",
+      "Style-guide compliance",
+      "Visual appeal & engagement assessment",
+      "Defect taxonomy & QA checklists",
+      "Calibration & benchmark setting",
+      "Audit programs",
+      "Root-cause analysis (Lean Six Sigma / DMAIC)",
     ],
   },
   {
-    area: "Creative Automation",
+    area: "Tools & Operations",
     items: [
-      "AI workflow design",
-      "Process improvement",
-      "Python automation",
-      "Workflow automation",
-      "Content pipeline optimization",
+      "UAT & production tool rollout",
+      "Structured feedback for science & engineering",
+      "Metrics & WBR reporting",
+      "SOP authoring",
+      "Mentoring & onboarding",
+      "Process-gap identification",
     ],
   },
   {
-    area: "Leadership & Collaboration",
+    area: "Responsible AI in Production",
     items: [
-      "Cross-functional collaboration",
-      "Stakeholder management",
-      "Team leadership",
-      "Program execution",
+      "Human-in-the-loop AI editing",
+      "AI output evaluation (fidelity, artifacts, hallucinated elements)",
+      "Prompt frameworks",
+      "Quality & ethical guardrails for AI-assisted creative work",
     ],
   },
 ];

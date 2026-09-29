@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
 import type { StoryStep } from "../components/Storyboard";
+import type { KeyArtSet } from "./artwork";
 
 export interface RecentWork {
   title: string;
@@ -8,8 +9,6 @@ export interface RecentWork {
   images?: { src: string; alt: string; style?: CSSProperties }[];
   /** Show images side by side in a grid. */
   imageGrid?: boolean;
-  /** Shown as the "Latest project" tile on the home page. */
-  latest?: boolean;
   /** Stacked layout: the body is rendered alone, without the text/media split. */
   stacked?: boolean;
   /** Show `images` as a full-width masonry gallery under the text (use with `stacked`). */
@@ -20,6 +19,10 @@ export interface RecentWork {
   storyFrame?: string;
   /** Heading shown above the image gallery. */
   galleryTitle?: string;
+  /** Placements of one artwork in a row, each in its true aspect ratio (shown under the text). */
+  variants?: KeyArtSet["variants"];
+  /** Full-width video player shown under the text. */
+  video?: { src: string; poster: string };
 }
 
 const AUTHOR = <h4>Developed by Seetha Rama Swamy</h4>;
@@ -31,6 +34,9 @@ const SOP_PSD = "https://drive.google.com/file/d/1q36mPlPjtBWZLu23-oBn60MtWqHRiG
 const SOP_IMG = "images/projects/retouch-sop";
 const APPAREL = "images/projects/apparel-transfer";
 const FISH = "images/projects/balloon-fish";
+const SIGNAL = "images/projects/the-last-signal";
+const QUEEN = "images/artwork/key-art/queen-of-florence";
+const CZ = "images/artwork/key-art/control-zindagi";
 const PRODUCT_JSON = `{
   "items": [
     {
@@ -104,7 +110,9 @@ export const recentWorks: RecentWork[] = [
     ),
     images: [
       { src: `${TLM}/poster-en.jpg`, alt: "The Last Meridian poster — English master" },
+      { src: `${TLM}/poster-es.jpg`, alt: "The Last Meridian poster — Spanish" },
       { src: `${TLM}/poster-ar.jpg`, alt: "The Last Meridian poster — Arabic" },
+      { src: `${TLM}/poster-hi.jpg`, alt: "The Last Meridian poster — Hindi" },
       { src: `${TLM}/poster-ja.jpg`, alt: "The Last Meridian poster — Japanese" },
       { src: `${TLM}/poster-ko.jpg`, alt: "The Last Meridian poster — Korean" },
     ],
@@ -149,6 +157,223 @@ export const recentWorks: RecentWork[] = [
     imageGrid: true,
   },
   {
+    title: "Control Zindagi — key art for my short film (poster, vertical, background)",
+    stacked: true,
+    storyFrame: "16 / 9",
+    variants: [
+      { label: "Poster", ratio: "2 / 3", src: `${CZ}/poster-2x3.jpg` },
+      { label: "Vertical", ratio: "9 / 16", src: `${CZ}/vertical-9x16.jpg` },
+      { label: "Background", ratio: "16 / 9", src: `${CZ}/background-16x9.jpg` },
+    ],
+    body: (
+      <>
+        <p>
+          Film and TV artwork for <i>Control Zindagi</i> (“Control Life”), a road-safety short film I wrote, directed
+          and edited. It won at Amazon Bash 2019, Amazon’s internal film competition. A group of friends set off on a road trip from
+          Warangal to Hyderabad for a wedding, until a crash on the highway ends the journey. I then designed a key-art
+          package for the film across three placements, pitched as a neo-noir mystery.
+        </p>
+        <p className="fact-chips">
+          <span>
+            <b>Award</b> Amazon Bash 2019
+          </span>
+          <span>
+            <b>My role</b> Writer, director, editor · key art
+          </span>
+          <span>
+            <b>Formats</b> 2:3 · 9:16 · 16:9
+          </span>
+          <span>
+            <b>Artwork</b> Adobe Firefly (Gemini Flash)
+          </span>
+        </p>
+        <h4>Starting from the title’s intent:</h4>
+        <p>
+          Before designing, I compiled a title overview (synopsis, themes, credits, audience and references) and
+          designed the artwork from that brief, so the key art matches the film’s story, tone and message.
+        </p>
+        <h4>Art direction:</h4>
+        <ul>
+          <li>
+            <b>Mood:</b> the carefree trip turned ominous: a midnight-blue forest under a full moon, the friends’ bright
+            clothes against the night, and the tagline “Every trip has a darker destination”.
+          </li>
+          <li>
+            <b>Poster:</b> the five friends as an ensemble line-up, centred, with the neon-red title lockup in the lower
+            third and the moon balancing the top.
+          </li>
+          <li>
+            <b>Vertical:</b> reframed for a tall mobile frame. The group sits smaller with more sky and forest, so the
+            tagline and title keep clear margins.
+          </li>
+          <li>
+            <b>Background:</b> the group brought close together, with a car speeding through the night behind them to
+            hint at the ending, and the title held low across the centre.
+          </li>
+        </ul>
+        <p>
+          <b>Credits:</b> Written, directed &amp; edited by Seetha Rama Swamy · Cinematography: Namish Kashyap · Story:
+          Dheeraj Jha
+        </p>
+        <a href="https://www.youtube.com/watch?v=18ofs9Gq0sY" target="_blank" className="btn-link">
+          Watch the film on YouTube ↗
+        </a>
+      </>
+    ),
+    steps: [
+      {
+        label: "Film title sequence",
+        caption: "“Don’t drink and drive”: the film’s closing message, in red stencil type on asphalt.",
+        src: `${CZ}/film-title-1.jpg`,
+        alt: "Film title card — Don't drink and drive",
+      },
+      {
+        label: "Film title sequence",
+        caption: "“There is no Ctrl Z in life”: the line the title plays on.",
+        src: `${CZ}/film-title-2.jpg`,
+        alt: "Film title card — There is no Ctrl Z in life",
+      },
+      {
+        label: "Film title card",
+        caption: "“Control Zindagi”, subtitled “Control Life”, the film’s own title treatment.",
+        src: `${CZ}/film-title-3.jpg`,
+        alt: "Film title card — Control Zindagi",
+      },
+    ],
+  },
+  {
+    title: "The Queen of Florence — one key art, three Prime Video placements",
+    stacked: true,
+    variants: [
+      { label: "Hero banner", ratio: "16 / 9", src: `${QUEEN}/background-16x9.jpg` },
+      { label: "Browse poster", ratio: "2 / 3", src: `${QUEEN}/poster-2x3.jpg` },
+      { label: "Featured tile", ratio: "1 / 1", src: `${QUEEN}/tile-1x1.jpg` },
+    ],
+    body: (
+      <>
+        <p>
+          A multi-aspect-ratio reframing study for a fictional period drama. One key art adapted to three contrasting
+          placements without losing narrative impact or clipping the subject. A single character reference keeps the
+          queen’s identity the same in every frame.
+        </p>
+        <p className="fact-chips">
+          <span>
+            <b>Formats</b> 16:9 · 2:3 · 1:1
+          </span>
+          <span>
+            <b>Identity</b> One character reference
+          </span>
+          <span>
+            <b>Reframing</b> Adobe Firefly
+          </span>
+        </p>
+        <h4>Composition choices:</h4>
+        <ul>
+          <li>
+            <b>16:9 hero banner:</b> The queen sits on the right third, and the balustrade leads the eye to her. The left
+            half is open sky and city, with safe room for the title, synopsis and UI overlays. Her eye-line points back
+            into that space.
+          </li>
+          <li>
+            <b>2:3 browse poster:</b> Recomposed for a tall frame. The queen moves to the centre line, the title sits in
+            open sky at the top, and the tagline and date sit on the marble at the bottom. The subject stays clear of
+            both text bands, so it still reads at thumbnail size in the grid.
+          </li>
+          <li>
+            <b>1:1 featured tile:</b> A tight crop on the upper torso. Her eyes sit on the upper-third line with a direct
+            gaze to camera, and the crown keeps full headroom. The sceptre adds a diagonal. The frame is about emotion at
+            carousel size.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    title: "The Last Signal — cinematic sci-fi teaser",
+    stacked: true,
+    storyFrame: "16 / 9",
+    video: { src: "videos/the-last-signal.mp4", poster: `${SIGNAL}/shot-5.jpg` },
+    body: (
+      <>
+        <p>
+          A short trailer-style teaser for a fictional sci-fi thriller. I wrote the shot structure, art-directed every
+          shot with AI video generation, then edited the cut and built the sound design around it.
+        </p>
+        <p className="fact-chips">
+          <span>
+            <b>Length</b> 21 s
+          </span>
+          <span>
+            <b>Format</b> 16:9 · 1080p
+          </span>
+          <span>
+            <b>Style</b> Photorealistic sci-fi thriller
+          </span>
+          <span>
+            <b>Rhythm</b> Mystery → discovery → acceleration → silence → title
+          </span>
+        </p>
+        <h4>What I did:</h4>
+        <ul>
+          <li>Planned a shot list with timing, visual, audio and purpose for each shot.</li>
+          <li>Set one master visual direction: deep blacks, cool blue cockpit light, realistic Earth from orbit.</li>
+          <li>Created one astronaut reference and used it for every shot to keep the character consistent.</li>
+          <li>Edited the cut and layered radio static, signal pulses, a whoosh and a title hit.</li>
+          <li>Built the title card as clean typography in the edit, not as generated footage.</li>
+        </ul>
+        <h4>Key creative decision:</h4>
+        <p>
+          No literal alien, ship or monster. The mystery comes only from the astronaut’s reaction, an unexplained
+          waveform, a distant signal and Earth’s isolation, so it reads like a real film trailer, not an AI clip.
+        </p>
+      </>
+    ),
+    steps: [
+      {
+        label: "Emerge from darkness",
+        caption: "The astronaut slowly appears in the dark cockpit under faint instrument light.",
+        notes: ["Audio: radio static, low ambience"],
+        src: `${SIGNAL}/shot-1.jpg`,
+        alt: "Astronaut emerging from darkness inside the spacecraft",
+      },
+      {
+        label: "The signal",
+        caption: "Earth from deep space; an unexplained ring of light pulses beside it.",
+        notes: ["Audio: signal pulse"],
+        src: `${SIGNAL}/shot-2.jpg`,
+        alt: "Earth with a glowing signal ring beside it",
+      },
+      {
+        label: "Telemetry",
+        caption: "The monitor shows a waveform with a strange, repeating pattern.",
+        notes: ["Audio: electronic pulse"],
+        src: `${SIGNAL}/shot-3.jpg`,
+        alt: "Spacecraft monitor with an unusual waveform",
+      },
+      {
+        label: "Realization",
+        caption: "Fast close-ups: the signal reflects across her visor as the fear builds.",
+        notes: ["Fast, deliberate cuts accelerate the rhythm"],
+        src: `${SIGNAL}/shot-4.jpg`,
+        alt: "Close-up of the astronaut reacting, waveform reflected on her visor",
+      },
+      {
+        label: "The window",
+        caption: "She turns to the window as Earth slowly fills the frame.",
+        notes: ["Audio: everything drops to silence"],
+        src: `${SIGNAL}/shot-5.jpg`,
+        alt: "Astronaut facing the window as Earth fills it",
+      },
+      {
+        label: "Title card",
+        caption: "THE LAST SIGNAL / COMING SOON on black: restrained type with a slow fade-in.",
+        notes: ["Audio: title hit"],
+        src: `${SIGNAL}/shot-6.jpg`,
+        alt: "Title card — The Last Signal",
+      },
+    ],
+  },
+  {
     title: "Setting the quality bar for visual content at scale — Amazon",
     stacked: true,
     body: (
@@ -165,8 +390,15 @@ export const recentWorks: RecentWork[] = [
         </ul>
         <h4>Judgment turned into tool improvements</h4>
         <ul>
-          <li>Designed and launched the Self-Service QA Tool: 80% of assets published without manual intervention, ~$1M in annual savings.</li>
-          <li>Partnered with engineering and UX to redesign internal QA applications — 30% less manual review effort, 10% higher QA productivity.</li>
+          <li>
+            Designed and launched the Self-Service QA Tool, building it with engineering and leading its UAT: 80% of
+            assets published without manual intervention, ~$1M in annual savings.
+          </li>
+          <li>
+            Led UAT for the redesigned QA applications, feeding structured feedback to engineering and UX before
+            rollout — QA productivity up 10% year over year.
+          </li>
+          <li>Partnered with engineering and UX to redesign internal QA applications — 30% less manual review effort.</li>
           <li>Collaborated with SDEs to resolve latency and visual-quality issues in the 3D pipeline.</li>
         </ul>
         <h4>Sample standard</h4>
@@ -254,7 +486,6 @@ export const recentWorks: RecentWork[] = [
     ],
   },
   {
-    latest: true,
     title: "AI Image QA Agent developed using agentic AI frameworks & Claude",
     body: (
       <>
@@ -557,3 +788,11 @@ export const recentWorks: RecentWork[] = [
     ],
   },
 ];
+
+/** Anchor id for a project: its title up to the dash, e.g. "the-last-meridian". */
+export const projectId = (work: RecentWork) =>
+  work.title
+    .split(" — ")[0]
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");

@@ -12,19 +12,34 @@ export function KeyArtCard({ set, onOpen }: { set: KeyArtSet; onOpen: (index: nu
         </div>
         {set.tag && <span className="cert__date">{set.tag}</span>}
       </div>
-      <div className="keyart__variants">
-        {set.variants.map((v, i) => (
-          <figure key={v.src} className="keyart__variant" style={{ flexGrow: ratioValue(v.ratio) }}>
-            <button className="media-open" style={{ aspectRatio: v.ratio }} onClick={() => onOpen(i)}>
-              <Thumb src={v.src} alt={`${set.title} — ${v.label}`} loading="lazy" />
-            </button>
-            <figcaption className="label">
-              {v.label} · {v.ratio.replace(/\s/g, "")}
-            </figcaption>
-          </figure>
-        ))}
-      </div>
+      <KeyArtVariants title={set.title} variants={set.variants} onOpen={onOpen} />
     </article>
+  );
+}
+
+/** Variants in one row, each in its true aspect ratio and all the same height. */
+export function KeyArtVariants({
+  title,
+  variants,
+  onOpen,
+}: {
+  title: string;
+  variants: KeyArtSet["variants"];
+  onOpen: (index: number) => void;
+}) {
+  return (
+    <div className="keyart__variants">
+      {variants.map((v, i) => (
+        <figure key={v.src} className="keyart__variant" style={{ flexGrow: ratioValue(v.ratio) }}>
+          <button className="media-open" style={{ aspectRatio: v.ratio }} onClick={() => onOpen(i)}>
+            <Thumb src={v.src} alt={`${title} — ${v.label}`} loading="lazy" />
+          </button>
+          <figcaption className="label">
+            {v.label} · {v.ratio.replace(/\s/g, "")}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
   );
 }
 

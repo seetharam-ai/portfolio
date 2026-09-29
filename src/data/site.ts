@@ -18,18 +18,29 @@ export const hero = {
   fullName: "Seetha Rama Swamy Thota",
   shortName: "Seetha Ram",
   role: "Creative Specialist · Artwork & Visual Quality",
-  hook: "I craft production-ready visuals — retouched, composited and quality-checked to a global standard, with AI where it helps.",
+  /** Home intro: a bold opening line, short paragraphs, then a bold sign-off. */
+  intro: {
+    headline: "I produce and correct artwork to a global quality bar — and set the standard others calibrate to.",
+    paragraphs: [
+      "I’ve produced and corrected customer-facing content for global audiences, built quality standards used by 300+ creators and reviewers, and translated creative judgment into SOPs, UAT, and actionable tool feedback.",
+      "Today, I bring that experience to key art, posters and localized title artwork — using AI to accelerate exploration and production while keeping the final judgment human.",
+    ],
+    signoff: "Award-winning filmmaker. Passionate about streaming.",
+  },
   tagline:
     "I create production-ready AI-generated visual content through prompt engineering, creative automation, image retouching, and 3D workflows. Backed by 10+ years in multimedia production and creative quality assurance, I transform ideas into visually compelling, technically accurate, and commercially effective experiences.",
   photo: "images/SR_Portfolio_pic.png",
   logo: "images/sr-logo.png",
   cv: CV_URL,
-  currentRole: "GenAI Content Specialist",
+  currentRole: "Generative AI Creative Specialist",
   currentOrg: "Freelance · 2026 – Present",
   location: "Bengaluru, India",
   email: "ramaswamy8777@gmail.com",
   phone: "+91 95421 17213",
+  /** From the CV; shown under the intro — relevant to localized artwork. */
+  languages: "English · Telugu · Hindi · Tamil",
   links: [
+    { label: "Behance", href: "https://www.behance.net/seetharamaswamy" },
     { label: "GitHub", href: GITHUB_URL },
     { label: "LinkedIn", href: LINKEDIN_URL },
   ],
@@ -50,23 +61,23 @@ export const stats = [
 export const reviewLoop: { title: string; text: string; proof: string }[] = [
   {
     title: "Read the intent",
-    text: "Start from the brief, metadata and references — what should this image make people feel?",
+    text: "Start from the brief, metadata and references — what should this image or video make people feel?",
     proof: "Editorial & brand standards",
   },
   {
     title: "Make the call",
     text: "Judge compliance, composition and appeal against the standard — then decide.",
-    proof: "Benchmark for 70+ reviewers",
+    proof: "Standard for 300+ creators & reviewers",
   },
   {
     title: "Fix it myself",
-    text: "Retouch, recompose or re-crop until it's compelling — not escalate it.",
-    proof: "10+ years retouching & compositing",
+    text: "Retouch, recompose, re-crop or re-edit until it's compelling — not escalate it.",
+    proof: "10+ years in imaging, video & 3D",
   },
   {
     title: "Close the loop",
     text: "Turn each decision into structured feedback, so tools and teams improve.",
-    proof: "QA tool: 80% auto-published",
+    proof: "UAT on 2 QA tools · +10% productivity YoY",
   },
 ];
 
@@ -75,21 +86,29 @@ export const aiStance = "AI assists at every step — generation, clean-up, dete
 
 export const expertise: { title: string; subtitle?: string; text: string }[] = [
   {
-    title: "AI Content Generation",
-    subtitle: "Turning latent space to pixels",
-    text: "Creating high-fidelity AI-generated images and videos using diffusion models, advanced prompt engineering, multimodal AI workflows, and iterative refinement to deliver commercial-quality visual assets.",
+    title: "Artwork & Image Craft",
+    subtitle: "Key art, retouching, compositing",
+    text: "Key art and poster composition, photo manipulation and compositing, high-end retouching, color matching, typography and title treatment — adapted across formats with crop and safe-area control.",
   },
   {
-    title: "Creative Automation",
-    text: "Building scalable creative workflows using Python, ComfyUI, Adobe Firefly and AI tools to automate content generation, image processing, and production pipelines.",
+    title: "Video & Motion",
+    text: "Post-production for Amazon Fashion product videos in Premiere Pro, After Effects and DaVinci Resolve; set the global video-editing SOP with studios in India, Romania and China; AI video generation with Veo, Kling and Seedance.",
   },
   {
-    title: "3D & Visual Production",
-    text: "Combining 3D workflows, digital imaging, and AI to create production-ready visual assets for e-commerce, marketing, and immersive experiences.",
+    title: "Quality Standards & Judgment",
+    text: "Setting the benchmark others calibrate to: style-guide compliance, visual appeal and engagement calls, defect taxonomies, QA checklists and SOPs adopted by 300+ creators and reviewers.",
   },
   {
-    title: "Creative Quality Assurance",
-    text: "Ensuring visual excellence through technical validation, product accuracy, retouching, and AI artifact detection while maintaining brand and editorial standards.",
+    title: "Tools, UAT & Operations",
+    text: "Owning UAT and rollout for production QA tools, and turning hands-on craft judgment into structured feedback for science and engineering teams.",
+  },
+  {
+    title: "Responsible AI in Production",
+    text: "Human-in-the-loop AI editing and evaluation — fidelity, artifacts, hallucinated elements — with quality and ethical guardrails, so AI augments the craft and the final call stays human.",
+  },
+  {
+    title: "Filmmaking & Storytelling",
+    text: "Wrote, directed and edited short films and ad films end to end — two Amazon Bash winners — turning creative intent into visuals, pacing, tone and title-led key art.",
   },
 ];
 
@@ -153,39 +172,38 @@ export interface Job {
 // Most recent first. Roles, dates and bullets follow the CV.
 export const journey: Job[] = [
   {
-    role: "GenAI Content Specialist",
+    role: "Generative AI Creative Specialist",
     org: "Freelance",
     location: "Bengaluru",
     period: "2026 – Present",
-    highlight: { value: "50%", label: "faster prompt iteration" },
+    highlight: { value: "8", label: "campaign looks to final" },
     summary:
-      "AI product imagery and marketing visuals; 10+ reusable ComfyUI workflows and prompt frameworks that cut iteration time by 50%.",
+      "AI-assisted artwork finishing with a human craft call on every output; 8 footwear-campaign looks taken from art direction to final with a studio and ad agency.",
     logo: "images/sr-logo.png",
     logoAlt: "SR Logo",
     details: [
-      "Create AI-generated product imagery and marketing visuals using advanced prompt engineering, diffusion models, and multimodal AI workflows.",
-      "Design ComfyUI workflows for image generation, editing, upscaling, and visual enhancement to produce commercially ready content.",
-      "Built reusable prompt frameworks that reduced prompt iteration time by 50% while improving output consistency across projects.",
-      "Evaluate AI-generated imagery for product accuracy, visual fidelity, composition, lighting, and common artifacts, including distorted geometry, unrealistic shadows, and spatial inconsistencies.",
-      "Developed 10+ reusable ComfyUI workflows for AI image generation and editing, improving workflow consistency and reducing manual effort.",
+      "AI-assisted artwork finishing: produce and refine commercial-grade imagery with Photoshop Generative Fill/Expand, Firefly and diffusion models, keeping a human craft decision on every output. Authored an AI retouch-and-upscale SOP that sets when and how AI is applied without altering colors, shapes, framing or subject identity.",
+      "Studio & agency collaboration: partnered with a creative studio and ad agency on a footwear brand campaign, taking 8 looks from art direction to final approved artwork — Gemini Nano Banana 2 and Nano Banana Pro for base imagery, composited and finished in Photoshop, detail refined with Flux 2 Pro — validating every look against the art direction and brand intent.",
+      "Quality evaluation: evaluate AI-generated imagery for fidelity, composition, lighting and artifacts (distorted geometry, false shadows, spatial inconsistencies, hallucinated elements); built an AI Image QA Agent prototype that turns reviewer criteria into consistent, structured evaluation signal.",
+      "Built 10+ reusable ComfyUI workflows and prompt frameworks that cut prompt iteration time by 50% and improved output consistency across projects.",
     ],
   },
   {
-    role: "Subject Matter Expert",
+    role: "Subject Matter Expert – Visual Content Quality",
     org: "Amazon",
     location: "Hyderabad",
     period: "2024 – 2025",
     highlight: { value: "$18M", label: "annual cost avoidance" },
     summary:
-      "Launched a Self-Service QA Tool (80% of assets published without manual review, ~$1M/yr savings); cut defects 35% for ~$18M cost avoidance.",
+      "Owned the quality benchmark for customer-facing visuals; 35% fewer defects (~$18M cost avoidance) and a self-service QA tool I took through UAT to 80% self-service publication.",
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
-      "Led large-scale visual content initiatives, partnering with engineering, product, and design teams to improve content quality, scalability, and customer experience.",
-      "Managed end-to-end digital asset pipelines, including intake, evaluation, workflow optimization, quality validation, and publication readiness across global marketplaces.",
-      "Designed and launched the Self-Service QA Tool, enabling 80% of assets to be published without manual intervention and delivering approximately $1M in annual operational savings.",
-      "Led global quality improvement initiatives that reduced content defects by 35%, contributing to approximately $18M in annual cost avoidance.",
-      "Managed end-to-end content quality assurance for high-profile global brand launches, including Nike, Saks, and Michael Kors.",
+      "Quality benchmark owner: set the working quality standard for customer-facing visual assets across global marketplaces; authored SOPs, quality benchmarks and QA checklists adopted by international production and review teams as the calibration reference.",
+      "Defect Elimination Program: led skill-gap analysis, weekly quality deep-dives and targeted training to raise first-time approval rates — 35% defect reduction, 18+ hours of weekly rework removed and ~$18M in annual cost avoidance.",
+      "Self-Service QA Tool (SQT) – UAT & rollout: designed the end-to-end review framework, partnered with SDEs on features, owned UAT and production rollout, and drove adoption — 80% self-service publication, QA costs cut by 75% and $1M in annual OPEX saved.",
+      "Cross-functional craft feedback: owned pre- and post-publication visual QA for immersive experiences (View in 3D, Virtual Try-On, View in Your Room) on Web, iOS and Android; turned visual defects into structured, reproducible feedback for SDE and CX teams to fix compression, latency and fidelity issues upstream.",
+      "Premium brand launches: owned creative quality and publishing for high-profile launches including Nike, Saks, Michael Kors and Amazon Private Labels, balancing brand guidelines with marketplace standards under tight timelines.",
     ],
   },
   {
@@ -195,14 +213,13 @@ export const journey: Job[] = [
     period: "2021 – 2024",
     highlight: { value: "70+", label: "specialists led" },
     summary:
-      "Led 70+ QA specialists across locations; redesigned QA tools with engineering and UX, cutting manual review effort by 30%.",
+      "Led and mentored 70+ QA specialists across three cities; led UAT on the redesigned QA tool — 30% less manual review, 10% higher productivity.",
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
-      "Led global quality operations supporting Amazon's visual content production across multiple marketplaces.",
-      "Partnered with engineering and UX teams to redesign internal QA applications, introducing automation and smarter workflow tracking.",
-      "Reduced manual review effort by 30% and increased QA productivity by 10% through process optimization.",
-      "Managed and mentored a team of 70+ QA specialists across multiple locations, driving performance, training, and operational excellence.",
+      "Led global QA operations and mentored 70+ QA specialists across Chennai, Bengaluru and Hyderabad; delivered quality performance insights for 300+ content professionals across India and international sites.",
+      "QA tool redesign: identified review inefficiencies, directed the UI/UX redesign of the browser-based QA application, secured senior SDE leadership buy-in and led UAT for workflow automation and smarter data capture (scale and color utilities) — manual review time down 30%, QA productivity up 10% year over year.",
+      "Onboarded and certified 50+ new associates through structured training plans and standardized SOPs, reaching 100% production readiness; owned global defect-reporting queues with consistent SLA adherence.",
     ],
   },
   {
@@ -212,29 +229,29 @@ export const journey: Job[] = [
     period: "2018 – 2021",
     highlight: { value: "+10%", label: "production efficiency" },
     summary:
-      "3D assets for footwear, furniture, electronics and home in Maya, Substance Painter and ZBrush; PyMEL tools lifted efficiency 10%.",
+      "Production-ready 3D assets for footwear, furniture, electronics and home in Maya, Substance Painter and ZBrush; PyMEL automation lifted efficiency 10%.",
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
-      "Produced high-quality 3D assets for footwear, furniture, electronics, and home categories, supporting Amazon's e-commerce experiences.",
-      "Specialized in 3D modelling, texturing, lighting, rendering, and product visualization using Autodesk Maya, Substance Painter, ZBrush, and Photoshop.",
-      "Developed Python (PyMEL) automation tools that improved production efficiency by 10% and reduced repetitive manual tasks.",
+      "Produced production-ready 3D assets (modeling, texturing, lighting, rendering) for footwear, furniture, electronics and home categories using Maya, Substance Painter, ZBrush and Photoshop.",
+      "Built PyMEL automation linking Maya, Substance Painter and Photoshop, improving efficiency and consistency by 10%.",
+      "Co-authored asset guidelines and quality benchmarks with engineering and CX teams.",
     ],
   },
   {
     role: "Video Editor",
     org: "Amazon",
     location: "Chennai",
-    period: "2016 – 2017",
-    highlight: { value: "2×", label: "video production speed" },
+    period: "2016 – 2018",
+    highlight: { value: "2×", label: "editing throughput" },
     summary:
-      "Customer-facing product videos for Amazon Fashion; Premiere Pro and After Effects templates doubled production efficiency.",
+      "Post-production for Amazon Fashion product videos; set a global video-editing SOP with studios in India, Romania and China.",
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
-      "Produced customer-facing product videos for Amazon Fashion, managing end-to-end post-production workflows.",
-      "Developed Adobe Premiere Pro and After Effects automation templates that doubled video production efficiency.",
-      "Established global video production standards and SOPs to improve consistency across international studios.",
+      "Delivered post-production for Amazon Fashion product videos in Premiere Pro, After Effects and DaVinci Resolve.",
+      "Set a global video-editing SOP with studios in India, Romania and China.",
+      "Built automation templates that doubled editing throughput.",
     ],
   },
   {
@@ -243,26 +260,27 @@ export const journey: Job[] = [
     location: "Chennai",
     period: "2015 – 2016",
     summary:
-      "High-volume product imagery, retouching and color correction for Amazon marketplaces and brands including Mango, Senco and Cotopaxi.",
+      "High-volume retouching, color correction and compositing for global platforms and brands including Woot, Mango, Senco and Cotopaxi.",
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
-      "Produced high-volume product imagery for Amazon marketplaces while maintaining global visual quality standards.",
-      "Performed advanced image retouching, color correction, lighting adjustments, background removal, and editorial enhancements for retail and premium brands, including Mango, Senco, and Cotopaxi.",
-      "Improved image production efficiency through workflow automation and batch-processing techniques.",
+      "Delivered high-volume retouching, color correction, compositing and background work for global platforms (Junglee, Quidsi) and brands including Woot, Mango, Senco and Cotopaxi.",
+      "Worked to strict style guides, with 100% client satisfaction.",
       "Provided high-end retouching for the CVFF 2015 winners, supporting emerging fashion talent through the JFK13 Studio.",
     ],
   },
   {
-    role: "Independent Designer",
-    org: "Freelance",
-    period: "Earlier",
-    summary: "Branding, UI/UX systems and motion campaigns for e-commerce and gaming clients.",
+    role: "Independent Filmmaker – Writer, Director & Editor",
+    org: "Part-time",
+    period: "2012 – 2019",
+    highlight: { value: "2", label: "Amazon Bash awards" },
+    summary: "Wrote, directed and edited short films and ad films end to end; two won at Amazon Bash (2016, 2019).",
     logo: "images/sr-logo.png",
     logoAlt: "SR Logo",
     details: [
-      "Created branding, UI/UX systems, and motion design campaigns for diverse clients in e-commerce and gaming.",
-      "Produced and directed visually compelling advertisements and short-films, focusing on digital storytelling and user engagement.",
+      "Concept to final cut: wrote, directed and edited short films and ad films end to end, owning pre-production (concept, script, casting, planning), production and post-production (editing, sound, finishing and delivery).",
+      "Storytelling craft: shaped each film’s creative intent into visuals, pacing and tone for its audience. Award winner at Amazon Bash for the “Amazon Prime” ad film (2016) and the “Control Zindagi” awareness short film (2019).",
+      "Title-led artwork: for “Control Zindagi”, compiled the title overview (synopsis, themes, credits, audience and references) and designed the poster artwork from that brief, so the key art matched the film’s story, tone and message. Also designed branding and motion graphics for films and digital campaigns.",
     ],
   },
 ];

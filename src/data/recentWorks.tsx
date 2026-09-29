@@ -11,8 +11,9 @@ export interface RecentWork {
   stacked?: boolean;
 }
 
-const AUTHOR = <h4>Developed by - Seetha Rama Swamy</h4>;
+const AUTHOR = <h4>Developed by Seetha Rama Swamy</h4>;
 const LORA_PDF = "pdfs/Building Consistent AI Characters with LoRA.pdf";
+const SOP_DOC = "https://docs.google.com/presentation/d/1qMyX-A2n5SopCU_rMpzwdhn--JJfMTRc/edit";
 
 export const recentWorks: RecentWork[] = [
   {
@@ -43,12 +44,64 @@ export const recentWorks: RecentWork[] = [
           - Improvement Suggestions: Get actionable recommendations for better AI image generation
           <br />- Web Interface: Easy-to-use Gradio web application
         </p>
+        <h4>Outcome:</h4>
+        <p>Demonstrated a scalable AI-driven creative QA workflow for consistent evaluation of AI-generated imagery.</p>
         <a href="https://github.com/seetharam-ai/image-qa-agent" target="_blank" className="btn-link">
           View GitHub Repository ↗
         </a>
       </>
     ),
     images: [{ src: "images/recent works/Image_QA_Agent_UI.png", alt: "Image QA Agent Interface" }],
+  },
+  {
+    title: "Setting the quality bar for visual content at scale — Amazon",
+    stacked: true,
+    body: (
+      <>
+        <p>
+          As Subject Matter Expert and QA Team Lead, I owned what “correct” and “compelling” meant for visual
+          content across global marketplaces — then made that judgment repeatable for people and tools.
+        </p>
+        <h4>Standards others calibrate to</h4>
+        <ul>
+          <li>Developed scalable creative standards for 3D assets and established global video production SOPs used across international studios.</li>
+          <li>Led global quality improvement initiatives that reduced content defects by 35%, contributing to ~$18M in annual cost avoidance.</li>
+          <li>Managed and mentored 70+ QA specialists across locations — training reviewers to a shared bar.</li>
+        </ul>
+        <h4>Judgment turned into tool improvements</h4>
+        <ul>
+          <li>Designed and launched the Self-Service QA Tool: 80% of assets published without manual intervention, ~$1M in annual savings.</li>
+          <li>Partnered with engineering and UX to redesign internal QA applications — 30% less manual review effort, 10% higher QA productivity.</li>
+          <li>Collaborated with SDEs to resolve latency and visual-quality issues in the 3D pipeline.</li>
+        </ul>
+        <h4>Sample standard</h4>
+        <p>My AI-assisted retouching &amp; upscaling SOP shows how I document a quality bar for others to follow.</p>
+        <a href={SOP_DOC} target="_blank" className="btn-link">
+          View SOP document ↗
+        </a>
+      </>
+    ),
+  },
+  {
+    title: "AI-assisted image retouching & upscaling workflow (Photoshop + Generative AI)",
+    body: (
+      <>
+        <p>
+          A standard operating procedure for refining AI-generated product images into commercial-quality
+          output — integrating AI generation, retouching, upscaling, color correction and prompt refinement.
+        </p>
+        <h4>Tools Used:</h4>
+        <p>Adobe Photoshop, Generative AI, AI Upscaling, Prompt Engineering, Google Flow, Adobe Firefly</p>
+        <h4>Outcome:</h4>
+        <p>
+          Improved asset consistency and reduced manual editing effort across high-volume creative workflows.
+        </p>
+        <a href={SOP_DOC} target="_blank" className="btn-link">
+          View SOP document ↗
+        </a>
+      </>
+    ),
+    images: [{ src: "images/creative_works/Image_upscale_cc.png", alt: "AI image upscale and color correction" }],
   },
   {
     title: "Built an AI app for unlimited AI image generation using agentic AI & ComfyUI",
@@ -59,13 +112,13 @@ export const recentWorks: RecentWork[] = [
           Unlimited AI Image Generator is a premium web interface for local AI image creation, built using
           ComfyUI and Streamlit. It enables seamless, distraction-free generation of high-quality images
           using open-source models. The tool offers full control over parameters, real-time generation
-          tracking, and session-based history, while supporting with advanced models like Flux 2
-          Klein—delivering unlimited, locally powered image generation without subscription limits.
+          tracking, and session-based history, and supports advanced models such as Flux 2
+          Klein — delivering unlimited, locally powered image generation without subscription limits.
         </p>
         <h4>Tools Used:</h4>
         <p>ComfyUI, Streamlit, Python</p>
         <a
-          href="https://github.com/seetharamdesign/unlimited-ai-image-generator"
+          href="https://github.com/seetharam-ai/unlimited-ai-image-generator"
           target="_blank"
           className="btn-link"
         >
@@ -99,7 +152,7 @@ export const recentWorks: RecentWork[] = [
             Encoders.
           </li>
         </ul>
-        <a href="https://github.com/seetharamdesign/ComfyUI-srnodes" target="_blank" className="btn-link">
+        <a href="https://github.com/seetharam-ai/ComfyUI-srnodes" target="_blank" className="btn-link">
           View GitHub Repository ↗
         </a>
       </>
@@ -111,7 +164,7 @@ export const recentWorks: RecentWork[] = [
     imageGrid: true,
   },
   {
-    title: "Trained custom Lora for Flux2 model",
+    title: "Trained a custom LoRA for the Flux 2 model",
     stacked: true,
     body: (
       <>
@@ -134,7 +187,7 @@ export const recentWorks: RecentWork[] = [
     ),
   },
   {
-    title: "Equipped with practical knowledge of Multimodel AI agents",
+    title: "Hands-on training in multimodal AI agents",
     body: (
       <>
         <p>

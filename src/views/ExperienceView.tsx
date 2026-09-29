@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { eduCertItems } from "../data/education";
+import { EduLogo } from "../components/EduLogo";
+import { education } from "../data/education";
 import { expertise, journey } from "../data/site";
 import { cx } from "../utils/cx";
-
-const education = eduCertItems.filter((i) => i.kind === "education");
 
 export function ExperienceView() {
   // First role open by default; others expand on click.
@@ -33,8 +32,14 @@ export function ExperienceView() {
             <li key={job.role} className={cx("timeline__item", open.has(i) && "is-open")}>
               <button className="timeline__head" onClick={() => toggle(i)} aria-expanded={open.has(i)}>
                 <span className="timeline__marker" aria-hidden />
-                <span className="timeline__role">{job.role}</span>
-                <span className="timeline__org">{job.org}</span>
+                <span className="timeline__role">
+                  {job.role}
+                  <span className="timeline__meta">
+                    {job.org}
+                    {job.location && ` · ${job.location}`}
+                  </span>
+                </span>
+                <span className="timeline__org">{job.period}</span>
                 <span className="timeline__toggle" aria-hidden>
                   +
                 </span>
@@ -64,13 +69,11 @@ export function ExperienceView() {
           <div className="edu-list">
             {education.map((e) => (
               <div key={e.school} className="edu-card">
-                <img src={e.logo} alt={e.alt} loading="lazy" />
+                <EduLogo edu={e} />
                 <div>
-                  <h3>{e.school}</h3>
-                  <p>{e.degree}</p>
-                  <p className="meta">
-                    {e.years} · {e.location}
-                  </p>
+                  <h3>{e.degree}</h3>
+                  <p>{e.school}</p>
+                  <p className="meta">{[e.years, e.score, e.location].filter(Boolean).join(" · ")}</p>
                 </div>
               </div>
             ))}

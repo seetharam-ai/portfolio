@@ -20,6 +20,8 @@ export interface GalleryEntry {
   title: string;
   description: ReactNode;
   media: EntryMedia;
+  /** Older supporting pieces, shown behind a "show more" toggle. */
+  archive?: boolean;
 }
 
 /** One tab (and its scroll section) inside a tabbed gallery. */

@@ -25,20 +25,20 @@ const behance = (title: string, projectId: string, description: GalleryEntry["de
 
 const adobeDesign: GalleryEntry[] = [
   // ── InDesign ──
-  image("Omega - Made for men who lead", indesign + "Omega_brand_watch.png", "Omega Brand Watch",
-    "Editorial design for print magazines. Designed in Adobe Indesign"),
-  image("South scope - Editorial design", indesign + "id-magazine.png", "Magazine",
-    "Editorial design for print magazines. Designed in Adobe Indesign"),
-  image("GYM - Print Poster", indesign + "gym.jpg", "GYM Print Poster",
-    "Get off social media and get in gym campaignLarge format print poster design."),
-  image("Nandini Palace - add spice to your life", indesign + "nandini.jpg", "Nandini Palace",
-    "Marketing flyer and leaflet design. Designed in Adobe Indesign"),
-  image("Med Plus - Health Care", indesign + "med plus design.jpg", "Med Plus",
-    "Medical brochure design. Designed in Adobe Indesign"),
-  image("Maxebiz - Business marketing", indesign + "maxebiz.jpg", "Maxebiz",
-    "Marketing flyer and leaflet design. Designed in Adobe Indesign"),
-  image("New Business - Build your brand", indesign + "brocher design.jpg", "Build your brand",
-    "New business brochure design. Designed in Adobe Indesign"),
+  image("Omega — Made for men who lead", indesign + "Omega_brand_watch.png", "Omega Brand Watch",
+    "Editorial design for print magazines. Designed in Adobe InDesign"),
+  image("South Scope — editorial design", indesign + "id-magazine.png", "Magazine",
+    "Editorial design for print magazines. Designed in Adobe InDesign"),
+  image("Gym — print poster", indesign + "gym.jpg", "GYM Print Poster",
+    "“Get off social media and get in the gym” campaign — large-format print poster."),
+  image("Nandini Palace — Add spice to your life", indesign + "nandini.jpg", "Nandini Palace",
+    "Marketing flyer and leaflet design. Designed in Adobe InDesign"),
+  image("Med Plus — healthcare", indesign + "med plus design.jpg", "Med Plus",
+    "Medical brochure design. Designed in Adobe InDesign"),
+  image("Maxebiz — business marketing", indesign + "maxebiz.jpg", "Maxebiz",
+    "Marketing flyer and leaflet design. Designed in Adobe InDesign"),
+  image("New business — Build your brand", indesign + "brocher design.jpg", "Build your brand",
+    "New business brochure design. Designed in Adobe InDesign"),
 
   // ── Photoshop ──
   image("Banner Design", photoshop + "ps-bannerdesign.png", "Banner Design",
@@ -83,42 +83,48 @@ const adobeDesign: GalleryEntry[] = [
     "Website visual design and wireframing."),
 ];
 
+// Early Photoshop / Illustrator / web pieces are portfolio sheets with explanatory
+// text on them; they sit behind a toggle so the finished InDesign work leads.
+const adobeDesignCurated = adobeDesign.map((e) =>
+  e.media.kind === "image" && !e.media.src.startsWith(indesign) ? { ...e, archive: true } : e,
+);
+
 const videoProduction: GalleryEntry[] = [
   youtube(
     "Amazon Prime Advertisement",
     "https://www.youtube.com/embed/ZawZqqkNBlE?si=U3Fdn0qT-u5sxpYA",
     "YouTube video player",
-    "Concept, direction and video editing by Seetha ram. Produced for Amazon internal bash 2016.",
+    "Concept, direction and editing by Seetha Ram. Produced for an Amazon internal event, 2016.",
   ),
   youtube(
-    "Control Zindhagi - Shortflim",
+    "Control Zindhagi — short film",
     "https://www.youtube.com/embed/18ofs9Gq0sY?si=AmuyG6MSCc3h93Y3",
-    "Control Zindhagi - Shortflim - YouTube video player",
+    "Control Zindhagi — short film",
     <>
-      Written, directed and edited by Seetha ram <br />
-      Produced for Amazon internal bash 2019.
+      Written, directed and edited by Seetha Ram <br />
+      Produced for an Amazon internal event, 2019.
     </>,
   ),
   youtube(
-    "Mashup Video - DJ mixing",
+    "Mashup video — DJ mix",
     "https://www.youtube.com/embed/LaTPGf0PrhY?si=ecdIMpPqi-4_el0k",
-    "Mashup Video 2014 - YouTube video player",
+    "Mashup video, 2014",
     "Advanced video editing and visual effects mixing in Adobe Premiere and After Effects.",
   ),
   youtube(
-    "In My Dreams - Shortflim",
+    "In My Dreams — short film",
     "https://www.youtube.com/embed/-9tS2CNrR6g?si=1NfHdmJytsfaxTgK",
     "YouTube video player",
     <>
-      Written, directed and edited by Seetha ram <br />
-      Produced for ICAT college project 2014 - 2015.
+      Written, directed and edited by Seetha Ram <br />
+      Produced as an ICAT college project, 2014–2015.
     </>,
   ),
   youtube(
-    "In My Dreams - Shortflim Trailer cut",
+    "In My Dreams — trailer cut",
     "https://www.youtube.com/embed/FjVPsLxO1NI?si=lhxij4S0A1s9jr0u",
-    "In My Dreams - Shortflim Trailer cut - YouTube video player",
-    "Trailer editing and post-production work by Seetha ram",
+    "In My Dreams — trailer cut",
+    "Trailer editing and post-production by Seetha Ram.",
   ),
 ];
 
@@ -127,33 +133,33 @@ const behanceProjects: GalleryEntry[] = [
     Advertising campaign for Nike. <br />
     Concept: Dedication and hard work of an athlete.
   </>),
-  behance("Animation 2D charecter Edits", "243864495",
+  behance("2D character animation edits", "243864495",
     "Animation and Editing practice using Adobe After Effects."),
   behance("Motion design & graphics", "243863859",
     "Motion design and graphics practice using Adobe After Effects."),
-  behance("Visual effects & Roto", "243865571",
-    "Visual effects and roto practice using Mocha pro, premier pro and Adobe After Effects."),
+  behance("Visual effects & roto", "243865571",
+    "Visual effects and roto practice using Mocha Pro, Premiere Pro and After Effects."),
 ];
 
 export const designTabs: GalleryTab[] = [
   {
     id: "works-adobe-design",
     label: "Adobe Design",
-    heading: "Adobe Creative suite - Design Works",
+    heading: "Graphic design — print & editorial",
     viewAllTitle: "Adobe Design Works",
-    entries: adobeDesign,
+    entries: adobeDesignCurated,
   },
   {
     id: "works-archive-video",
     label: "Video Production",
-    heading: "Video Editing and Production Works",
+    heading: "Film & editing — direction and post-production",
     viewAllTitle: "Video Editing and Production",
     entries: videoProduction,
   },
   {
     id: "works-projects",
     label: "Behance Projects",
-    heading: "Pre-AI Era Works",
+    heading: "Motion & VFX — pre-AI era work",
     viewAllTitle: "Behance Featured Projects",
     entries: behanceProjects,
   },

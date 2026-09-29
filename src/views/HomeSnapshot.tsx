@@ -18,7 +18,7 @@ export function HomeSnapshot() {
           <h2 id="snap-how" className="label">
             How I work
           </h2>
-          <p className="loop-head__title">
+          <p className="section-title">
             Every asset gets the same <em>four-step</em> review.
           </p>
         </div>
@@ -40,10 +40,15 @@ export function HomeSnapshot() {
       </section>
 
       <section className="snapshot__career" aria-labelledby="snap-career">
-        <div className="section-head">
-          <h2 id="snap-career" className="label">
-            Career snapshot
-          </h2>
+        <div className="section-head section-head--titled">
+          <div>
+            <h2 id="snap-career" className="label">
+              Career snapshot
+            </h2>
+            <p className="section-title">
+              10+ years, from retouching to <em>setting the bar</em>.
+            </p>
+          </div>
           <a href={href("experience")} className="text-link">
             Full timeline →
           </a>
@@ -77,7 +82,7 @@ export function HomeSnapshot() {
           <a href={`mailto:${hero.email}`} className="cv-card__email">
             {hero.email}
           </a>
-          <a href={hero.cv} target="_blank" className="btn btn--accent btn--sm">
+          <a href={hero.cv} target="_blank" className="btn btn--accent">
             Download CV <span aria-hidden>↗</span>
           </a>
         </div>

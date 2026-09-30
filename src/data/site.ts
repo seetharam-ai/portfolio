@@ -92,7 +92,7 @@ export const expertise: { title: string; subtitle?: string; text: string }[] = [
   },
   {
     title: "Video & Motion",
-    text: "Post-production for Amazon Fashion product videos in Premiere Pro, After Effects and DaVinci Resolve; set the global video-editing SOP with studios in India, Romania and China; AI video generation with Veo, Kling and Seedance.",
+    text: "Post-production for Amazon Fashion product videos in Premiere Pro, After Effects and DaVinci Resolve; set the global video-editing SOP with studios in India, Romania and China; practised Prime Video motion banners to the banner aspect-ratio SOP; AI video generation with Veo, Kling and Seedance.",
   },
   {
     title: "Quality Standards & Judgment",
@@ -252,6 +252,7 @@ export const journey: Job[] = [
       "Delivered post-production for Amazon Fashion product videos in Premiere Pro, After Effects and DaVinci Resolve.",
       "Set a global video-editing SOP with studios in India, Romania and China.",
       "Built automation templates that doubled editing throughput.",
+      "Practised Prime Video motion banners: re-edited a feature trailer in After Effects and adapted it to the Prime Video banner aspect-ratio SOP.",
     ],
   },
   {

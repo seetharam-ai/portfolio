@@ -245,6 +245,26 @@ function Projects() {
                 />
               </div>
             )}
+            {work.variantSets?.map((set) => (
+              <div key={set.label} className="project__variants">
+                <h4 className="gallery-title label">{set.label}</h4>
+                <KeyArtVariants
+                  title={`${work.title} — ${set.label}`}
+                  variants={set.variants}
+                  onOpen={(i) => openLightbox(set.variants.map((v): LightboxItem => ({ type: "img", src: v.src })), i)}
+                />
+              </div>
+            ))}
+            {work.verticalVideos && (
+              <div className="project__verticals">
+                {work.verticalVideos.map((v) => (
+                  <figure key={v.src}>
+                    <video src={v.src} poster={thumb(v.poster)} controls playsInline preload="none" />
+                    <figcaption className="label">{v.label}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            )}
             {work.video && (
               <video
                 className="project__video"
@@ -320,8 +340,18 @@ function Corrections() {
   return (
     <section aria-label="Artwork corrections">
       <h2 className="grid-heading">Artwork corrections — before & after</h2>
+      {corrections
+        .filter((c) => c.lead)
+        .map((c) => (
+          <div key={c.title} className="ba-lead">
+            <BeforeAfterSlider item={c} onOpen={() => open(c)} />
+          </div>
+        ))}
       {/* Portraits share one row height, landscapes another: widths follow each image's ratio. */}
-      {[corrections.filter((c) => (c.ratio ?? 1) < 1), corrections.filter((c) => (c.ratio ?? 1) >= 1)].map(
+      {[
+        corrections.filter((c) => !c.lead && (c.ratio ?? 1) < 1),
+        corrections.filter((c) => !c.lead && (c.ratio ?? 1) >= 1),
+      ].map(
         (row, r) =>
           row.length > 0 && (
             <div key={r} className="ba-row">

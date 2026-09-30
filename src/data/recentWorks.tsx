@@ -38,6 +38,7 @@ const SIGNAL = "images/projects/the-last-signal";
 const QUEEN = "images/artwork/key-art/queen-of-florence";
 const CZ = "images/artwork/key-art/control-zindagi";
 const ROYAL = "images/projects/royal-court";
+const NIKE = "images/projects/nike-fyg";
 const PRODUCT_JSON = `{
   "items": [
     {
@@ -436,6 +437,102 @@ export const recentWorks: RecentWork[] = [
         caption: "The hall opens up to close the scene.",
         src: `${ROYAL}/shot-4.jpg`,
         alt: "Wide shot of the king and queen in the candlelit hall",
+      },
+    ],
+  },
+  {
+    title: "Nike “Find Your Greatness” — spec ad, concept to final cut",
+    stacked: true,
+    storyFrame: "16 / 9",
+    body: (
+      <>
+        <p>
+          A spec ad for Nike’s <i>Find Your Greatness</i> campaign that I wrote, directed and edited, from concept to
+          first cut in nine weeks (June–August 2017). A man trains in a gym, on the road and on the beach; on the
+          basketball court he scores with one hand, revealing a physical challenge. The line: greatness has no peak.
+        </p>
+        <p className="fact-chips">
+          <span>
+            <b>My role</b> Writer, director, editor
+          </span>
+          <span>
+            <b>Timeline</b> 9 weeks · concept to first cut
+          </span>
+          <span>
+            <b>Post</b> After Effects · Mocha
+          </span>
+          <span>
+            <b>Locations</b> 4 · gym, road, beach, court
+          </span>
+        </p>
+        <h4>How I built it:</h4>
+        <ul>
+          <li>
+            <b>Concept:</b> four concept boards (football, “Just do it”, skipping, one-arm basketball); chose the
+            one-arm story for its emotion.
+          </li>
+          <li>
+            <b>Pre-production:</b> screenplay with camera views, pre-visualisation sketches, mood photos, location
+            scouting, costumes, references and a test shoot for the hand effect.
+          </li>
+          <li>
+            <b>Production:</b> a shot list for four locations, from wide establishing shots to slow-motion close-ups
+            of the one-handed goal.
+          </li>
+          <li>
+            <b>Post-production:</b> Roto Brush and Mocha tracking, hand rotoscoping and replacement, a sky matte and
+            the final composite in After Effects.
+          </li>
+        </ul>
+        <p>
+          <b>Voice-over:</b> “Greatness is not predefined or measured by proof. Greatness is what someone is capable
+          of.”
+        </p>
+        <p>
+          <b>Credits:</b> Written, directed &amp; edited by Seetha Rama Swamy · Mentor: K Chandra Sekhar ·
+          Cinematography: Partha Saradhi · Camera: Jagadeesh Challa · Model: David Ravi
+        </p>
+        <a href="https://www.behance.net/gallery/57088535/NIKE-Find-Your-Greatness-Campaign" target="_blank" className="btn-link">
+          Watch the ad on Behance ↗
+        </a>
+      </>
+    ),
+    steps: [
+      {
+        label: "Concept",
+        caption: "Voice-over lines drafted in my notebook: “Greatness has no peak.”",
+        src: `${NIKE}/concept.jpg`,
+        alt: "Handwritten concept notes for the Find Your Greatness voice-over",
+      },
+      {
+        label: "Pre-visualisation",
+        caption: "Screenplay sketched shot by shot with camera views.",
+        src: `${NIKE}/previs.jpg`,
+        alt: "Hand-drawn pre-visualisation storyboard",
+      },
+      {
+        label: "Test shoot",
+        caption: "A green glove to test the hand replacement before the shoot.",
+        src: `${NIKE}/test-shoot.jpg`,
+        alt: "Test shoot with a green glove for the hand effect",
+      },
+      {
+        label: "Production",
+        caption: "On the basketball court, the fourth of four locations.",
+        src: `${NIKE}/making.jpg`,
+        alt: "Behind the scenes on the basketball court",
+      },
+      {
+        label: "Roto & tracking",
+        caption: "Hand rotoscoping and tracking in Mocha.",
+        src: `${NIKE}/roto-track.jpg`,
+        alt: "Mocha tracking of the hand in post-production",
+      },
+      {
+        label: "Final composite",
+        caption: "Sky matte and hand replacement combined in After Effects.",
+        src: `${NIKE}/final-comp.jpg`,
+        alt: "Final After Effects composite against the sky",
       },
     ],
   },

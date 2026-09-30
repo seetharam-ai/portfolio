@@ -25,7 +25,7 @@ export const hero = {
       "I’ve produced and corrected customer-facing content for global audiences, built quality standards used by 300+ creators and reviewers, and translated creative judgment into SOPs, UAT, and actionable tool feedback.",
       "Today, I bring that experience to key art, posters and localized title artwork — using AI to accelerate exploration and production while keeping the final judgment human.",
     ],
-    signoff: "Award-winning filmmaker. Passionate about streaming.",
+    signoff: "Award-winning filmmaker. Visual storytelling for streaming.",
   },
   tagline:
     "I create production-ready AI-generated visual content through prompt engineering, creative automation, image retouching, and 3D workflows. Backed by 10+ years in multimedia production and creative quality assurance, I transform ideas into visually compelling, technically accurate, and commercially effective experiences.",
@@ -112,46 +112,46 @@ export const expertise: { title: string; subtitle?: string; text: string }[] = [
   },
 ];
 
-export const aiCreativeWorks: { title: string; src: string; alt: string }[] = [
+/** AI creatives grid (Work → AI creatives). Pairs already shown in Before / after are not repeated here. */
+export const aiCreativeWorks: { title: string; src: string; alt: string; description: string }[] = [
   {
     title: "Product transfer with a JSON prompt",
     src: "images/creative_works/Product_Transfer_01.png",
-    alt: "Product Transfer with Prompt",
+    alt: "Product transfer with a structured JSON prompt",
+    description:
+      "A product reference placed into the input scene with a structured JSON prompt, so the shoe's color, material and details carry over.",
   },
   {
-    title: "Editorial product — AI image-to-image and video prompting",
+    title: "Watch editorial — still to motion",
     src: "images/creative_works/prompt_watch_product.png",
-    alt: "Product Transfer with Prompt",
+    alt: "Watch editorial pipeline from reference image to video",
+    description:
+      "Reference image → background-change prompt (Nano Banana) → Photoshop Generative Expand → Wan 2.2 image-to-video in ComfyUI. The finished video is in Work → Video.",
   },
   {
-    title: "Digital Composition with Photoshop & ComfyUI",
+    title: "Campaign composite from product and AI elements",
     src: "images/creative_works/creative output_sample_01.png",
-    alt: "Digital Composition",
-  },
-  {
-    title: "AI image upscale and color correction",
-    src: "images/creative_works/Image_upscale_cc.png",
-    alt: "AI image upscale and color correction",
-  },
-  {
-    title: "AI Product and elements transfer",
-    src: "images/creative_works/F1_with_CC.png",
-    alt: "AI Product and elements transfer",
+    alt: "Product reference and AI-generated elements composited into one campaign image",
+    description:
+      "A product reference and AI-generated elements (balloons, butterflies, sandals) composited in Photoshop into one campaign image.",
   },
   {
     title: "Photo manipulation and retouched composition",
     src: "images/creative_works/F2_with_CC.png",
-    alt: "Photo manipulation and retouched composition",
+    alt: "Fisheye streetwear composition in a skate park",
+    description: "A fisheye streetwear composition in a skate park, retouched and color-corrected in Photoshop.",
   },
   {
     title: "AI-assisted upscale, shadow creation and composition",
     src: "images/creative_works/Image_comp_01.png",
-    alt: "AI-assisted upscale, shadow creation and composition",
+    alt: "Low-angle carnival composition with footwear",
+    description: "A low-angle carnival composition, upscaled, with shadows built so the product sits naturally in the scene.",
   },
   {
     title: "AI-assisted upscale, color correction and composition",
     src: "images/creative_works/Image_comp_02.png",
-    alt: "AI-assisted upscale, color correction and composition",
+    alt: "Skate-park composition with sneakers",
+    description: "A skate-park composition, upscaled and color-corrected to keep the sneakers the hero.",
   },
 ];
 

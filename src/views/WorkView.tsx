@@ -41,7 +41,7 @@ const workflowShots = imageTab.entries.filter(isWorkflowShot);
 
 const creatives: GalleryEntry[] = [
   ...aiCreativeWorks.map(
-    (w): GalleryEntry => ({ title: w.title, description: "", media: { kind: "image", src: w.src, alt: w.alt } }),
+    (w): GalleryEntry => ({ title: w.title, description: w.description, media: { kind: "image", src: w.src, alt: w.alt } }),
   ),
   ...imageTab.entries.filter((e) => !isWorkflowShot(e)),
 ];
@@ -81,6 +81,7 @@ const allCategories: Category[] = [
   { id: "key-art", label: "Key art", group: "Artwork", heading: "Key art — poster, cover & background", kind: "keyart", entries: [], count: keyArt.length },
   { id: "before-after", label: "Before / after", group: "Artwork", heading: "Artwork corrections — before & after", kind: "corrections", entries: [], count: corrections.length + series.reduce((n, s) => n + s.pairs.length, 0) },
   grid({ id: "figma", label: "Figma", group: "Artwork", heading: "Figma — layout & UI", entries: figmaEntries }),
+  { id: "projects", label: "Projects", group: "Case studies", heading: "Recent projects", kind: "projects", entries: [], count: recentWorks.length },
   grid({ id: "creatives", label: "AI creatives", group: "Generative AI", heading: "AI-assisted creative works", entries: creatives }),
   ...genAiTabs
     .filter((t) => t !== imageTab)
@@ -93,7 +94,6 @@ const allCategories: Category[] = [
         entries: t.entries,
       }),
     ),
-  { id: "projects", label: "Projects", group: "Case studies", heading: "Recent projects", kind: "projects", entries: [], count: recentWorks.length },
   ...designTabs.map((t) =>
     grid({
       ...designMeta[t.id],

@@ -37,6 +37,7 @@ const FISH = "images/projects/balloon-fish";
 const SIGNAL = "images/projects/the-last-signal";
 const QUEEN = "images/artwork/key-art/queen-of-florence";
 const CZ = "images/artwork/key-art/control-zindagi";
+const ROYAL = "images/projects/royal-court";
 const PRODUCT_JSON = `{
   "items": [
     {
@@ -370,6 +371,71 @@ export const recentWorks: RecentWork[] = [
         notes: ["Audio: title hit"],
         src: `${SIGNAL}/shot-6.jpg`,
         alt: "Title card — The Last Signal",
+      },
+    ],
+  },
+  {
+    title: "The Queen’s Trial — AI period-drama dialogue scene (Kling 3.0)",
+    stacked: true,
+    storyFrame: "16 / 9",
+    video: { src: "videos/royal-court-kling3.mp4", poster: `${ROYAL}/shot-2.jpg` },
+    body: (
+      <>
+        <p>
+          A 21-second period-drama scene: a king confronts a chained queen in a candlelit hall. Built as an audio and
+          emotion test for Kling 3.0: can an AI scene hold performance, dialogue and continuity across shots, the way
+          a streaming drama would?
+        </p>
+        <p className="fact-chips">
+          <span>
+            <b>Model</b> Kling 3.0
+          </span>
+          <span>
+            <b>Length</b> 21 s · 16:9
+          </span>
+          <span>
+            <b>Focus</b> Emotion · dialogue audio · shot continuity
+          </span>
+        </p>
+        <h4>What I directed:</h4>
+        <ul>
+          <li>Coverage like a drama edit: close-up, over-the-shoulder, reaction close-up, then a wide to close.</li>
+          <li>Restrained performance: the queen’s tension is played in the eyes, not in big gestures.</li>
+          <li>Consistent characters, costume, chains and candlelight in every shot.</li>
+        </ul>
+        <a
+          href="https://firefly.adobe.com/boards/id/urn:aaid:sc:AP:30fd07d5-684c-4d47-ac36-dc5eefe706d7?invite=true&accept=true"
+          target="_blank"
+          className="btn-link"
+        >
+          Storyboard &amp; prompts on Adobe Firefly ↗
+        </a>
+      </>
+    ),
+    steps: [
+      {
+        label: "Close-up",
+        caption: "The queen, chained, holds the frame before a word is spoken.",
+        src: `${ROYAL}/shot-1.jpg`,
+        alt: "Close-up of the chained queen",
+      },
+      {
+        label: "Over the shoulder",
+        caption: "The king confronts her; the eyeline carries the tension.",
+        src: `${ROYAL}/shot-2.jpg`,
+        alt: "Over-the-shoulder shot of the king facing the queen",
+      },
+      {
+        label: "Reaction",
+        caption: "A tight reaction shot: emotion played with restraint.",
+        src: `${ROYAL}/shot-3.jpg`,
+        alt: "Tight reaction close-up of the queen",
+      },
+      {
+        label: "Wide",
+        caption: "The hall opens up to close the scene.",
+        src: `${ROYAL}/shot-4.jpg`,
+        alt: "Wide shot of the king and queen in the candlelit hall",
       },
     ],
   },

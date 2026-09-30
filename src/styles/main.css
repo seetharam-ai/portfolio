@@ -1796,7 +1796,7 @@ color: var(--accent);
 
 .capabilities {
 display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
   margin-bottom: 36px;
   border-top: 1px solid var(--ink);
@@ -1811,9 +1811,13 @@ padding: 18px 20px 20px 0;
   margin-right: 20px;
 }
 
-.capability:last-child {
+.capability:nth-child(3n) {
   border-right: 0;
   margin-right: 0;
+}
+
+.capability:nth-child(n + 4) {
+  border-top: 1px solid var(--line);
 }
 
 .capability__num {
@@ -1982,6 +1986,11 @@ grid-column: 1 / -1;
   .ba-row {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  /* Stacked: size each card by its content (a zero flex-basis would collapse the image). */
+  .ba-row > .ba-card {
+    flex: none;
   }
 }
 
@@ -2631,8 +2640,9 @@ grid-column: 1 / -1;
     grid-column: 1 / -1;
   }
 
+  /* Six groups: 2 × 3 at this size, so rows stay full. */
   .capabilities {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     row-gap: 8px;
   }
 
@@ -2650,7 +2660,9 @@ grid-column: 1 / -1;
     display: none;
   }
 
-  .capability {
+  .capability,
+  .capability:nth-child(n + 4) {
+    border-top: 0;
     border-right: 0;
     border-bottom: 1px solid var(--line);
   }
@@ -2739,6 +2751,14 @@ grid-column: 1 / -1;
 }
 
 @media (max-width: 640px) {
+  .capabilities {
+    grid-template-columns: 1fr;
+  }
+
+  .capability {
+    margin-right: 0;
+  }
+
   .brand__role {
     display: none;
   }

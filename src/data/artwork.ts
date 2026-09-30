@@ -36,6 +36,8 @@ export interface BeforeAfter {
   fixes?: string[];
   /** Image width ÷ height (e.g. 2 / 3). Portraits and landscapes each share one row height. */
   ratio?: number;
+  /** Shown first, full width, above the other pairs. */
+  lead?: boolean;
 }
 
 /** Figma (or other UI/layout) work. */
@@ -62,6 +64,16 @@ export const keyArt: KeyArtSet[] = [
 ];
 
 export const corrections: BeforeAfter[] = [
+  {
+    title: "The Silent Service — Japanese key art localized to English (16:9)",
+    description:
+      "The official Japanese 16:9 key art for the Prime Original's second film, localized to English: the title lockup, subtitle and billing rebuilt in English in the same position and visual weight, with the cast, submarine and ice untouched. Self-initiated spec exercise — not an official release. Source key art and trailer © Amazon and the rights holders.",
+    before: "images/artwork/key-art/silent-service/jp-16x9.jpg",
+    after: "images/artwork/key-art/silent-service/en-16x9.jpg",
+    fixes: ["Title localization", "Billing & date", "Layout and weight kept", "Art untouched"],
+    ratio: 1320 / 743,
+    lead: true,
+  },
   {
     title: "The Last Meridian — Japanese title localization",
     description:
@@ -166,10 +178,10 @@ export const figmaWork: FigmaWork[] = [
  */
 export const homeFeatured = [
   {
-    src: "images/home/queen-of-florence.jpg",
-    title: "The Queen of Florence — one key art, three placements",
-    badge: "Key art",
-    link: "work/projects/the-queen-of-florence",
+    src: "images/home/silent-service.jpg",
+    title: "The Silent Service — JP → EN key art, posters and vertical trailers",
+    badge: "Localization package",
+    link: "work/projects/the-silent-service",
   },
   {
     src: "images/home/last-meridian.jpg",

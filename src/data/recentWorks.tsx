@@ -21,6 +21,10 @@ export interface RecentWork {
   galleryTitle?: string;
   /** Placements of one artwork in a row, each in its true aspect ratio (shown under the text). */
   variants?: KeyArtSet["variants"];
+  /** Several labelled rows of placements (e.g. one per language). */
+  variantSets?: { label: string; variants: KeyArtSet["variants"] }[];
+  /** Vertical (9:16) videos shown side by side. */
+  verticalVideos?: { src: string; poster: string; label: string }[];
   /** Full-width video player shown under the text. */
   video?: { src: string; poster: string };
 }
@@ -39,6 +43,7 @@ const QUEEN = "images/artwork/key-art/queen-of-florence";
 const CZ = "images/artwork/key-art/control-zindagi";
 const ROYAL = "images/projects/royal-court";
 const NIKE = "images/projects/nike-fyg";
+const SS = "images/artwork/key-art/silent-service";
 const PRODUCT_JSON = `{
   "items": [
     {
@@ -70,6 +75,82 @@ const PRODUCT_JSON = `{
 const SOP_DOC = "https://docs.google.com/presentation/d/1qMyX-A2n5SopCU_rMpzwdhn--JJfMTRc/edit";
 
 export const recentWorks: RecentWork[] = [
+  {
+    title: "The Silent Service — JP → EN localization package: key art, posters and vertical trailers",
+    stacked: true,
+    variantSets: [
+      {
+        label: "English",
+        variants: [
+          { label: "Background", ratio: "16 / 9", src: `${SS}/en-16x9.jpg` },
+          { label: "Poster", ratio: "2 / 3", src: `${SS}/en-2x3.jpg` },
+          { label: "Cover", ratio: "1 / 1", src: `${SS}/en-1x1.jpg` },
+        ],
+      },
+      {
+        label: "Japanese",
+        variants: [
+          { label: "Background (source)", ratio: "16 / 9", src: `${SS}/jp-16x9.jpg` },
+          { label: "Poster", ratio: "2 / 3", src: `${SS}/jp-2x3.jpg` },
+          { label: "Cover", ratio: "1 / 1", src: `${SS}/jp-1x1.jpg` },
+        ],
+      },
+    ],
+    verticalVideos: [
+      { src: "videos/silent-service-en-9x16.mp4", poster: `${SS}/en-vertical-poster.jpg`, label: "Vertical 30s · English title" },
+      { src: "videos/silent-service-jp-9x16.mp4", poster: `${SS}/jp-vertical-poster.jpg`, label: "Vertical 30s · Japanese title" },
+    ],
+    body: (
+      <>
+        <p>
+          A full localization package for <i>The Silent Service: The Battle of the Arctic Ocean</i>, the second film in
+          the Prime Original series. Starting from the official Japanese 16:9 key art and trailer, I produced every
+          placement a title needs, in English and Japanese: Background 16:9, Poster 2:3, Cover 1:1 and 30-second 9:16
+          vertical trailers.
+        </p>
+        <p className="fact-chips">
+          <span>
+            <b>Formats</b> 16:9 · 2:3 · 1:1 · 9:16 video
+          </span>
+          <span>
+            <b>Languages</b> Japanese → English
+          </span>
+          <span>
+            <b>Tools</b> Photoshop · Gemini Nano Banana 2 · Premiere Pro · Claude
+          </span>
+        </p>
+        <h4>Reading the intent first:</h4>
+        <p>
+          I researched the film and took the theme from Prime Video’s press release for the second film, so every
+          format carries the same story and tone as the source.
+        </p>
+        <h4>What I did:</h4>
+        <ul>
+          <li>
+            <b>English localization (16:9):</b> rebuilt the title lockup, subtitle and billing in English in the same
+            position and visual weight as the Japanese master; the cast, submarine and ice stay untouched.
+          </li>
+          <li>
+            <b>Poster 2:3 and Cover 1:1:</b> recomposed the wide art for tall and square frames: the cast grouped at
+            the top, the submarine as the centre of action, and the title lockup moved to the lower third. The
+            background was extended with Gemini Nano Banana 2 and finished in Photoshop.
+          </li>
+          <li>
+            <b>Japanese versions:</b> the same compositions with the Japanese calligraphic title and subtitle, so both
+            markets get matching placements.
+          </li>
+          <li>
+            <b>Vertical trailers (Premiere Pro):</b> the 16:9 trailer re-cut to 30 seconds in 9:16 for mobile, with
+            English subtitles and an English or Japanese title card and release-date end card.
+          </li>
+        </ul>
+        <p className="project__note">
+          Self-initiated spec exercise — not an official release. Source key art and trailer © Amazon and the rights
+          holders.
+        </p>
+      </>
+    ),
+  },
   {
     title: "The Last Meridian — localized key art for a streaming title (6 markets)",
     body: (

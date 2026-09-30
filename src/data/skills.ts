@@ -133,4 +133,15 @@ export const capabilities: { area: string; items: string[] }[] = [
       "Quality & ethical guardrails for AI-assisted creative work",
     ],
   },
+  {
+    area: "Filmmaking & Storytelling",
+    items: [
+      "Concept, script & casting",
+      "Directing",
+      "Editing, sound & finishing",
+      "Visual storytelling: pacing & tone",
+      "Title-led key art from the creative brief",
+      "Branding & motion graphics for films",
+    ],
+  },
 ];

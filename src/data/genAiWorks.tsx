@@ -106,7 +106,7 @@ const works2d: GalleryEntry[] = [
   image(
     "Flux 2 Klein renders",
     "images/comfyui-outputs/Flux_klien.png",
-    "High-end product visualization and lifestyle imagery generated using fine-tuned Flux models.",
+    "The same boy and dog kept recognisable across six scenes with Flux 2 Klein: the characters stay consistent while the setting changes.",
     "Flux_klien",
   ),
   image(
@@ -208,7 +208,7 @@ const works2d: GalleryEntry[] = [
   image(
     "Object & apparel transfer",
     "images/comfyui-outputs/Apparel-transfer.png",
-    "Seamlessly transferring product objects and apparel onto AI-generated models with realistic fit.",
+    "Apparel transferred onto a model with a realistic fit. The full QA-iteration case study is in Projects → Apparel & shoe transfer.",
     "Apparel-transfer",
   ),
 ];
@@ -250,7 +250,7 @@ const worksVideo: GalleryEntry[] = [
   ),
   video(
     "Kling 3.0 — emotion",
-    "videos/Kling3_Emotion.mp4",
+    "videos/royal-court-kling3.mp4",
     <>
       {fireflyBoard("30fd07d5-684c-4d47-ac36-dc5eefe706d7")}
       Audio & emotion test. <br />

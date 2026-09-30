@@ -2,7 +2,6 @@
 export const largeImages = new Set<string>([
   "images/artwork/before-after/shoe-campaign/h-after.png",
   "images/comfyui-outputs/Flux_klien.png",
-  "images/creative_works/F1_with_CC.png",
   "images/creative_works/F2_with_CC.png",
   "images/creative_works/Image_comp_01.png",
   "images/creative_works/Image_comp_02.png",

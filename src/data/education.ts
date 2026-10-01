@@ -9,6 +9,8 @@ export interface Cert {
   issued: string;
   /** Certificate file or page. */
   href: string;
+  /** One card for a series: a link per course certificate (replaces the single link). */
+  parts?: { label: string; href: string }[];
   /** Issuer's verification page, when there is one. */
   verify?: string;
   image: string;
@@ -147,6 +149,22 @@ export const eduCertItems: EduCertItem[] = [
     verify: "https://www.coursera.org/account/accomplishments/professional-cert/certificate/ISI5YF8CP0EE",
     image: "certificates/google-project-management-professional-certificate-.1.png",
     alt: "Google PM",
+  },
+  {
+    kind: "cert",
+    title: "Lean Six Sigma — DMAIC series (3 courses)",
+    credential: "LinkedIn Learning",
+    isCredentialId: false,
+    group: "Design & professional",
+    issued: "May 2025",
+    href: "https://www.linkedin.com/learning/certificates/afbe4a00159b3a9e5c6dcd5f5f8729a0a9ef64e10c02cf8be4b623d8e021bcd6",
+    parts: [
+      { label: "Foundations", href: "https://www.linkedin.com/learning/certificates/afbe4a00159b3a9e5c6dcd5f5f8729a0a9ef64e10c02cf8be4b623d8e021bcd6" },
+      { label: "Define & Measure", href: "https://www.linkedin.com/learning/certificates/8be92a4adea987a52e6d14a746502f4d5e07939343913f676714cc46e6f83be2" },
+      { label: "Analyze, Improve & Control", href: "https://www.linkedin.com/learning/certificates/2872d027a814dc6c82d69480ae156301588a81652d92b91ff8a49f35fe459818" },
+    ],
+    image: "icons/social/linkedin.png",
+    alt: "LinkedIn Learning",
   },
   {
     kind: "education",

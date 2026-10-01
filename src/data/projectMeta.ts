@@ -35,7 +35,7 @@ export const projectMeta: Record<string, ProjectMeta> = {
   "control-zindagi": {
     kicker: "Film & TV artwork",
     summary: "Key art for my award-winning short film: poster, vertical and background.",
-    tags: ["Amazon Bash 2019", "Writer · director", "3 formats"],
+    tags: ["Amazon Bash 2019", "Writer · director · editor", "3 formats"],
     cover: "images/artwork/key-art/control-zindagi/background-16x9.jpg",
   },
   "the-queen-of-florence": {

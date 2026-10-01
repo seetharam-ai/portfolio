@@ -5,6 +5,8 @@ export interface Route {
   view: ViewId;
   /** Optional sub-section, e.g. "#work/projects" → "projects". */
   sub?: string;
+  /** Optional item inside it, e.g. "#work/projects/the-last-meridian" → "the-last-meridian". */
+  focus?: string;
 }
 
 // Section anchors from the old single-page site. The CV and older shared
@@ -22,9 +24,9 @@ const LEGACY: Record<string, string> = {
 
 function parse(hash: string): Route {
   const raw = hash.replace(/^#\/?/, "");
-  const [view, sub] = (LEGACY[raw] ?? raw).split("/");
+  const [view, sub, focus] = (LEGACY[raw] ?? raw).split("/");
   const known = views.some((v) => v.id === view);
-  return { view: known ? (view as ViewId) : "home", sub: known ? sub : undefined };
+  return { view: known ? (view as ViewId) : "home", sub: known ? sub : undefined, focus: known ? focus : undefined };
 }
 
 /** Current view from the URL hash; back/forward and shared links work. */

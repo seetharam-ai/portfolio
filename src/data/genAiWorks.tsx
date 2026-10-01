@@ -215,38 +215,14 @@ const works2d: GalleryEntry[] = [
 
 const worksVideo: GalleryEntry[] = [
   video(
-    "Streetwear lookbook — Seedance 2.0 reference-to-video",
-    "videos/seedance-streetwear-r2v.mp4",
-    "Three outfits on one model in a sunlit skate park, shot with an extreme low-angle fisheye look. Generated with Seedance 2.0 reference-to-video, so the model and each outfit stay true to the references across cuts.",
+    "The Silent Service — 30s vertical trailer",
+    "videos/silent-service-en-9x16.mp4",
+    "Film & TV cut: the official 16:9 trailer re-cut to 30 seconds in 9:16 for Reels and Shorts, with English subtitles and title card. Full localization package in Projects.",
   ),
   video(
-    "Wan 2.2 — AI pose animation",
-    "videos/SR_pose_output_1.mp4",
-    "Generating realistic human motion and character animation from pose-based guidance.",
-  ),
-  video(
-    "Watch editorial with Wan 2.2",
-    "videos/watch-editorial Wan2.2.mp4",
-    <>
-      {fireflyBoard("76a31a71-f507-489b-9847-898510fd3c44")}
-      A watch product image turned into an elegant editorial video with Wan 2.2, generated locally through ComfyUI.
-    </>,
-  ),
-  video(
-    "Fragrance elegance — Nano Banana 2 + Kling 3.0",
-    "videos/fragnance_kling3.0.mp4",
-    <>
-      {fireflyBoard("29f1ad21-e491-436b-9dee-a85805b31dd8")}
-      A luxury fragrance editorial made with Kling 3.0.
-    </>,
-  ),
-  video(
-    "Beauty product influencer — Gemini 3.1 Veo",
-    "videos/beauty_product_infuencer cut.mp4",
-    <>
-      {fireflyBoard("7e0946b2-be6a-4718-ae34-720ae03b885a")}
-      An influencer-style cut for a luxury serum brand, made with Veo.
-    </>,
+    "The Last Signal — cinematic sci-fi teaser",
+    "videos/the-last-signal.mp4",
+    "A 21-second teaser: shot design, AI generation, edit and sound design. Case study in Projects.",
   ),
   video(
     "Kling 3.0 — emotion",
@@ -258,6 +234,29 @@ const worksVideo: GalleryEntry[] = [
     </>,
   ),
   video(
+    "Wan 2.2 — AI pose animation",
+    "videos/SR_pose_output_1.mp4",
+    "Generating realistic human motion and character animation from pose-based guidance.",
+  ),
+  video(
+    "Beauty product influencer — Gemini 3.1 Veo",
+    "videos/beauty_product_infuencer cut.mp4",
+    <>
+      {fireflyBoard("7e0946b2-be6a-4718-ae34-720ae03b885a")}
+      An influencer-style cut for a luxury serum brand, made with Veo.
+    </>,
+  ),
+  video(
+    "Streetwear lookbook — Seedance 2.0 reference-to-video",
+    "videos/seedance-streetwear-r2v.mp4",
+    "Three outfits on one model in a sunlit skate park, shot with an extreme low-angle fisheye look. Generated with Seedance 2.0 reference-to-video, so the model and each outfit stay true to the references across cuts.",
+  ),
+  video(
+    "Veo 3.0 — cinematic environment",
+    "videos/Banderas flowergeneration.mp4",
+    "Creating immersive floral landscapes and natural environments with high temporal consistency.",
+  ),
+  video(
     "Kling 3.0 — action",
     "videos/Never give up_Kling_3_multishot.mp4",
     <>
@@ -267,9 +266,20 @@ const worksVideo: GalleryEntry[] = [
     </>,
   ),
   video(
-    "Veo 3.0 — cinematic environment",
-    "videos/Banderas flowergeneration.mp4",
-    "Creating immersive floral landscapes and natural environments with high temporal consistency.",
+    "Fragrance elegance — Nano Banana 2 + Kling 3.0",
+    "videos/fragnance_kling3.0.mp4",
+    <>
+      {fireflyBoard("29f1ad21-e491-436b-9dee-a85805b31dd8")}
+      A luxury fragrance editorial made with Kling 3.0.
+    </>,
+  ),
+  video(
+    "Watch editorial with Wan 2.2",
+    "videos/watch-editorial Wan2.2.mp4",
+    <>
+      {fireflyBoard("76a31a71-f507-489b-9847-898510fd3c44")}
+      A watch product image turned into an elegant editorial video with Wan 2.2, generated locally through ComfyUI.
+    </>,
   ),
   video(
     "Kling 3.0 — realism",

@@ -172,33 +172,81 @@ export const figmaWork: FigmaWork[] = [
 ];
 
 /**
- * Home page "Selected work" tiles (4), picked by hand. Each image is a 4:3
- * crop made for the tile (public/images/home/); `link` is where it opens:
- * "work/<category>" or "work/projects/<project-id>" to jump to one project.
+ * Home page "Selected work" bento: images and silent looping videos.
+ * size: "xl" (2×2), "tall" (1×2), "wide" (2×1), "std" (1×1) or "full" (a full-width strip) on desktop.
+ * link: "work/<category>" or "work/projects/<project-id>".
  */
-export const homeFeatured = [
+export interface FeaturedItem {
+  kind: "image" | "video";
+  src: string;
+  /** Video poster frame. */
+  poster?: string;
+  title: string;
+  badge: string;
+  link: string;
+  size: "xl" | "tall" | "wide" | "std" | "full";
+  /** Caption at the top (when the image has its own title at the bottom). */
+  captionTop?: boolean;
+}
+
+export const homeFeatured: FeaturedItem[] = [
   {
-    src: "images/home/silent-service.jpg",
-    title: "The Silent Service — JP → EN key art, posters and vertical trailers",
-    badge: "Localization package",
+    kind: "image",
+    src: "images/artwork/key-art/silent-service/en-1x1.jpg",
+    title: "The Silent Service",
+    badge: "Localization package · JP → EN",
     link: "work/projects/the-silent-service",
+    size: "xl",
+    captionTop: true,
   },
   {
-    src: "images/home/last-meridian.jpg",
-    title: "The Last Meridian — localized key art for 6 markets",
-    badge: "Localization",
-    link: "work/projects/the-last-meridian",
+    kind: "video",
+    src: "videos/silent-service-en-9x16.mp4",
+    poster: "images/artwork/key-art/silent-service/en-vertical-poster.jpg",
+    title: "Silent Service — 30s vertical cut",
+    badge: "9:16 · Reels & Shorts",
+    link: "work/projects/the-silent-service",
+    size: "tall",
   },
   {
-    src: "images/home/control-zindagi.jpg",
-    title: "Control Zindagi — key art for my award-winning short film",
+    kind: "image",
+    src: "images/artwork/key-art/gladiator-ashes-of-rome/poster-ja.jpg",
+    title: "Gladiator: Ashes of Rome",
+    badge: "Title localization · 4 languages",
+    link: "work/projects/gladiator-ashes-of-rome",
+    size: "std",
+  },
+  {
+    kind: "image",
+    src: "images/artwork/key-art/control-zindagi/poster-2x3.jpg",
+    title: "Control Zindagi",
     badge: "Film & TV artwork",
     link: "work/projects/control-zindagi",
+    size: "std",
   },
   {
-    src: "images/home/footwear-campaign.jpg",
-    title: "Footwear brand campaign — 8 looks, art direction to final",
-    badge: "Studio & agency",
+    kind: "video",
+    src: "videos/the-last-signal.mp4",
+    poster: "images/projects/the-last-signal/shot-5.jpg",
+    title: "The Last Signal",
+    badge: "Cinematic teaser · edit & sound",
+    link: "work/projects/the-last-signal",
+    size: "wide",
+  },
+  {
+    kind: "image",
+    src: "images/artwork/before-after/shoe-campaign/a-after.jpg",
+    title: "Footwear campaign",
+    badge: "Studio & agency · 8 looks",
     link: "work/before-after",
+    size: "wide",
+  },
+  {
+    kind: "image",
+    src: "images/home/last-meridian-strip.jpg",
+    title: "The Last Meridian — one master, six markets",
+    badge: "Key art localization · EN · ES · AR · HI · JA · KO",
+    link: "work/projects/the-last-meridian",
+    size: "full",
   },
 ];

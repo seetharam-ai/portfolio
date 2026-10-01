@@ -1,10 +1,23 @@
+import { useEffect, useRef } from "react";
 import { hero, views, type ViewId } from "../data/site";
 import { href } from "../hooks/useHashRoute";
 import { cx } from "../utils/cx";
 
 export function Header({ current }: { current: ViewId }) {
+  // Share the bar's real height (it wraps to two rows on phones) so sticky bars can sit right under it.
+  const ref = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const sync = () => document.documentElement.style.setProperty("--header-real", `${el.offsetHeight}px`);
+    sync();
+    const ro = new ResizeObserver(sync);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
   return (
-    <header className="site-header">
+    <header ref={ref} className="site-header site-header--dark">
       <div className="site-header__inner">
         <a href={href("home")} className="brand" aria-label="Home">
           <img src={hero.logo} alt="" className="brand__logo" />

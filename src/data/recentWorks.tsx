@@ -6,7 +6,8 @@ export interface RecentWork {
   title: string;
   body: ReactNode;
   /** Images shown beside the text; clicking one opens the lightbox. */
-  images?: { src: string; alt: string; style?: CSSProperties }[];
+  /** label: a short tag shown on the image, e.g. the poster's language. */
+  images?: { src: string; alt: string; style?: CSSProperties; label?: string }[];
   /** Show images side by side in a grid. */
   imageGrid?: boolean;
   /** Stacked layout: the body is rendered alone, without the text/media split. */
@@ -152,6 +153,42 @@ export const recentWorks: RecentWork[] = [
     ),
   },
   {
+    title: "Setting the quality bar for visual content at scale — Amazon",
+    stacked: true,
+    body: (
+      <>
+        <p>
+          As Subject Matter Expert and QA Team Lead, I owned what “correct” and “compelling” meant for visual
+          content across global marketplaces — then made that judgment repeatable for people and tools.
+        </p>
+        <h4>Standards others calibrate to</h4>
+        <ul>
+          <li>Developed scalable creative standards for 3D assets and established global video production SOPs used across international studios.</li>
+          <li>Led global quality improvement initiatives that reduced content defects by 35%, contributing to ~$18M in annual cost avoidance.</li>
+          <li>Managed and mentored 70+ QA specialists across locations — training reviewers to a shared bar.</li>
+        </ul>
+        <h4>Judgment turned into tool improvements</h4>
+        <ul>
+          <li>
+            Designed and launched the Self-Service QA Tool, building it with engineering and leading its UAT: 80% of
+            assets published without manual intervention, ~$1M in annual savings.
+          </li>
+          <li>
+            Led UAT for the redesigned QA applications, feeding structured feedback to engineering and UX before
+            rollout — QA productivity up 10% year over year.
+          </li>
+          <li>Partnered with engineering and UX to redesign internal QA applications — 30% less manual review effort.</li>
+          <li>Collaborated with SDEs to resolve latency and visual-quality issues in the 3D pipeline.</li>
+        </ul>
+        <h4>Sample standard</h4>
+        <p>My AI-assisted retouching &amp; upscaling SOP shows how I document a quality bar for others to follow.</p>
+        <a href={SOP_DOC} target="_blank" className="btn-link">
+          View SOP document ↗
+        </a>
+      </>
+    ),
+  },
+  {
     title: "The Last Meridian — localized key art for a streaming title (6 markets)",
     body: (
       <>
@@ -192,12 +229,12 @@ export const recentWorks: RecentWork[] = [
       </>
     ),
     images: [
-      { src: `${TLM}/poster-en.jpg`, alt: "The Last Meridian poster — English master" },
-      { src: `${TLM}/poster-es.jpg`, alt: "The Last Meridian poster — Spanish" },
-      { src: `${TLM}/poster-ar.jpg`, alt: "The Last Meridian poster — Arabic" },
-      { src: `${TLM}/poster-hi.jpg`, alt: "The Last Meridian poster — Hindi" },
-      { src: `${TLM}/poster-ja.jpg`, alt: "The Last Meridian poster — Japanese" },
-      { src: `${TLM}/poster-ko.jpg`, alt: "The Last Meridian poster — Korean" },
+      { src: `${TLM}/poster-en.jpg`, alt: "The Last Meridian poster — English master", label: "EN · Master" },
+      { src: `${TLM}/poster-es.jpg`, alt: "The Last Meridian poster — Spanish", label: "ES" },
+      { src: `${TLM}/poster-ar.jpg`, alt: "The Last Meridian poster — Arabic", label: "AR" },
+      { src: `${TLM}/poster-hi.jpg`, alt: "The Last Meridian poster — Hindi", label: "HI" },
+      { src: `${TLM}/poster-ja.jpg`, alt: "The Last Meridian poster — Japanese", label: "JA" },
+      { src: `${TLM}/poster-ko.jpg`, alt: "The Last Meridian poster — Korean", label: "KO" },
     ],
     imageGrid: true,
   },
@@ -232,10 +269,10 @@ export const recentWorks: RecentWork[] = [
       </>
     ),
     images: [
-      { src: `${GLAD}/poster-en.jpg`, alt: "Gladiator: Ashes of Rome poster — English master" },
-      { src: `${GLAD}/poster-es.jpg`, alt: "Gladiator: Ashes of Rome poster — Spanish" },
-      { src: `${GLAD}/poster-ar.jpg`, alt: "Gladiator: Ashes of Rome poster — Arabic" },
-      { src: `${GLAD}/poster-ja.jpg`, alt: "Gladiator: Ashes of Rome poster — Japanese" },
+      { src: `${GLAD}/poster-en.jpg`, alt: "Gladiator: Ashes of Rome poster — English master", label: "EN · Master" },
+      { src: `${GLAD}/poster-es.jpg`, alt: "Gladiator: Ashes of Rome poster — Spanish", label: "ES" },
+      { src: `${GLAD}/poster-ar.jpg`, alt: "Gladiator: Ashes of Rome poster — Arabic", label: "AR" },
+      { src: `${GLAD}/poster-ja.jpg`, alt: "Gladiator: Ashes of Rome poster — Japanese", label: "JA" },
     ],
     imageGrid: true,
   },
@@ -616,42 +653,6 @@ export const recentWorks: RecentWork[] = [
         alt: "Final After Effects composite against the sky",
       },
     ],
-  },
-  {
-    title: "Setting the quality bar for visual content at scale — Amazon",
-    stacked: true,
-    body: (
-      <>
-        <p>
-          As Subject Matter Expert and QA Team Lead, I owned what “correct” and “compelling” meant for visual
-          content across global marketplaces — then made that judgment repeatable for people and tools.
-        </p>
-        <h4>Standards others calibrate to</h4>
-        <ul>
-          <li>Developed scalable creative standards for 3D assets and established global video production SOPs used across international studios.</li>
-          <li>Led global quality improvement initiatives that reduced content defects by 35%, contributing to ~$18M in annual cost avoidance.</li>
-          <li>Managed and mentored 70+ QA specialists across locations — training reviewers to a shared bar.</li>
-        </ul>
-        <h4>Judgment turned into tool improvements</h4>
-        <ul>
-          <li>
-            Designed and launched the Self-Service QA Tool, building it with engineering and leading its UAT: 80% of
-            assets published without manual intervention, ~$1M in annual savings.
-          </li>
-          <li>
-            Led UAT for the redesigned QA applications, feeding structured feedback to engineering and UX before
-            rollout — QA productivity up 10% year over year.
-          </li>
-          <li>Partnered with engineering and UX to redesign internal QA applications — 30% less manual review effort.</li>
-          <li>Collaborated with SDEs to resolve latency and visual-quality issues in the 3D pipeline.</li>
-        </ul>
-        <h4>Sample standard</h4>
-        <p>My AI-assisted retouching &amp; upscaling SOP shows how I document a quality bar for others to follow.</p>
-        <a href={SOP_DOC} target="_blank" className="btn-link">
-          View SOP document ↗
-        </a>
-      </>
-    ),
   },
   {
     title: "Apparel & shoe transfer from a product reference — with QA iterations",

@@ -3950,3 +3950,14 @@ font-size: var(--fs-sm);
   transform: scale(1.14);
   transform-origin: 58% 100%;
 }
+
+/* Vertical videos: share one row on wide screens (up to 300px each), two per row on phones */
+.project__verticals figure {
+  flex: 1 1 0;
+  min-width: 140px;
+  max-width: 300px;
+}
+
+.project__verticals video {
+  width: 100%;
+}

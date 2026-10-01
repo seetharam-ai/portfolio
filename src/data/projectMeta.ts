@@ -21,6 +21,12 @@ export const projectMeta: Record<string, ProjectMeta> = {
     tags: ["16:9 · 2:3 · 1:1 · 9:16", "JP → EN", "Photoshop · Premiere Pro"],
     cover: "images/artwork/key-art/silent-service/en-16x9.jpg",
   },
+  "ip-man-kung-fu-legend": {
+    kicker: "Localization · key art & video",
+    summary: "A film’s title card, key art and vertical shorts localized for four markets, end to end.",
+    tags: ["EN · HI · TA · TE", "16:9 · 2:3 · 4:3 · 9:16", "Nano Banana 2 · Premiere Pro"],
+    cover: "images/artwork/key-art/ip-man/en-16x9.jpg",
+  },
   "the-last-meridian": {
     kicker: "Key art localization",
     summary: "One master key art localized for six markets, including right-to-left Arabic and vertical Japanese.",

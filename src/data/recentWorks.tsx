@@ -45,6 +45,7 @@ const CZ = "images/artwork/key-art/control-zindagi";
 const ROYAL = "images/projects/royal-court";
 const NIKE = "images/projects/nike-fyg";
 const SS = "images/artwork/key-art/silent-service";
+const IPM = "images/artwork/key-art/ip-man";
 const PRODUCT_JSON = `{
   "items": [
     {
@@ -152,6 +153,136 @@ export const recentWorks: RecentWork[] = [
         </p>
       </>
     ),
+  },
+  {
+    title: "Ip Man: Kung Fu Legend — 4-language localization: key art, title cards and vertical shorts",
+    stacked: true,
+    storyFrame: "16 / 9",
+    variantSets: [
+      {
+        label: "English",
+        variants: [
+          { label: "Key art", ratio: "16 / 9", src: `${IPM}/en-16x9.jpg` },
+          { label: "Poster", ratio: "2 / 3", src: `${IPM}/en-2x3.jpg` },
+          { label: "Key art", ratio: "4 / 3", src: `${IPM}/en-4x3.jpg` },
+        ],
+      },
+      {
+        label: "Hindi",
+        variants: [
+          { label: "Key art", ratio: "16 / 9", src: `${IPM}/hi-16x9.jpg` },
+          { label: "Poster", ratio: "2 / 3", src: `${IPM}/hi-2x3.jpg` },
+          { label: "Key art", ratio: "4 / 3", src: `${IPM}/hi-4x3.jpg` },
+        ],
+      },
+      {
+        label: "Tamil",
+        variants: [
+          { label: "Key art", ratio: "16 / 9", src: `${IPM}/ta-16x9.jpg` },
+          { label: "Poster", ratio: "2 / 3", src: `${IPM}/ta-2x3.jpg` },
+          { label: "Key art", ratio: "4 / 3", src: `${IPM}/ta-4x3.jpg` },
+        ],
+      },
+      {
+        label: "Telugu",
+        variants: [
+          { label: "Key art", ratio: "16 / 9", src: `${IPM}/te-16x9.jpg` },
+          { label: "Poster", ratio: "2 / 3", src: `${IPM}/te-2x3.jpg` },
+          { label: "Key art", ratio: "4 / 3", src: `${IPM}/te-4x3.jpg` },
+        ],
+      },
+    ],
+    verticalVideos: [
+      { src: "videos/ip-man-en-9x16.mp4", poster: `${IPM}/en-vertical-poster.jpg`, label: "Vertical 30s · English" },
+      { src: "videos/ip-man-hi-9x16.mp4", poster: `${IPM}/hi-vertical-poster.jpg`, label: "Vertical 30s · Hindi" },
+      { src: "videos/ip-man-ta-9x16.mp4", poster: `${IPM}/ta-vertical-poster.jpg`, label: "Vertical 30s · Tamil" },
+      { src: "videos/ip-man-te-9x16.mp4", poster: `${IPM}/te-vertical-poster.jpg`, label: "Vertical 30s · Telugu" },
+    ],
+    body: (
+      <>
+        <p>
+          An end-to-end localization package for the martial-arts film <i>Ip Man: Kung Fu Legend</i>, for four
+          markets: English, Hindi, Tamil and Telugu. I planned the core concept and delivered it from source to
+          final renders: the film’s title card localized into each language, key art composed in every aspect ratio,
+          and a 30-second vertical short per language.
+        </p>
+        <p className="fact-chips">
+          <span>
+            <b>Languages</b> English · Hindi · Tamil · Telugu
+          </span>
+          <span>
+            <b>Formats</b> 16:9 · 2:3 · 4:3 · 9:16 video
+          </span>
+          <span>
+            <b>Tools</b> Gemini Nano Banana 2 · Photoshop · Premiere Pro
+          </span>
+        </p>
+        <h4>What I did:</h4>
+        <ul>
+          <li>
+            <b>Title card localization:</b> extracted the original title card from the film and translated it into
+            English, Hindi, Tamil and Telugu with Gemini Nano Banana 2, keeping the calligraphy, seal and colour of
+            the source.
+          </li>
+          <li>
+            <b>Key art in every ratio (Photoshop):</b> composed each localized title onto the key art in 16:9, 2:3 and
+            4:3, with the same imagery in every size.
+          </li>
+          <li>
+            <b>Vertical shorts (Premiere Pro):</b> cut the film into a 9:16 short and rendered it separately for each
+            language, with that language’s dialogue, English subtitles and the localized title card at the end.
+          </li>
+        </ul>
+        <h4>Following the platform guidelines:</h4>
+        <p>
+          I checked the artwork against the Prime Video Direct graphic assets guide: consistent imagery across sizes,
+          one cohesive image with no borders or stretching, a title that stays legible with enough contrast when
+          scaled down, and no title over the main cast’s faces.
+        </p>
+        <p className="project__note">
+          Self-initiated spec exercise — not an official release. Film footage and source artwork © the rights
+          holders.
+        </p>
+      </>
+    ),
+    steps: [
+      {
+        label: "Original title card",
+        caption: "The source: the title card extracted from the film.",
+        src: `${IPM}/title-original.jpg`,
+        alt: "Ip Man: Kung Fu Legend — original title card from the film",
+      },
+      {
+        label: "English title card",
+        caption: "Translated with Gemini Nano Banana 2, keeping the brush calligraphy, the seal and the rust colour.",
+        src: `${IPM}/title-en.jpg`,
+        alt: "Ip Man: Kung Fu Legend title card — English",
+      },
+      {
+        label: "Hindi title card",
+        caption: "Translated with Gemini Nano Banana 2, keeping the brush calligraphy, the seal and the rust colour.",
+        src: `${IPM}/title-hi.jpg`,
+        alt: "Ip Man: Kung Fu Legend title card — Hindi",
+      },
+      {
+        label: "Tamil title card",
+        caption: "Translated with Gemini Nano Banana 2, keeping the brush calligraphy, the seal and the rust colour.",
+        src: `${IPM}/title-ta.jpg`,
+        alt: "Ip Man: Kung Fu Legend title card — Tamil",
+      },
+      {
+        label: "Telugu title card",
+        caption: "Translated with Gemini Nano Banana 2, keeping the brush calligraphy, the seal and the rust colour.",
+        src: `${IPM}/title-te.jpg`,
+        alt: "Ip Man: Kung Fu Legend title card — Telugu",
+      },
+      {
+        label: "Premiere Pro timeline",
+        caption: "One edit for all four shorts: English subtitles on top, a localized title card per language, and a separate audio track per language.",
+        src: `${IPM}/premiere-timeline.jpg`,
+        alt: "Premiere Pro timeline for the vertical shorts",
+      },
+    ],
   },
   {
     title: "Setting the quality bar for visual content at scale — Amazon",

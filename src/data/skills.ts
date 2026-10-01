@@ -1,3 +1,4 @@
+import type { Proof } from "./site";
 export interface Skill {
   name: string;
   icon: string;
@@ -78,9 +79,10 @@ export const coreToolkit = [
 });
 
 /** Capability areas and keywords, as listed under "Core competencies" in the CV. */
-export const capabilities: { area: string; items: string[] }[] = [
+export const capabilities: { area: string; items: string[]; proof: Proof[] }[] = [
   {
     area: "Artwork & Image Craft",
+    proof: [{ label: "The Silent Service", link: "work/projects/the-silent-service" }, { label: "Before / after", link: "work/before-after" }],
     items: [
       "Key art & poster composition",
       "Photo manipulation & compositing",
@@ -93,6 +95,7 @@ export const capabilities: { area: string; items: string[] }[] = [
   },
   {
     area: "Video, Motion & 3D",
+    proof: [{ label: "The Last Signal", link: "work/projects/the-last-signal" }, { label: "3D work", link: "work/3d" }],
     items: [
       "Video editing & post-production (Premiere Pro, After Effects, DaVinci Resolve)",
       "Motion graphics & title design",
@@ -104,6 +107,7 @@ export const capabilities: { area: string; items: string[] }[] = [
   },
   {
     area: "Quality Standards & Judgment",
+    proof: [{ label: "Quality bar at Amazon", link: "work/projects/setting-the-quality-bar-for-visual-content-at-scale" }, { label: "The Last Meridian", link: "work/projects/the-last-meridian" }],
     items: [
       "Style-guide compliance",
       "Visual appeal & engagement assessment",
@@ -115,6 +119,7 @@ export const capabilities: { area: string; items: string[] }[] = [
   },
   {
     area: "Tools & Operations",
+    proof: [{ label: "Quality bar at Amazon", link: "work/projects/setting-the-quality-bar-for-visual-content-at-scale" }, { label: "AI Image QA Agent", link: "work/projects/ai-image-qa-agent-developed-using-agentic-ai-frameworks-claude" }],
     items: [
       "UAT & production tool rollout",
       "Structured feedback for science & engineering",
@@ -126,6 +131,7 @@ export const capabilities: { area: string; items: string[] }[] = [
   },
   {
     area: "Responsible AI in Production",
+    proof: [{ label: "Apparel transfer", link: "work/projects/apparel-shoe-transfer-from-a-product-reference" }, { label: "Retouching SOP", link: "work/projects/ai-assisted-image-retouching-upscaling-workflow-photoshop-generative-ai" }],
     items: [
       "Human-in-the-loop AI editing",
       "AI output evaluation (fidelity, artifacts, hallucinated elements)",
@@ -135,6 +141,7 @@ export const capabilities: { area: string; items: string[] }[] = [
   },
   {
     area: "Filmmaking & Storytelling",
+    proof: [{ label: "Control Zindagi", link: "work/projects/control-zindagi" }, { label: "Nike spec ad", link: "work/projects/nike-find-your-greatness" }],
     items: [
       "Concept, script & casting",
       "Directing",

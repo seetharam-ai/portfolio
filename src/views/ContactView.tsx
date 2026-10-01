@@ -15,7 +15,7 @@ export function ContactView() {
           Let’s create something <em>visual</em> together.
         </h1>
         <p className="lead">
-          Open to conversations about Gen AI content, creative automation and 3D production pipelines.
+          Open to roles and conversations in artwork, video and visual quality for streaming — and the creative tech behind them.
         </p>
 
         <dl className="direct-list">

@@ -81,4 +81,8 @@ Merging to `main` publishes the site automatically (see the Actions tab on GitHu
 
 ## Changing the home page picks
 
-`homeFeatured` at the bottom of `src/data/artwork.ts` sets the four "Selected work" tiles. Each needs a 4:3 image (e.g. 1200×900) in `public/images/home/`, a title, a short badge and a `link`: `work/<category>` (e.g. `work/before-after`) or `work/projects/<project-id>` to open at one project — the id is the project title up to the dash, lowercased with hyphens ("The Last Meridian — …" → `the-last-meridian`).
+`homeFeatured` at the bottom of `src/data/artwork.ts` sets the "Selected work" bento on Home. Each item is an image or a silent looping video (`kind`, `src`, and a `poster` for videos), with a short `badge`, a `title`, a `size` (`xl` 2×2, `tall` 1×2, `wide` 2×1 or `std`) and a `link`: `work/<category>` (e.g. `work/before-after`) or `work/projects/<project-id>`. The id is the project title up to the dash, lowercased with hyphens ("The Last Meridian — …" → `the-last-meridian`). Keep the sizes adding up to full rows of four.
+
+## Adding a case study
+
+Add the project to `src/data/recentWorks.tsx`, then give it an index entry in `src/data/projectMeta.ts` under its id: a `kicker` (category), a one-sentence `summary`, three short `tags` and, optionally, a `cover` image. The Projects page shows only this; the full story opens on the project's own page.

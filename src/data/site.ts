@@ -17,10 +17,12 @@ const GITHUB_URL = "https://github.com/seetharam-ai";
 export const hero = {
   fullName: "Seetha Rama Swamy Thota",
   shortName: "Seetha Ram",
-  role: "Creative Specialist · Artwork & Visual Quality",
+  role: "Creative Specialist · Artwork, Video & Visual Quality",
+  /** Short tags under the home headline. */
+  focus: ["Key art & localization", "Video & storytelling", "Creative tech & AI", "Project management"],
   /** Home intro: a bold opening line, short paragraphs, then a bold sign-off. */
   intro: {
-    headline: "I produce and correct artwork to a global quality bar — and set the standard others calibrate to.",
+    headline: "I produce and correct artwork and video to a global quality bar — and set the standard others calibrate to.",
     paragraphs: [
       "I’ve produced and corrected customer-facing content for global audiences, built quality standards used by 300+ creators and reviewers, and translated creative judgment into SOPs, UAT, and actionable tool feedback.",
       "Today, I bring that experience to key art, posters and localized title artwork — using AI to accelerate exploration and production while keeping the final judgment human.",
@@ -51,31 +53,35 @@ export const stats = [
   { value: "10+", label: "Years in image editing, design & multimedia" },
   { value: "35%", label: "Fewer content defects · ~$18M cost avoidance" },
   { value: "80%", label: "Assets auto-published via a QA tool I launched" },
-  { value: "70+", label: "QA specialists led and mentored" },
+  { value: "300+", label: "Creators & reviewers calibrated to my standards" },
 ];
 
 /**
  * "How I work" — the review loop applied to every asset. Mirrors how an
  * artwork team works: intent → judgment → correction → feedback to tools.
  */
-export const reviewLoop: { title: string; text: string; proof: string }[] = [
+export const reviewLoop: { title: string; short: string; text: string; proof: string }[] = [
   {
     title: "Read the intent",
+    short: "Brief, metadata, references.",
     text: "Start from the brief, metadata and references — what should this image or video make people feel?",
     proof: "Editorial & brand standards",
   },
   {
     title: "Make the call",
+    short: "Compliance, composition, appeal.",
     text: "Judge compliance, composition and appeal against the standard — then decide.",
     proof: "Standard for 300+ creators & reviewers",
   },
   {
     title: "Fix it myself",
+    short: "Retouch, recompose, re-edit.",
     text: "Retouch, recompose, re-crop or re-edit until it's compelling — not escalate it.",
     proof: "10+ years in imaging, video & 3D",
   },
   {
     title: "Close the loop",
+    short: "Feedback that improves tools.",
     text: "Turn each decision into structured feedback, so tools and teams improve.",
     proof: "UAT on 2 QA tools · +10% productivity YoY",
   },
@@ -84,30 +90,43 @@ export const reviewLoop: { title: string; text: string; proof: string }[] = [
 /** One line on AI, under the loop. */
 export const aiStance = "AI assists at every step — generation, clean-up, detection. Taste and the final call stay human.";
 
-export const expertise: { title: string; subtitle?: string; text: string }[] = [
+/** A link to the work that proves a claim ("See: …"). */
+export interface Proof {
+  label: string;
+  /** "work/<category>" or "work/projects/<project-id>". */
+  link: string;
+}
+
+export const expertise: { title: string; subtitle?: string; text: string; proof: Proof[] }[] = [
   {
     title: "Artwork & Image Craft",
+    proof: [{ label: "The Silent Service", link: "work/projects/the-silent-service" }, { label: "Before / after", link: "work/before-after" }],
     subtitle: "Key art, retouching, compositing",
     text: "Key art and poster composition, photo manipulation and compositing, high-end retouching, color matching, typography and title treatment — adapted across formats with crop and safe-area control.",
   },
   {
     title: "Video & Motion",
+    proof: [{ label: "The Last Signal", link: "work/projects/the-last-signal" }, { label: "Video work", link: "work/video" }],
     text: "Post-production for Amazon Fashion product videos in Premiere Pro, After Effects and DaVinci Resolve; set the global video-editing SOP with studios in India, Romania and China; practised Prime Video motion banners to the banner aspect-ratio SOP; AI video generation with Veo, Kling and Seedance.",
   },
   {
     title: "Quality Standards & Judgment",
+    proof: [{ label: "Quality bar at Amazon", link: "work/projects/setting-the-quality-bar-for-visual-content-at-scale" }, { label: "The Last Meridian", link: "work/projects/the-last-meridian" }],
     text: "Setting the benchmark others calibrate to: style-guide compliance, visual appeal and engagement calls, defect taxonomies, QA checklists and SOPs adopted by 300+ creators and reviewers.",
   },
   {
     title: "Tools, UAT & Operations",
+    proof: [{ label: "Quality bar at Amazon", link: "work/projects/setting-the-quality-bar-for-visual-content-at-scale" }, { label: "AI Image QA Agent", link: "work/projects/ai-image-qa-agent-developed-using-agentic-ai-frameworks-claude" }],
     text: "Owning UAT and rollout for production QA tools, and turning hands-on craft judgment into structured feedback for science and engineering teams.",
   },
   {
     title: "Responsible AI in Production",
+    proof: [{ label: "Apparel transfer", link: "work/projects/apparel-shoe-transfer-from-a-product-reference" }, { label: "Retouching SOP", link: "work/projects/ai-assisted-image-retouching-upscaling-workflow-photoshop-generative-ai" }],
     text: "Human-in-the-loop AI editing and evaluation — fidelity, artifacts, hallucinated elements — with quality and ethical guardrails, so AI augments the craft and the final call stays human.",
   },
   {
     title: "Filmmaking & Storytelling",
+    proof: [{ label: "Control Zindagi", link: "work/projects/control-zindagi" }, { label: "Nike spec ad", link: "work/projects/nike-find-your-greatness" }],
     text: "Wrote, directed and edited short films and ad films end to end — two Amazon Bash winners — turning creative intent into visuals, pacing, tone and title-led key art.",
   },
 ];
@@ -162,6 +181,8 @@ export interface Job {
   period: string;
   /** One-line summary used in the home snapshot. */
   summary: string;
+  /** Scope label shown as a pill beside the title (the title itself stays official). */
+  scope?: string;
   /** Headline number shown beside the role in the home snapshot (from the CV). */
   highlight?: { value: string; label: string };
   logo: string;
@@ -185,20 +206,22 @@ export const journey: Job[] = [
       "AI-assisted artwork finishing: produce and refine commercial-grade imagery with Photoshop Generative Fill/Expand, Firefly and diffusion models, keeping a human craft decision on every output. Authored an AI retouch-and-upscale SOP that sets when and how AI is applied without altering colors, shapes, framing or subject identity.",
       "Studio & agency collaboration: partnered with a creative studio and ad agency on a footwear brand campaign, taking 8 looks from art direction to final approved artwork — Gemini Nano Banana 2 and Nano Banana Pro for base imagery, composited and finished in Photoshop, detail refined with Flux 2 Pro — validating every look against the art direction and brand intent.",
       "Quality evaluation: evaluate AI-generated imagery for fidelity, composition, lighting and artifacts (distorted geometry, false shadows, spatial inconsistencies, hallucinated elements); built an AI Image QA Agent prototype that turns reviewer criteria into consistent, structured evaluation signal.",
-      "Built 10+ reusable ComfyUI workflows and prompt frameworks that cut prompt iteration time by 50% and improved output consistency across projects.",
+      "Workflows & prompt frameworks: built 10+ reusable ComfyUI workflows and prompt frameworks that cut prompt iteration time by 50% and improved output consistency across projects.",
     ],
   },
   {
     role: "Subject Matter Expert – Visual Content Quality",
+    scope: "Program & project management",
     org: "Amazon",
     location: "Hyderabad",
     period: "2024 – 2025",
     highlight: { value: "$18M", label: "annual cost avoidance" },
     summary:
-      "Owned the quality benchmark for customer-facing visuals; 35% fewer defects (~$18M cost avoidance) and a self-service QA tool I took through UAT to 80% self-service publication.",
+      "Owned the quality benchmark for customer-facing visuals and ran its programs end to end: 35% fewer defects (~$18M cost avoidance) and a self-service QA tool taken from framework through UAT to 80% self-service publication.",
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
+      "Project & program management: ran the Defect Elimination Program and the Self-Service QA Tool launch end to end — from framework and cross-functional partners (SDE, product, CX) to UAT, production rollout and adoption — tracked through weekly quality reviews and WBR reporting, with Lean Six Sigma (DMAIC) root-cause analysis.",
       "Quality benchmark owner: set the working quality standard for customer-facing visual assets across global marketplaces; authored SOPs, quality benchmarks and QA checklists adopted by international production and review teams as the calibration reference.",
       "Defect Elimination Program: led skill-gap analysis, weekly quality deep-dives and targeted training to raise first-time approval rates — 35% defect reduction, 18+ hours of weekly rework removed and ~$18M in annual cost avoidance.",
       "Self-Service QA Tool (SQT) – UAT & rollout: designed the end-to-end review framework, partnered with SDEs on features, owned UAT and production rollout, and drove adoption — 80% self-service publication, QA costs cut by 75% and $1M in annual OPEX saved.",
@@ -217,9 +240,9 @@ export const journey: Job[] = [
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
-      "Led global QA operations and mentored 70+ QA specialists across Chennai, Bengaluru and Hyderabad; delivered quality performance insights for 300+ content professionals across India and international sites.",
+      "Team leadership: led global QA operations and mentored 70+ QA specialists across Chennai, Bengaluru and Hyderabad; delivered quality performance insights for 300+ content professionals across India and international sites.",
       "QA tool redesign: identified review inefficiencies, directed the UI/UX redesign of the browser-based QA application, secured senior SDE leadership buy-in and led UAT for workflow automation and smarter data capture (scale and color utilities) — manual review time down 30%, QA productivity up 10% year over year.",
-      "Onboarded and certified 50+ new associates through structured training plans and standardized SOPs, reaching 100% production readiness; owned global defect-reporting queues with consistent SLA adherence.",
+      "Training & onboarding: onboarded and certified 50+ new associates through structured training plans and standardized SOPs, reaching 100% production readiness; owned global defect-reporting queues with consistent SLA adherence.",
     ],
   },
   {
@@ -233,9 +256,9 @@ export const journey: Job[] = [
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
-      "Produced production-ready 3D assets (modeling, texturing, lighting, rendering) for footwear, furniture, electronics and home categories using Maya, Substance Painter, ZBrush and Photoshop.",
-      "Built PyMEL automation linking Maya, Substance Painter and Photoshop, improving efficiency and consistency by 10%.",
-      "Co-authored asset guidelines and quality benchmarks with engineering and CX teams.",
+      "3D production: produced production-ready 3D assets (modeling, texturing, lighting, rendering) for footwear, furniture, electronics and home categories using Maya, Substance Painter, ZBrush and Photoshop.",
+      "Pipeline automation: built PyMEL automation linking Maya, Substance Painter and Photoshop, improving efficiency and consistency by 10%.",
+      "Standards: co-authored asset guidelines and quality benchmarks with engineering and CX teams.",
     ],
   },
   {
@@ -249,9 +272,9 @@ export const journey: Job[] = [
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
-      "Delivered post-production for Amazon Fashion product videos in Premiere Pro, After Effects and DaVinci Resolve.",
-      "Set a global video-editing SOP with studios in India, Romania and China.",
-      "Built automation templates that doubled editing throughput.",
+      "Post-production: delivered post-production for Amazon Fashion product videos in Premiere Pro, After Effects and DaVinci Resolve.",
+      "Global SOP: set a global video-editing SOP with studios in India, Romania and China.",
+      "Automation: built automation templates that doubled editing throughput.",
       "Practised Prime Video motion banners: re-edited a feature trailer in After Effects and adapted it to the Prime Video banner aspect-ratio SOP.",
     ],
   },
@@ -265,9 +288,9 @@ export const journey: Job[] = [
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
-      "Delivered high-volume retouching, color correction, compositing and background work for global platforms (Junglee, Quidsi) and brands including Woot, Mango, Senco and Cotopaxi.",
-      "Worked to strict style guides, with 100% client satisfaction.",
-      "Provided high-end retouching for the CVFF 2015 winners, supporting emerging fashion talent through the JFK13 Studio.",
+      "High-volume retouching: delivered high-volume retouching, color correction, compositing and background work for global platforms (Junglee, Quidsi) and brands including Woot, Mango, Senco and Cotopaxi.",
+      "Brand standards: worked to strict style guides, with 100% client satisfaction.",
+      "Fashion retouching: provided high-end retouching for the CVFF 2015 winners, supporting emerging fashion talent through the JFK13 Studio.",
     ],
   },
   {

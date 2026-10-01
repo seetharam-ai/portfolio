@@ -10,7 +10,7 @@ import { SkillsView } from "./views/SkillsView";
 import { WorkView } from "./views/WorkView";
 
 export default function App() {
-  const { view, sub } = useHashRoute();
+  const { view, sub, focus } = useHashRoute();
 
   return (
     <LightboxProvider>
@@ -18,13 +18,13 @@ export default function App() {
       {/* Keyed so each view plays its entrance animation */}
       <main className={`view view--${view}`} key={view}>
         {view === "home" && <HomeView />}
-        {view === "work" && <WorkView sub={sub} />}
+        {view === "work" && <WorkView sub={sub} focus={focus} />}
         {view === "experience" && <ExperienceView />}
         {view === "skills" && <SkillsView />}
         {view === "credentials" && <CredentialsView />}
         {view === "contact" && <ContactView />}
       </main>
-      <footer className="site-footer">
+      <footer className="site-footer site-footer--dark">
         <span>© 2026 {hero.shortName}</span>
         <span>Designed & developed by {hero.shortName}</span>
       </footer>

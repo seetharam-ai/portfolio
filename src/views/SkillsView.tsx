@@ -1,3 +1,4 @@
+import { ProofLinks } from "../components/ProofLinks";
 import { aiModels, capabilities, genAiTools, productionSkills, technicalSkills, type Skill } from "../data/skills";
 
 export function SkillsView() {
@@ -18,6 +19,7 @@ export function SkillsView() {
             <span className="capability__num">{String(i + 1).padStart(2, "0")}</span>
             <h2 className="capability__area">{c.area}</h2>
             <p className="capability__items">{c.items.join(" · ")}</p>
+            <ProofLinks proof={c.proof} />
           </div>
         ))}
       </section>

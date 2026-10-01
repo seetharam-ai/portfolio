@@ -13,7 +13,8 @@ export function CredentialsView() {
           </h1>
         </div>
         <p className="view-note">
-          {certs.length} certifications across Gen AI, prompt engineering, UX, project management and Python.
+          {certs.length} certifications across Gen AI, prompt engineering, UX, project management, Lean Six Sigma and
+          Python.
         </p>
       </div>
 
@@ -46,9 +47,17 @@ function CertCard({ cert: c }: { cert: Cert }) {
         <code>{c.credential}</code>
       </p>
       <div className="cert__links">
-        <a href={c.href} target="_blank" className="text-link">
-          View certificate ↗
-        </a>
+        {c.parts ? (
+          c.parts.map((p) => (
+            <a key={p.href} href={p.href} target="_blank" className="text-link">
+              {p.label} ↗
+            </a>
+          ))
+        ) : (
+          <a href={c.href} target="_blank" className="text-link">
+            View certificate ↗
+          </a>
+        )}
         {c.verify && (
           <a href={c.verify} target="_blank" className="text-link text-link--muted">
             Verify ↗

@@ -117,24 +117,25 @@ export const recentWorks: RecentWork[] = [
             <b>Languages</b> Japanese → English
           </span>
           <span>
-            <b>Tools</b> Photoshop · Gemini Nano Banana 2 · Premiere Pro · Claude
+            <b>Tools</b> Photoshop with Gemini Nano Banana · Premiere Pro · Claude (research)
           </span>
         </p>
         <h4>Reading the intent first:</h4>
         <p>
-          I researched the film and took the theme from Prime Video’s press release for the second film, so every
-          format carries the same story and tone as the source.
+          I researched the film with Claude, and took the official Japanese key art from Prime Video’s press release
+          for the second film as the master, so every format carries the same story and tone as the source.
         </p>
         <h4>What I did:</h4>
         <ul>
           <li>
-            <b>English localization (16:9):</b> rebuilt the title lockup, subtitle and billing in English in the same
-            position and visual weight as the Japanese master; the cast, submarine and ice stay untouched.
+            <b>English localization (16:9):</b> translated the title from Japanese to English with Gemini Nano Banana
+            in Photoshop, then refined the lockup, subtitle and billing to match the Japanese master’s position and
+            visual weight; the cast, submarine and ice stay untouched.
           </li>
           <li>
             <b>Poster 2:3 and Cover 1:1:</b> recomposed the wide art for tall and square frames: the cast grouped at
-            the top, the submarine as the centre of action, and the title lockup moved to the lower third. The
-            background was extended with Gemini Nano Banana 2 and finished in Photoshop.
+            the top, the submarine as the centre of action, and the title lockup moved to the lower third, finished
+            in Photoshop.
           </li>
           <li>
             <b>Japanese versions:</b> the same compositions with the Japanese calligraphic title and subtitle, so both
@@ -298,7 +299,7 @@ export const recentWorks: RecentWork[] = [
             <b>Award</b> Amazon Bash 2019
           </span>
           <span>
-            <b>My role</b> Writer, director, editor · key art
+            <b>My role</b> Writer, director, editor (cuts, sound &amp; AV mix) · key art
           </span>
           <span>
             <b>Formats</b> 2:3 · 9:16 · 16:9
@@ -331,6 +332,40 @@ export const recentWorks: RecentWork[] = [
             hint at the ending, and the title held low across the centre.
           </li>
         </ul>
+        <h4>The narrative plan (pre-production):</h4>
+        <p>
+          Before the shoot I wrote a scene-by-scene plan, working title <i>CTRL Z</i>, listing the cast, props (a red
+          car, a box of beer bottles) and a shot list for every scene. The story is built to turn from fun to
+          consequence, then rewind:
+        </p>
+        <ol>
+          <li>
+            <b>The invite:</b> a WhatsApp group chat (“Today is Sneha’s marriage, we need to reach Hyderabad by
+            evening”), with each friend replying in character.
+          </li>
+          <li>
+            <b>Five introductions:</b> each friend is introduced in their own space, mid-routine (yoga, work on a
+            laptop, a workout, still asleep), and the car picks them up one by one; the late sleeper is the running gag.
+          </li>
+          <li>
+            <b>The highway song:</b> wide road shots and in-car moments cut to the song: cheering, a shared dance step,
+            waving out of the windows, a stop at a mountain view.
+          </li>
+          <li>
+            <b>Engine trouble:</b> the song ends and the tone shifts to suspense and comedy. Sent for the tool kit, one
+            friend opens the trunk and finds the beer.
+          </li>
+          <li>
+            <b>The choice:</b> each friend takes a bottle, the party song plays and the car speeds towards Hyderabad,
+            past the city board and onto a flyover, until the car flips.
+          </li>
+          <li>
+            <b>Breaking news:</b> a news reader on green screen reports that drunk passengers met with an accident.
+          </li>
+          <li>
+            <b>Rewind:</b> the film rewinds to the moment the trunk opened, and closes on “There is no Ctrl Z in life”.
+          </li>
+        </ol>
         <p>
           <b>Credits:</b> Written, directed &amp; edited by Seetha Rama Swamy · Cinematography: Namish Kashyap · Story:
           Dheeraj Jha

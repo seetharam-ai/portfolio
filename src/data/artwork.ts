@@ -67,7 +67,7 @@ export const corrections: BeforeAfter[] = [
   {
     title: "The Silent Service — Japanese key art localized to English (16:9)",
     description:
-      "The official Japanese 16:9 key art for the Prime Original's second film, localized to English: the title lockup, subtitle and billing rebuilt in English in the same position and visual weight, with the cast, submarine and ice untouched. Self-initiated spec exercise — not an official release. Source key art and trailer © Amazon and the rights holders.",
+      "The official Japanese 16:9 key art for the Prime Original's second film, localized to English: the title translated with Gemini Nano Banana in Photoshop, then the lockup, subtitle and billing refined to the same position and visual weight, with the cast, submarine and ice untouched. Self-initiated spec exercise — not an official release. Source key art and trailer © Amazon and the rights holders.",
     before: "images/artwork/key-art/silent-service/jp-16x9.jpg",
     after: "images/artwork/key-art/silent-service/en-16x9.jpg",
     fixes: ["Title localization", "Billing & date", "Layout and weight kept", "Art untouched"],
@@ -156,14 +156,14 @@ export const series: BeforeAfterSeries[] = [
 
 export const figmaWork: FigmaWork[] = [
   {
-    title: "Sentier — agency website concept: hero",
+    title: "Sentier — agency website concept: hero (practice piece)",
     description:
       "A split-screen hero for a research and design agency: “Research” and “Design” as two bold halves, light and dark, joined by one line about working across disciplines.",
     src: "images/artwork/figma/sentier-hero.jpg",
     link: "https://www.figma.com/design/GSuKS7B1Sc6F47ty1nsu3C/WS?node-id=0-1",
   },
   {
-    title: "Sentier — agency website concept: about",
+    title: "Sentier — agency website concept: about (practice piece)",
     description:
       "The about section: team photography masked into the four brand shapes (circle, triangle, square, circle) from the logo, each with its own colour outline.",
     src: "images/artwork/figma/sentier-about.jpg",

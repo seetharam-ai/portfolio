@@ -1,4 +1,5 @@
 import type { KeyArtSet } from "../data/artwork";
+import { thumb } from "../utils/media";
 import { Thumb } from "./Thumb";
 
 /** One title's artwork variants side by side, each in its true aspect ratio. */
@@ -30,10 +31,25 @@ export function KeyArtVariants({
   return (
     <div className="keyart__variants">
       {variants.map((v, i) => (
-        <figure key={v.src} className="keyart__variant" style={{ flexGrow: ratioValue(v.ratio) }}>
-          <button className="media-open" style={{ aspectRatio: v.ratio }} onClick={() => onOpen(i)}>
-            <Thumb src={v.src} alt={`${title} — ${v.label}`} loading="lazy" />
-          </button>
+        <figure
+          key={v.video ?? v.src}
+          className={v.video ? "keyart__variant keyart__variant--video" : "keyart__variant"}
+          style={{ flexGrow: ratioValue(v.ratio) }}
+        >
+          {v.video ? (
+            <video
+              src={v.video}
+              poster={thumb(v.src)}
+              style={{ aspectRatio: v.ratio }}
+              controls
+              playsInline
+              preload="none"
+            />
+          ) : (
+            <button className="media-open" style={{ aspectRatio: v.ratio }} onClick={() => onOpen(i)}>
+              <Thumb src={v.src} alt={`${title} — ${v.label}`} loading="lazy" />
+            </button>
+          )}
           <figcaption className="label">
             {v.label} · {v.ratio.replace(/\s/g, "")}
           </figcaption>

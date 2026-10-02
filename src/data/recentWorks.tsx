@@ -155,7 +155,7 @@ export const recentWorks: RecentWork[] = [
     ),
   },
   {
-    title: "Ip Man: Kung Fu Legend — 4-language localization: key art, title cards and vertical shorts",
+    title: "Ip Man: Kung Fu Legend — 4-language localization: key art, title lockups and vertical shorts",
     stacked: true,
     storyFrame: "16 / 9",
     variantSets: [
@@ -163,81 +163,90 @@ export const recentWorks: RecentWork[] = [
         label: "English",
         variants: [
           { label: "Key art", ratio: "16 / 9", src: `${IPM}/en-16x9.jpg` },
-          { label: "Poster", ratio: "2 / 3", src: `${IPM}/en-2x3.jpg` },
-          { label: "Key art", ratio: "4 / 3", src: `${IPM}/en-4x3.jpg` },
+          { label: "Key art", ratio: "3 / 4", src: `${IPM}/en-3x4.jpg` },
+          { label: "Short 30s", ratio: "9 / 16", src: `${IPM}/en-vertical-poster-v2.jpg`, video: "videos/ip-man-v2-en-9x16.mp4" },
         ],
       },
       {
         label: "Hindi",
         variants: [
           { label: "Key art", ratio: "16 / 9", src: `${IPM}/hi-16x9.jpg` },
-          { label: "Poster", ratio: "2 / 3", src: `${IPM}/hi-2x3.jpg` },
-          { label: "Key art", ratio: "4 / 3", src: `${IPM}/hi-4x3.jpg` },
+          { label: "Key art", ratio: "3 / 4", src: `${IPM}/hi-3x4.jpg` },
+          { label: "Short 30s", ratio: "9 / 16", src: `${IPM}/hi-vertical-poster-v2.jpg`, video: "videos/ip-man-v2-hi-9x16.mp4" },
         ],
       },
       {
         label: "Tamil",
         variants: [
           { label: "Key art", ratio: "16 / 9", src: `${IPM}/ta-16x9.jpg` },
-          { label: "Poster", ratio: "2 / 3", src: `${IPM}/ta-2x3.jpg` },
-          { label: "Key art", ratio: "4 / 3", src: `${IPM}/ta-4x3.jpg` },
+          { label: "Key art", ratio: "3 / 4", src: `${IPM}/ta-3x4.jpg` },
+          { label: "Short 30s", ratio: "9 / 16", src: `${IPM}/ta-vertical-poster-v2.jpg`, video: "videos/ip-man-v2-ta-9x16.mp4" },
         ],
       },
       {
         label: "Telugu",
         variants: [
           { label: "Key art", ratio: "16 / 9", src: `${IPM}/te-16x9.jpg` },
-          { label: "Poster", ratio: "2 / 3", src: `${IPM}/te-2x3.jpg` },
-          { label: "Key art", ratio: "4 / 3", src: `${IPM}/te-4x3.jpg` },
+          { label: "Key art", ratio: "3 / 4", src: `${IPM}/te-3x4.jpg` },
+          { label: "Short 30s", ratio: "9 / 16", src: `${IPM}/te-vertical-poster-v2.jpg`, video: "videos/ip-man-v2-te-9x16.mp4" },
         ],
       },
-    ],
-    verticalVideos: [
-      { src: "videos/ip-man-en-9x16.mp4", poster: `${IPM}/en-vertical-poster.jpg`, label: "Vertical 30s · English" },
-      { src: "videos/ip-man-hi-9x16.mp4", poster: `${IPM}/hi-vertical-poster.jpg`, label: "Vertical 30s · Hindi" },
-      { src: "videos/ip-man-ta-9x16.mp4", poster: `${IPM}/ta-vertical-poster.jpg`, label: "Vertical 30s · Tamil" },
-      { src: "videos/ip-man-te-9x16.mp4", poster: `${IPM}/te-vertical-poster.jpg`, label: "Vertical 30s · Telugu" },
+      {
+        label: "Textless",
+        variants: [
+          { label: "Background", ratio: "16 / 9", src: `${IPM}/textless-16x9.jpg` },
+          { label: "Background", ratio: "3 / 4", src: `${IPM}/textless-3x4.jpg` },
+        ],
+      },
     ],
     body: (
       <>
         <p>
           An end-to-end localization package for the martial-arts film <i>Ip Man: Kung Fu Legend</i>, for four
-          markets: English, Hindi, Tamil and Telugu. I planned the core concept and delivered it from source to
-          final renders: the film’s title card localized into each language, key art composed in every aspect ratio,
-          and a 30-second vertical short per language.
+          markets: English, Hindi, Tamil and Telugu. I planned the core concept and delivered it from the source film
+          to final renders: the title translated and lettered in each language, key art in 16:9 and 3:4 with a
+          textless background, and a 30-second vertical short per language.
         </p>
         <p className="fact-chips">
           <span>
-            <b>Languages</b> English · Hindi · Tamil · Telugu
+            <b>Languages</b> English → Hindi · Tamil · Telugu
           </span>
           <span>
-            <b>Formats</b> 16:9 · 2:3 · 4:3 · 9:16 video
+            <b>Formats</b> 16:9 · 3:4 · textless · 9:16 video
           </span>
           <span>
-            <b>Tools</b> Gemini Nano Banana 2 · Photoshop · Premiere Pro
+            <b>Tools</b> Photoshop · Premiere Pro · Adobe Firefly (Gemini) · Gemini Nano Banana 2
           </span>
         </p>
         <h4>What I did:</h4>
         <ul>
           <li>
-            <b>Title card localization:</b> extracted the original title card from the film and translated it into
-            English, Hindi, Tamil and Telugu with Gemini Nano Banana 2, keeping the calligraphy, seal and colour of
-            the source.
+            <b>Translation:</b> translated the title and the dialogue from English into Telugu, Hindi and Tamil.
           </li>
           <li>
-            <b>Key art in every ratio (Photoshop):</b> composed each localized title onto the key art in 16:9, 2:3 and
-            4:3, with the same imagery in every size.
+            <b>Title lockups:</b> extracted the original title card from the film; a first pass was translated with
+            Gemini Nano Banana 2, and I typeset the final white-and-red lockups by hand in Photoshop, keeping the
+            brush calligraphy and seal of the source.
           </li>
           <li>
-            <b>Vertical shorts (Premiere Pro):</b> cut the film into a 9:16 short and rendered it separately for each
-            language, with that language’s dialogue, English subtitles and the localized title card at the end.
+            <b>Key art (Photoshop):</b> built the teal, mist-and-mountains key art over several background and
+            composition passes, then delivered 16:9 and 3:4 in every language plus a textless background, with the
+            same imagery in every size.
+          </li>
+          <li>
+            <b>Vertical shorts (Premiere Pro):</b> a 9:16 jump-cut edit rendered separately for each language, with
+            that language’s dialogue, English subtitles, a sound mix, and the localized title card at the end.
+          </li>
+          <li>
+            <b>Audit:</b> checked every version for audio, sync and language accuracy before the final render.
           </li>
         </ul>
         <h4>Following the platform guidelines:</h4>
         <p>
-          I checked the artwork against the Prime Video Direct graphic assets guide: consistent imagery across sizes,
-          one cohesive image with no borders or stretching, a title that stays legible with enough contrast when
-          scaled down, and no title over the main cast’s faces.
+          Sizes follow the Prime Video Direct graphic assets guide for standalone titles (Key Art 16:9 at
+          1920×1080, Key Art 3:4 at 1200×1600, and a 16:9 background). I also checked the design rules: consistent
+          imagery across sizes, one cohesive image with no borders or stretching, a title that stays legible with
+          enough contrast when scaled down, and no title over the main cast’s faces.
         </p>
         <p className="project__note">
           Self-initiated spec exercise — not an official release. Film footage and source artwork © the rights
@@ -247,38 +256,38 @@ export const recentWorks: RecentWork[] = [
     ),
     steps: [
       {
-        label: "Original title card",
-        caption: "The source: the title card extracted from the film.",
+        label: "Source title card",
+        caption: "The original title card, extracted from the film.",
         src: `${IPM}/title-original.jpg`,
         alt: "Ip Man: Kung Fu Legend — original title card from the film",
       },
       {
-        label: "English title card",
-        caption: "Translated with Gemini Nano Banana 2, keeping the brush calligraphy, the seal and the rust colour.",
-        src: `${IPM}/title-en.jpg`,
-        alt: "Ip Man: Kung Fu Legend title card — English",
+        label: "Round 1 · first concept",
+        caption: "A light ink-wash key art, with the title translated by Gemini Nano Banana 2.",
+        src: `${IPM}/round1-16x9.jpg`,
+        alt: "Round 1 — cream ink-wash key art concept",
       },
       {
-        label: "Hindi title card",
-        caption: "Translated with Gemini Nano Banana 2, keeping the brush calligraphy, the seal and the rust colour.",
-        src: `${IPM}/title-hi.jpg`,
-        alt: "Ip Man: Kung Fu Legend title card — Hindi",
+        label: "Round 2 · teal background pass",
+        caption: "A new teal, mist-and-mountains background generated in Adobe Firefly (Gemini), keeping the cast.",
+        src: `${IPM}/teal-pass-1.jpg`,
+        alt: "Round 2 — teal background pass",
       },
       {
-        label: "Tamil title card",
-        caption: "Translated with Gemini Nano Banana 2, keeping the brush calligraphy, the seal and the rust colour.",
-        src: `${IPM}/title-ta.jpg`,
-        alt: "Ip Man: Kung Fu Legend title card — Tamil",
+        label: "Round 3 · title and tagline test",
+        caption: "The background refined in Photoshop, with the title and a tagline placed to test balance and contrast.",
+        src: `${IPM}/teal-pass-2.jpg`,
+        alt: "Round 3 — teal key art with title and tagline test",
       },
       {
-        label: "Telugu title card",
-        caption: "Translated with Gemini Nano Banana 2, keeping the brush calligraphy, the seal and the rust colour.",
-        src: `${IPM}/title-te.jpg`,
-        alt: "Ip Man: Kung Fu Legend title card — Telugu",
+        label: "Final title lockups",
+        caption: "English, Hindi, Tamil and Telugu, typeset by hand in Photoshop over the source calligraphy.",
+        src: `${IPM}/titles-final.jpg`,
+        alt: "Final title lockups in English, Hindi, Tamil and Telugu",
       },
       {
         label: "Premiere Pro timeline",
-        caption: "One edit for all four shorts: English subtitles on top, a localized title card per language, and a separate audio track per language.",
+        caption: "One jump-cut edit for all four shorts: English subtitles on top, a title card per language, and a separate audio track per language for the mix.",
         src: `${IPM}/premiere-timeline.jpg`,
         alt: "Premiere Pro timeline for the vertical shorts",
       },

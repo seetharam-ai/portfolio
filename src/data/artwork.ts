@@ -22,7 +22,10 @@ export interface KeyArtSet {
     label: string;
     /** Aspect ratio used for the frame, e.g. "2 / 3" or "16 / 9". */
     ratio: string;
+    /** Image, or the poster frame when `video` is set. */
     src: string;
+    /** A video placement (e.g. a 9:16 short) played inline in the row. */
+    video?: string;
   }[];
 }
 
@@ -187,6 +190,8 @@ export interface FeaturedItem {
   size: "xl" | "tall" | "wide" | "std" | "full";
   /** Caption at the top (when the image has its own title at the bottom). */
   captionTop?: boolean;
+  /** Which part of the image stays in the crop (CSS object-position), e.g. "45% 50%". */
+  focus?: string;
 }
 
 export const homeFeatured: FeaturedItem[] = [
@@ -209,20 +214,21 @@ export const homeFeatured: FeaturedItem[] = [
     size: "tall",
   },
   {
-    kind: "image",
-    src: "images/artwork/key-art/gladiator-ashes-of-rome/poster-ja.jpg",
-    title: "Gladiator: Ashes of Rome",
-    badge: "Title localization · 4 languages",
-    link: "work/projects/gladiator-ashes-of-rome",
-    size: "std",
+    kind: "video",
+    src: "videos/ip-man-v2-en-9x16.mp4",
+    poster: "images/artwork/key-art/ip-man/en-vertical-poster-v2.jpg",
+    title: "Ip Man — 30s vertical short",
+    badge: "9:16 · 4 language versions",
+    link: "work/projects/ip-man-kung-fu-legend",
+    size: "tall",
   },
   {
     kind: "image",
-    src: "images/artwork/key-art/control-zindagi/poster-2x3.jpg",
-    title: "Control Zindagi",
-    badge: "Film & TV artwork",
-    link: "work/projects/control-zindagi",
-    size: "std",
+    src: "images/artwork/key-art/ip-man/en-16x9.jpg",
+    title: "Ip Man: Kung Fu Legend",
+    badge: "Localization · EN · HI · TA · TE",
+    link: "work/projects/ip-man-kung-fu-legend",
+    size: "wide",
   },
   {
     kind: "video",
@@ -240,6 +246,16 @@ export const homeFeatured: FeaturedItem[] = [
     badge: "Studio & agency · 8 looks",
     link: "work/before-after",
     size: "wide",
+  },
+  {
+    kind: "image",
+    src: "images/artwork/key-art/control-zindagi/background-16x9.jpg",
+    title: "Control Zindagi",
+    badge: "Film & TV artwork",
+    link: "work/projects/control-zindagi",
+    size: "wide",
+    captionTop: true,
+    focus: "50% 80%",
   },
   {
     kind: "image",

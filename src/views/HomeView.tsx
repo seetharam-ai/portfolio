@@ -140,7 +140,7 @@ function BentoCard({ item }: { item: FeaturedItem }) {
       ) : item.size === "full" ? (
         <img src={item.src} alt="" loading="lazy" />
       ) : (
-        <Thumb src={item.src} alt="" loading="lazy" />
+        <Thumb src={item.src} alt="" loading="lazy" style={item.focus ? { objectPosition: item.focus } : undefined} />
       )}
       {item.kind === "video" && <span className="bento__badge">▶ Video</span>}
       <span className="bento__text">

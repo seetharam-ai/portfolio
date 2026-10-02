@@ -3961,3 +3961,21 @@ font-size: var(--fs-sm);
 .project__verticals video {
   width: 100%;
 }
+
+/* Video placements inside a key-art row (e.g. a 9:16 short beside the posters) */
+.keyart__variant video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #000;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  object-fit: cover;
+}
+
+@media (max-width: 640px) {
+  .keyart__variant--video {
+    flex: 0 1 62% !important;
+    margin-inline: auto;
+  }
+}

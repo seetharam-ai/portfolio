@@ -46,6 +46,7 @@ const ROYAL = "images/projects/royal-court";
 const NIKE = "images/projects/nike-fyg";
 const SS = "images/artwork/key-art/silent-service";
 const IPM = "images/artwork/key-art/ip-man";
+const SWEET = "images/artwork/key-art/and-yet-sweet";
 const PRODUCT_JSON = `{
   "items": [
     {
@@ -100,7 +101,7 @@ export const recentWorks: RecentWork[] = [
     ],
     verticalVideos: [
       { src: "videos/silent-service-en-9x16.mp4", poster: `${SS}/en-vertical-poster.jpg`, label: "Vertical 30s · English title" },
-      { src: "videos/silent-service-jp-9x16.mp4", poster: `${SS}/jp-vertical-poster.jpg`, label: "Vertical 30s · Japanese title" },
+      { src: "videos/silent-service-jp-9x16-v2.mp4", poster: `${SS}/jp-vertical-poster-v2.jpg`, label: "Vertical 30s · Japanese version" },
     ],
     body: (
       <>
@@ -290,6 +291,110 @@ export const recentWorks: RecentWork[] = [
         caption: "One jump-cut edit for all four shorts: English subtitles on top, a title card per language, and a separate audio track per language for the mix.",
         src: `${IPM}/premiere-timeline.jpg`,
         alt: "Premiere Pro timeline for the vertical shorts",
+      },
+    ],
+  },
+  {
+    title: "And Yet, You Are So Sweet — Japanese & English key art, title animation and vertical shorts",
+    stacked: true,
+    storyFrame: "16 / 9",
+    variantSets: [
+      {
+        label: "Japanese title",
+        variants: [
+          { label: "Cover art", ratio: "16 / 9", src: `${SWEET}/jp-16x9.jpg` },
+          { label: "Poster art", ratio: "2 / 3", src: `${SWEET}/jp-2x3.jpg` },
+          { label: "Short 44s", ratio: "9 / 16", src: `${SWEET}/jp-short-poster.jpg`, video: "videos/and-yet-sweet-jp-short-9x16.mp4" },
+          { label: "Title animation", ratio: "9 / 16", src: `${SWEET}/jp-title-anim-poster.jpg`, video: "videos/and-yet-sweet-jp-title-anim.mp4" },
+        ],
+      },
+      {
+        label: "English title",
+        variants: [
+          { label: "Cover art", ratio: "16 / 9", src: `${SWEET}/en-16x9.jpg` },
+          { label: "Poster art", ratio: "2 / 3", src: `${SWEET}/en-2x3.jpg` },
+          { label: "Short 44s", ratio: "9 / 16", src: `${SWEET}/en-short-poster.jpg`, video: "videos/and-yet-sweet-en-short-9x16.mp4" },
+          { label: "Title animation", ratio: "9 / 16", src: `${SWEET}/en-title-anim-poster.jpg`, video: "videos/and-yet-sweet-en-title-anim.mp4" },
+        ],
+      },
+    ],
+    body: (
+      <>
+        <p>
+          A key-art and short-form package for the Japanese live-action romance <i>And Yet, You Are So Sweet</i>{" "}
+          (<span lang="ja">なのに、千輝くんが甘すぎる。</span>). I watched the entire film first to understand its concept,
+          theme and tone, then designed cover and poster art with two title versions, Japanese and English, an
+          animated title reveal, and a vertical short in each version.
+        </p>
+        <p className="fact-chips">
+          <span>
+            <b>Versions</b> Japanese title · English title
+          </span>
+          <span>
+            <b>Formats</b> 16:9 cover · 2:3 poster · 9:16 video
+          </span>
+          <span>
+            <b>Tools</b> Photoshop · Illustrator · Topaz Gigapixel · Google Flow (Veo) · Premiere Pro
+          </span>
+        </p>
+        <h4>What I did:</h4>
+        <ul>
+          <li>
+            <b>Reading the film:</b> watched the whole film to find the concept and theme before designing anything,
+            so the artwork carries the film’s light, sweet tone.
+          </li>
+          <li>
+            <b>Key art (Photoshop):</b> built two scenes — the couple on an old boat by the harbour at dusk, and the
+            shared-drink close-up — from a mix of film stills and AI-assisted background work, upscaled with Topaz
+            Gigapixel and finished in Photoshop.
+          </li>
+          <li>
+            <b>Title design (Illustrator):</b> designed both lockups myself: the Japanese title set vertically, and
+            an English brush-script version with a heart flourish, each placed clear of the cast’s faces.
+          </li>
+          <li>
+            <b>Title animation (Google Flow, Veo):</b> animated title reveals for the poster, with butterflies and
+            sparkles drawing in the title.
+          </li>
+          <li>
+            <b>Vertical shorts (Premiere Pro):</b> picked the clips from the film by hand, cut a 44-second 9:16 short,
+            mixed the sound, and ended each version on its animated title card, with English subtitles.
+          </li>
+        </ul>
+        <h4>Following the platform guidelines:</h4>
+        <p>
+          Built to Prime Video’s artwork specifications (Japan): cover art 16:9 at 3840×2160 and poster art 2:3 at
+          2000×3000, each with the title displayed and under the 10 MB file limit.
+        </p>
+        <p className="project__note">
+          Self-initiated spec exercise — not an official release. Film footage and stills © the rights holders.
+        </p>
+      </>
+    ),
+    steps: [
+      {
+        label: "Scene pass 1",
+        caption: "Exploring the harbour setting for the poster.",
+        src: `${SWEET}/scene-pass-1.jpg`,
+        alt: "Scene pass — beach with boats",
+      },
+      {
+        label: "Scene pass 2",
+        caption: "The couple on the boat, before the dusk grade and recomposition.",
+        src: `${SWEET}/scene-pass-2.jpg`,
+        alt: "Scene pass — couple on a boat",
+      },
+      {
+        label: "Title vectors (Illustrator)",
+        caption: "Both lockups designed as vectors: the English brush script and the vertical Japanese title.",
+        src: `${SWEET}/title-vectors.jpg`,
+        alt: "English and Japanese title vectors",
+      },
+      {
+        label: "Placement test",
+        caption: "Testing the Japanese title’s size and position against the sky before the final colour.",
+        src: `${SWEET}/title-placement-test.jpg`,
+        alt: "Poster with the Japanese title in a test colour",
       },
     ],
   },

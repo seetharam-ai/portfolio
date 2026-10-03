@@ -27,6 +27,12 @@ export const projectMeta: Record<string, ProjectMeta> = {
     tags: ["EN → HI · TA · TE", "16:9 · 3:4 · 9:16", "Photoshop · Premiere Pro"],
     cover: "images/artwork/key-art/ip-man/en-16x9.jpg",
   },
+  "and-yet-you-are-so-sweet": {
+    kicker: "Key art · title design · video",
+    summary: "Cover and poster art with Japanese and English titles, an animated title reveal and vertical shorts for a Japanese romance.",
+    tags: ["JA · EN titles", "16:9 · 2:3 · 9:16", "Illustrator · Veo · Premiere Pro"],
+    cover: "images/artwork/key-art/and-yet-sweet/jp-16x9.jpg",
+  },
   "the-last-meridian": {
     kicker: "Key art localization",
     summary: "One master key art localized for six markets, including right-to-left Arabic and vertical Japanese.",

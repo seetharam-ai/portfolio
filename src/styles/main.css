@@ -3975,7 +3975,12 @@ font-size: var(--fs-sm);
 
 @media (max-width: 640px) {
   .keyart__variant--video {
-    flex: 0 1 62% !important;
+    flex: 0 1 calc(50% - 7px) !important;
     margin-inline: auto;
   }
+}
+
+/* Home bento: backfill gaps when tall and wide tiles mix (mainly on two-column phones) */
+.bento {
+  grid-auto-flow: row dense;
 }

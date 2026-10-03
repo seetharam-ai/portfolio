@@ -85,17 +85,17 @@ export const recentWorks: RecentWork[] = [
       {
         label: "English",
         variants: [
-          { label: "Background", ratio: "16 / 9", src: `${SS}/en-16x9.jpg` },
+          { label: "Cover", ratio: "16 / 9", src: `${SS}/en-16x9.jpg` },
           { label: "Poster", ratio: "2 / 3", src: `${SS}/en-2x3.jpg` },
-          { label: "Cover", ratio: "1 / 1", src: `${SS}/en-1x1.jpg` },
+          { label: "Square", ratio: "1 / 1", src: `${SS}/en-1x1.jpg` },
         ],
       },
       {
         label: "Japanese",
         variants: [
-          { label: "Background (source)", ratio: "16 / 9", src: `${SS}/jp-16x9.jpg` },
+          { label: "Cover (source)", ratio: "16 / 9", src: `${SS}/jp-16x9.jpg` },
           { label: "Poster", ratio: "2 / 3", src: `${SS}/jp-2x3.jpg` },
-          { label: "Cover", ratio: "1 / 1", src: `${SS}/jp-1x1.jpg` },
+          { label: "Square", ratio: "1 / 1", src: `${SS}/jp-1x1.jpg` },
         ],
       },
     ],
@@ -108,7 +108,7 @@ export const recentWorks: RecentWork[] = [
         <p>
           A full localization package for <i>The Silent Service: The Battle of the Arctic Ocean</i>, the second film in
           the Prime Original series. Starting from the official Japanese 16:9 key art and trailer, I produced every
-          placement a title needs, in English and Japanese: Background 16:9, Poster 2:3, Cover 1:1 and 30-second 9:16
+          placement a title needs, in English and Japanese: Cover 16:9, Poster 2:3, Square 1:1 and 30-second 9:16
           vertical trailers.
         </p>
         <p className="fact-chips">
@@ -135,7 +135,7 @@ export const recentWorks: RecentWork[] = [
             visual weight; the cast, submarine and ice stay untouched.
           </li>
           <li>
-            <b>Poster 2:3 and Cover 1:1:</b> recomposed the wide art for tall and square frames: the cast grouped at
+            <b>Poster 2:3 and Square 1:1:</b> recomposed the wide art for tall and square frames: the cast grouped at
             the top, the submarine as the centre of action, and the title lockup moved to the lower third, finished
             in Photoshop.
           </li>
@@ -464,6 +464,36 @@ export const recentWorks: RecentWork[] = [
             for left-to-right and right-to-left layouts.
           </li>
         </ul>
+        <h4>Review record — Japanese poster:</h4>
+        <p>The same correction, logged as structured feedback a tool or team can learn from:</p>
+        <table className="review-record">
+          <tbody>
+            <tr>
+              <th>Asset</th>
+              <td>Poster 2:3 · Japanese</td>
+            </tr>
+            <tr>
+              <th>Issue</th>
+              <td>A direct text swap put the vertical title on the centre axis, over the face and the star</td>
+            </tr>
+            <tr>
+              <th>Rule</th>
+              <td>The title must not cover the main character’s face or the focal point</td>
+            </tr>
+            <tr>
+              <th>Measure</th>
+              <td>Focal-zone overlap 53,310 px</td>
+            </tr>
+            <tr>
+              <th>Fix</th>
+              <td>Title set vertically (tategaki) in Mincho, in the negative space of the hood, at the master’s visual weight</td>
+            </tr>
+            <tr>
+              <th>Result</th>
+              <td>Focal-zone overlap 0 px · compliant</td>
+            </tr>
+          </tbody>
+        </table>
         <h4>Tools Used:</h4>
         <p>Art direction, typography, Python, Pillow, Playwright</p>
         <a href={`${TLM}/breakdown-ja.jpg`} target="_blank" className="btn-link">

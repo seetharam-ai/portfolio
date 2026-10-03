@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Thumb } from "../components/Thumb";
 import { homeFeatured, type FeaturedItem } from "../data/artwork";
-import { aiStance, hero, reviewLoop, stats } from "../data/site";
+import { aiStance, hero, reviewLoop, roleFit, stats } from "../data/site";
 import { href } from "../hooks/useHashRoute";
 import { thumb } from "../utils/media";
 import { cx } from "../utils/cx";
@@ -66,6 +66,25 @@ export function HomeView() {
         </div>
       </header>
 
+      <section className="band band--fit" aria-labelledby="home-fit">
+        <div className="wrap">
+          <h2 id="home-fit" className="mono-caps fit__title">
+            Built for artwork localization operations
+          </h2>
+          <ul className="fit">
+            {roleFit.map((f) => (
+              <li key={f.title}>
+                <a href={`#${f.link}`} className="fit__card">
+                  <strong>{f.title}</strong>
+                  <span>{f.text}</span>
+                  <span className="fit__link">See the work →</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <section className="band" aria-labelledby="home-work">
         <div className="wrap">
           <div className="band__head">
@@ -106,6 +125,7 @@ export function HomeView() {
                 <span className="step__n">{String(i + 1).padStart(2, "0")}</span>
                 <h3>{step.title}</h3>
                 <p>{step.short}</p>
+                <p className="step__proof">{step.proof}</p>
               </li>
             ))}
           </ol>

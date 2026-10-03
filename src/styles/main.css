@@ -3985,56 +3985,6 @@ font-size: var(--fs-sm);
   grid-auto-flow: row dense;
 }
 
-/* Home: "Built for artwork localization operations" proof strip */
-.band--fit {
-  padding-block: 40px 0;
-}
-
-.fit__title {
-  margin: 0 0 16px;
-  color: var(--muted);
-}
-
-.fit {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.fit__card {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  height: 100%;
-  padding: 20px 22px;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: var(--surface);
-  color: var(--ink-2);
-  font-size: var(--fs-sm);
-  line-height: 1.5;
-  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
-}
-
-.fit__card strong {
-  color: var(--ink);
-  font-size: var(--fs-h6);
-  font-weight: 600;
-}
-
-.fit__card:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
-}
-
-.fit__link {
-  margin-top: auto;
-  color: var(--accent-ink);
-  font-weight: 500;
-}
 
 /* Review loop: proof line under each step */
 .step__proof {
@@ -4072,26 +4022,7 @@ font-size: var(--fs-sm);
   letter-spacing: var(--ls-caps);
 }
 
-@media (max-width: 1100px) {
-  .fit {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
 
-@media (max-width: 640px) {
-  .fit {
-    grid-template-columns: 1fr;
-  }
-
-  .fit {
-    gap: 10px;
-  }
-
-}
-
-.band--fit + .band {
-  padding-top: 56px;
-}
 
 /* With a proof line, headings sit under the number and the proof sinks to the bottom */
 .step h3 {

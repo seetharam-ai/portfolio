@@ -87,30 +87,6 @@ export const reviewLoop: { title: string; short: string; text: string; proof: st
   },
 ];
 
-/** Home strip: what the work proves for an artwork localization operations role, each with its proof. */
-export const roleFit: { title: string; text: string; link: string }[] = [
-  {
-    title: "Cover, Background & Poster",
-    text: "Key art across 8 languages — including Arabic (right to left), vertical Japanese, Hindi, Tamil and Telugu.",
-    link: "work/projects/ip-man-kung-fu-legend",
-  },
-  {
-    title: "Built to Prime Video specs",
-    text: "Sizes, title display and file limits from the Prime Video Direct guide and Video Central (Japan).",
-    link: "work/projects/and-yet-you-are-so-sweet",
-  },
-  {
-    title: "Correct, not just create",
-    text: "Non-compliant and low-quality artwork fixed until it's compliant and compelling.",
-    link: "work/before-after",
-  },
-  {
-    title: "The quality benchmark",
-    text: "Standards 300+ creators and reviewers calibrate to; 35% fewer defects; UAT on two QA tools.",
-    link: "work/projects/setting-the-quality-bar-for-visual-content-at-scale",
-  },
-];
-
 /** One line on AI, under the loop. */
 export const aiStance = "AI assists at every step — generation, clean-up, detection. Taste and the final call stay human.";
 

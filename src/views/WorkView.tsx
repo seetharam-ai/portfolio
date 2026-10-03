@@ -475,10 +475,10 @@ function Corrections() {
             <BeforeAfterSlider item={c} onOpen={() => open(c)} />
           </div>
         ))}
-      {/* Portraits share one row height, landscapes another: widths follow each image's ratio. */}
+      {/* Portraits and landscapes in separate rows; each row's frames share one height and keep their own ratio. */}
       {[
-        corrections.filter((c) => !c.lead && (c.ratio ?? 1) < 1),
-        corrections.filter((c) => !c.lead && (c.ratio ?? 1) >= 1),
+        ...packRows(corrections.filter((c) => !c.lead && (c.ratio ?? 1) < 1)),
+        ...packRows(corrections.filter((c) => !c.lead && (c.ratio ?? 1) >= 1)),
       ].map(
         (row, r) =>
           row.length > 0 && (
@@ -502,6 +502,22 @@ function Corrections() {
       ))}
     </section>
   );
+}
+
+/** Splits pairs into rows whose ratios add up to at most `maxRatio`, so no row gets too short. */
+function packRows(items: BeforeAfter[], maxRatio = 3.6) {
+  const rows: BeforeAfter[][] = [];
+  let sum = 0;
+  for (const c of items) {
+    const r = c.ratio ?? 1;
+    if (rows.length === 0 || sum + r > maxRatio) {
+      rows.push([]);
+      sum = 0;
+    }
+    rows[rows.length - 1].push(c);
+    sum += r;
+  }
+  return rows;
 }
 
 /**

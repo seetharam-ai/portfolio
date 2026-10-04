@@ -82,6 +82,7 @@ export const projectMeta: Record<string, ProjectMeta> = {
     kicker: "AI production · QA iterations",
     summary: "Off-figure products transferred onto a model, with every review issue fed into the next prompt.",
     tags: ["ComfyUI", "JSON prompts", "3 iterations"],
+    cover: "images/projects/apparel-transfer/cover-16x10.jpg",
   },
   "ai-image-qa-agent-developed-using-agentic-ai-frameworks-claude": {
     kicker: "AI quality tooling",

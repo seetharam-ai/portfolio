@@ -88,6 +88,7 @@ export const recentWorks: RecentWork[] = [
           { label: "Cover", ratio: "16 / 9", src: `${SS}/en-16x9.jpg` },
           { label: "Poster", ratio: "2 / 3", src: `${SS}/en-2x3.jpg` },
           { label: "Square", ratio: "1 / 1", src: `${SS}/en-1x1.jpg` },
+          { label: "Vertical 30s", ratio: "9 / 16", src: `${SS}/en-vertical-poster.jpg`, video: "videos/silent-service-en-9x16.mp4" },
         ],
       },
       {
@@ -96,12 +97,9 @@ export const recentWorks: RecentWork[] = [
           { label: "Cover (source)", ratio: "16 / 9", src: `${SS}/jp-16x9.jpg` },
           { label: "Poster", ratio: "2 / 3", src: `${SS}/jp-2x3.jpg` },
           { label: "Square", ratio: "1 / 1", src: `${SS}/jp-1x1.jpg` },
+          { label: "Vertical 30s", ratio: "9 / 16", src: `${SS}/jp-vertical-poster-v2.jpg`, video: "videos/silent-service-jp-9x16-v2.mp4" },
         ],
       },
-    ],
-    verticalVideos: [
-      { src: "videos/silent-service-en-9x16.mp4", poster: `${SS}/en-vertical-poster.jpg`, label: "Vertical 30s · English title" },
-      { src: "videos/silent-service-jp-9x16-v2.mp4", poster: `${SS}/jp-vertical-poster-v2.jpg`, label: "Vertical 30s · Japanese version" },
     ],
     body: (
       <>

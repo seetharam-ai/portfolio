@@ -256,7 +256,14 @@ function Projects({ focus }: { focus?: string }) {
         return (
           <a key={work.title} href={href("work", `projects/${id}`)} className="case-row">
             <span className={cx("case-row__media", !cover && "is-empty")}>
-              {cover ? <Thumb src={cover} alt="" loading="lazy" /> : <span className="case-row__mark">{name}</span>}
+              {cover ? (
+                <>
+                  <Thumb src={cover} alt="" loading="lazy" className="case-row__blur" aria-hidden />
+                  <Thumb src={cover} alt="" loading="lazy" className="case-row__img" />
+                </>
+              ) : (
+                <span className="case-row__mark">{name}</span>
+              )}
             </span>
             <span className="case-row__text">
               <span className="mono-caps case-row__kicker">
@@ -486,20 +493,14 @@ function Corrections() {
             <BeforeAfterSlider item={c} onOpen={() => open(c)} />
           </div>
         ))}
-      {/* Portraits and landscapes in separate rows; each row's frames share one height and keep their own ratio. */}
-      {[
-        ...packRows(corrections.filter((c) => !c.lead && (c.ratio ?? 1) < 1)),
-        ...packRows(corrections.filter((c) => !c.lead && (c.ratio ?? 1) >= 1)),
-      ].map(
-        (row, r) =>
-          row.length > 0 && (
-            <div key={r} className="ba-row">
-              {row.map((c) => (
-                <BeforeAfterSlider key={c.title} item={c} onOpen={() => open(c)} style={{ flexGrow: c.ratio ?? 1 }} />
-              ))}
-            </div>
-          ),
-      )}
+      {/* Every pair in the same square card, so the grid reads evenly; images sit whole inside the frame. */}
+      <div className="ba-grid ba-grid--uniform">
+        {corrections
+          .filter((c) => !c.lead)
+          .map((c) => (
+            <BeforeAfterSlider key={c.title} item={c} onOpen={() => open(c)} />
+          ))}
+      </div>
       {series.map((s) => (
         <div key={s.title} className="ba-series">
           <h3 className="project__title">{s.title}</h3>
@@ -513,22 +514,6 @@ function Corrections() {
       ))}
     </section>
   );
-}
-
-/** Splits pairs into rows whose ratios add up to at most `maxRatio`, so no row gets too short. */
-function packRows(items: BeforeAfter[], maxRatio = 3.6) {
-  const rows: BeforeAfter[][] = [];
-  let sum = 0;
-  for (const c of items) {
-    const r = c.ratio ?? 1;
-    if (rows.length === 0 || sum + r > maxRatio) {
-      rows.push([]);
-      sum = 0;
-    }
-    rows[rows.length - 1].push(c);
-    sum += r;
-  }
-  return rows;
 }
 
 /**

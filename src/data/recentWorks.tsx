@@ -88,6 +88,7 @@ export const recentWorks: RecentWork[] = [
           { label: "Cover", ratio: "16 / 9", src: `${SS}/en-16x9.jpg` },
           { label: "Poster", ratio: "2 / 3", src: `${SS}/en-2x3.jpg` },
           { label: "Square", ratio: "1 / 1", src: `${SS}/en-1x1.jpg` },
+          { label: "Vertical 30s", ratio: "9 / 16", src: `${SS}/en-vertical-poster.jpg`, video: "videos/silent-service-en-9x16.mp4" },
         ],
       },
       {
@@ -96,12 +97,9 @@ export const recentWorks: RecentWork[] = [
           { label: "Cover (source)", ratio: "16 / 9", src: `${SS}/jp-16x9.jpg` },
           { label: "Poster", ratio: "2 / 3", src: `${SS}/jp-2x3.jpg` },
           { label: "Square", ratio: "1 / 1", src: `${SS}/jp-1x1.jpg` },
+          { label: "Vertical 30s", ratio: "9 / 16", src: `${SS}/jp-vertical-poster-v2.jpg`, video: "videos/silent-service-jp-9x16-v2.mp4" },
         ],
       },
-    ],
-    verticalVideos: [
-      { src: "videos/silent-service-en-9x16.mp4", poster: `${SS}/en-vertical-poster.jpg`, label: "Vertical 30s · English title" },
-      { src: "videos/silent-service-jp-9x16-v2.mp4", poster: `${SS}/jp-vertical-poster-v2.jpg`, label: "Vertical 30s · Japanese version" },
     ],
     body: (
       <>
@@ -1188,6 +1186,107 @@ export const recentWorks: RecentWork[] = [
     ],
   },
   {
+    title: "Consistent character — a custom LoRA trained on my own face",
+    stacked: true,
+    gallery: true,
+    body: (
+      <>
+        <p>
+          I trained a custom LoRA on a dataset of my own face, so an image model can generate the same person
+          consistently — one identity held across poses, outfits, lighting and environments.
+        </p>
+        <h4>What I did:</h4>
+        <p>
+          Trained a character LoRA on Flux 2 Klein and built it into a ComfyUI workflow for controlled, repeatable
+          character generation.
+        </p>
+        <h4>How I did it:</h4>
+        <ol>
+          <li>Trained the LoRA on my face dataset in fal.ai (Flux 2 Klein).</li>
+          <li>Generated detailed scene prompts with a QwenVL-4B-Instruct node in ComfyUI.</li>
+          <li>Rendered with Flux 2 Klein in ComfyUI, calling the character with the trigger word “tsrs2”.</li>
+          <li>Reviewed every output for character consistency across poses, lighting and environments.</li>
+        </ol>
+        <h4>Tools Used:</h4>
+        <p>fal.ai, Flux 2 Klein, ComfyUI, QwenVL-4B-Instruct</p>
+      </>
+    ),
+    images: [
+      { src: `${LORA}/lora-10.jpg`, alt: "LoRA output — fantasy armour at sunset" },
+      { src: `${LORA}/lora-09.jpg`, alt: "LoRA output — superhero suit on a city rooftop" },
+      { src: `${LORA}/lora-11.jpg`, alt: "LoRA output — climbing a rock face" },
+      { src: `${LORA}/lora-12.jpg`, alt: "LoRA output — Paris street in a camel coat" },
+      { src: `${LORA}/lora-03.jpg`, alt: "LoRA output — silver hair and headphones" },
+      { src: `${LORA}/lora-02.jpg`, alt: "LoRA output — three poses in a denim jacket" },
+      { src: `${LORA}/lora-01.jpg`, alt: "LoRA output — jumping pose in a blazer and hat" },
+      { src: `${LORA}/lora-07.jpg`, alt: "LoRA output — brown jacket against a white wall" },
+      { src: `${LORA}/lora-06.jpg`, alt: "LoRA output — outdoors on stone steps" },
+      { src: `${LORA}/lora-05.jpg`, alt: "LoRA output — seated on a yellow cube in a shearling jacket" },
+      { src: `${LORA}/lora-04.jpg`, alt: "LoRA output — standing on a yellow backdrop in a SEE THAT AI tee" },
+      { src: `${LORA}/lora-08.jpg`, alt: "LoRA output — red sweater, studio portrait" },
+      { src: `${LORA}/lora-13.jpg`, alt: "LoRA output — casual outfit on a beige backdrop" },
+    ],
+  },
+  {
+    title: "Built an AI app for unlimited AI image generation using agentic AI & ComfyUI",
+    body: (
+      <>
+        {AUTHOR}
+        <p>
+          Unlimited AI Image Generator is a premium web interface for local AI image creation, built using
+          ComfyUI and Streamlit. It enables seamless, distraction-free generation of high-quality images
+          using open-source models. The tool offers full control over parameters, real-time generation
+          tracking, and session-based history, and supports advanced models such as Flux 2
+          Klein — delivering unlimited, locally powered image generation without subscription limits.
+        </p>
+        <h4>Tools Used:</h4>
+        <p>ComfyUI, Streamlit, Python</p>
+        <a
+          href="https://github.com/seetharam-ai/unlimited-ai-image-generator"
+          target="_blank"
+          className="btn-link"
+        >
+          View GitHub Repository ↗
+        </a>
+      </>
+    ),
+    images: [{ src: "images/recent works/Image_generator_app.png", alt: "AI Agent Interface" }],
+  },
+  {
+    title: "Developed a custom node for ComfyUI for smart JSON data handling and prompt generation",
+    body: (
+      <>
+        <p>
+          I developed this node to streamline the process of working with JSON data in ComfyUI. It
+          eliminates the need for manual data manipulation and ensures that your data is always in the
+          correct format for your workflows.
+        </p>
+        <h4>Tools Used:</h4>
+        <p>ComfyUI, Python, JSON</p>
+        <h4>Key Features:</h4>
+        <ul>
+          <li>
+            Live JSON Loading: Pick any .json file from your computer and upload it directly to the
+            ComfyUI input directory.
+          </li>
+          <li>Real-time Preview & Edit: View and tweak JSON content inside the node.</li>
+          <li>Smart Search: Filter large datasets using comma-separated keywords.</li>
+          <li>
+            Prompt Extraction: Automatically extracts relative text fields to feed directly into CLIP Text
+            Encoders.
+          </li>
+        </ul>
+        <a href="https://github.com/seetharam-ai/ComfyUI-srnodes" target="_blank" className="btn-link">
+          View GitHub Repository ↗
+        </a>
+      </>
+    ),
+    images: [
+      { src: "images/recent works/Image to prompt generator.png", alt: "ComfyUI Node 1" },
+      { src: "images/recent works/JSON prompt smart loader.png", alt: "ComfyUI Node 2" },
+    ],
+  },
+  {
     title: "Balloon fish — legacy asset upscaled for production reuse",
     stacked: true,
     storyFrame: "4 / 3",
@@ -1266,107 +1365,6 @@ export const recentWorks: RecentWork[] = [
         src: `${FISH}/final.jpg`,
         alt: "Final — photorealistic balloon fish matching the input",
       },
-    ],
-  },
-  {
-    title: "Consistent character — a custom LoRA trained on my own face",
-    stacked: true,
-    gallery: true,
-    body: (
-      <>
-        <p>
-          I trained a custom LoRA on a dataset of my own face, so an image model can generate the same person
-          consistently — one identity held across poses, outfits, lighting and environments.
-        </p>
-        <h4>What I did:</h4>
-        <p>
-          Trained a character LoRA on Flux 2 Klein and built it into a ComfyUI workflow for controlled, repeatable
-          character generation.
-        </p>
-        <h4>How I did it:</h4>
-        <ol>
-          <li>Trained the LoRA on my face dataset in fal.ai (Flux 2 Klein).</li>
-          <li>Generated detailed scene prompts with a QwenVL-4B-Instruct node in ComfyUI.</li>
-          <li>Rendered with Flux 2 Klein in ComfyUI, calling the character with the trigger word “tsrs2”.</li>
-          <li>Reviewed every output for character consistency across poses, lighting and environments.</li>
-        </ol>
-        <h4>Tools Used:</h4>
-        <p>fal.ai, Flux 2 Klein, ComfyUI, QwenVL-4B-Instruct</p>
-      </>
-    ),
-    images: [
-      { src: `${LORA}/lora-01.jpg`, alt: "LoRA output — jumping pose in a blazer and hat" },
-      { src: `${LORA}/lora-02.jpg`, alt: "LoRA output — three poses in a denim jacket" },
-      { src: `${LORA}/lora-03.jpg`, alt: "LoRA output — silver hair and headphones" },
-      { src: `${LORA}/lora-04.jpg`, alt: "LoRA output — standing on a yellow backdrop in a SEE THAT AI tee" },
-      { src: `${LORA}/lora-05.jpg`, alt: "LoRA output — seated on a yellow cube in a shearling jacket" },
-      { src: `${LORA}/lora-06.jpg`, alt: "LoRA output — outdoors on stone steps" },
-      { src: `${LORA}/lora-07.jpg`, alt: "LoRA output — brown jacket against a white wall" },
-      { src: `${LORA}/lora-08.jpg`, alt: "LoRA output — red sweater, studio portrait" },
-      { src: `${LORA}/lora-09.jpg`, alt: "LoRA output — superhero suit on a city rooftop" },
-      { src: `${LORA}/lora-10.jpg`, alt: "LoRA output — fantasy armour at sunset" },
-      { src: `${LORA}/lora-11.jpg`, alt: "LoRA output — climbing a rock face" },
-      { src: `${LORA}/lora-12.jpg`, alt: "LoRA output — Paris street in a camel coat" },
-      { src: `${LORA}/lora-13.jpg`, alt: "LoRA output — casual outfit on a beige backdrop" },
-    ],
-  },
-  {
-    title: "Built an AI app for unlimited AI image generation using agentic AI & ComfyUI",
-    body: (
-      <>
-        {AUTHOR}
-        <p>
-          Unlimited AI Image Generator is a premium web interface for local AI image creation, built using
-          ComfyUI and Streamlit. It enables seamless, distraction-free generation of high-quality images
-          using open-source models. The tool offers full control over parameters, real-time generation
-          tracking, and session-based history, and supports advanced models such as Flux 2
-          Klein — delivering unlimited, locally powered image generation without subscription limits.
-        </p>
-        <h4>Tools Used:</h4>
-        <p>ComfyUI, Streamlit, Python</p>
-        <a
-          href="https://github.com/seetharam-ai/unlimited-ai-image-generator"
-          target="_blank"
-          className="btn-link"
-        >
-          View GitHub Repository ↗
-        </a>
-      </>
-    ),
-    images: [{ src: "images/recent works/Image_generator_app.png", alt: "AI Agent Interface" }],
-  },
-  {
-    title: "Developed a custom node for ComfyUI for smart JSON data handling and prompt generation",
-    body: (
-      <>
-        <p>
-          I developed this node to streamline the process of working with JSON data in ComfyUI. It
-          eliminates the need for manual data manipulation and ensures that your data is always in the
-          correct format for your workflows.
-        </p>
-        <h4>Tools Used:</h4>
-        <p>ComfyUI, Python, JSON</p>
-        <h4>Key Features:</h4>
-        <ul>
-          <li>
-            Live JSON Loading: Pick any .json file from your computer and upload it directly to the
-            ComfyUI input directory.
-          </li>
-          <li>Real-time Preview & Edit: View and tweak JSON content inside the node.</li>
-          <li>Smart Search: Filter large datasets using comma-separated keywords.</li>
-          <li>
-            Prompt Extraction: Automatically extracts relative text fields to feed directly into CLIP Text
-            Encoders.
-          </li>
-        </ul>
-        <a href="https://github.com/seetharam-ai/ComfyUI-srnodes" target="_blank" className="btn-link">
-          View GitHub Repository ↗
-        </a>
-      </>
-    ),
-    images: [
-      { src: "images/recent works/Image to prompt generator.png", alt: "ComfyUI Node 1" },
-      { src: "images/recent works/JSON prompt smart loader.png", alt: "ComfyUI Node 2" },
     ],
   },
 ];

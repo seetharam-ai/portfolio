@@ -19,9 +19,9 @@
   --accent-soft: #ece3dc;
 
   /* Type */
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Inter Tight", "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  --font-sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, Consolas, monospace;
 
   /* Type scale — every text style uses one of these */
   --fs-xs: 12px; /* captions, meta */
@@ -4093,6 +4093,1103 @@ font-size: var(--fs-sm);
   }
 
   .checklist__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =====================================================================
+   Savee-style home: one dark canvas, centred hero, poster fan, marquee,
+   word-by-word manifesto, smooth reveals. Headings: Geist 500, tight.
+   ===================================================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+.sv-home {
+  background: #0a0a0a;
+  color: #d4d4d4;
+}
+
+.sv-home .band--dark,
+.sv-home .band {
+  background: transparent;
+  color: #d4d4d4;
+}
+
+.sv-home .hero__name,
+.sv-home .band__title,
+.sv-home .cta-title,
+.sv-home .hero__stat dt,
+.sv-home .step h3,
+.sv-home .bento__title {
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  color: #fafafa;
+}
+
+.sv-home em {
+  font-style: normal;
+  color: var(--accent-bright);
+}
+
+/* Buttons: white pill + outline pill */
+.btn--light {
+  background: #fafafa;
+  color: #0a0a0a;
+  border: 1px solid #fafafa;
+}
+
+.btn--light:hover {
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.sv-home .btn {
+  transition: transform 0.35s var(--ease), background 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+
+/* ---------- Hero ---------- */
+.hero--center {
+  position: relative;
+  padding-top: clamp(72px, 9vw, 128px);
+  background: #0a0a0a;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero__glow {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 70%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(42% 46% at 50% 78%, rgb(224 112 76 / 0.32), transparent 70%),
+    radial-gradient(30% 34% at 22% 92%, rgb(80 120 255 / 0.16), transparent 70%),
+    radial-gradient(30% 34% at 80% 90%, rgb(64 200 160 / 0.12), transparent 70%);
+  filter: blur(20px);
+}
+
+.hero__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero__me {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 6px 14px 6px 6px;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.04);
+  font-size: var(--fs-sm);
+  color: #a3a3a3;
+}
+
+.hero__me img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 60% 20%;
+}
+
+.hero__me strong {
+  font-weight: 500;
+  color: #fafafa;
+}
+
+.hero--center .hero__name {
+  margin-top: 28px;
+  font-size: clamp(48px, 7.4vw, 124px);
+  line-height: 0.98;
+}
+
+.hero--center .hero__role {
+  margin-top: 18px;
+  font-size: clamp(16px, 1.3vw, 20px);
+  font-weight: 500;
+  color: #fafafa;
+}
+
+.hero--center .hero__line {
+  max-width: 46ch;
+  margin: 14px auto 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: clamp(16px, 1.25vw, 19px);
+  letter-spacing: -0.01em;
+  color: #8a8a8a;
+}
+
+.hero--center .hero__cta {
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.hero--center .hero__meta {
+  justify-content: center;
+  margin-top: 22px;
+  font-size: var(--fs-sm);
+  color: #737373;
+}
+
+/* Poster fan: tilted and overlapping, it straightens and spreads as you scroll */
+.fan {
+  --p: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: clamp(300px, 34vw, 500px);
+  margin-top: clamp(48px, 6vw, 80px);
+}
+
+.fan__card {
+  --w: clamp(150px, 15vw, 240px);
+  --a: max(var(--i), calc(var(--i) * -1));
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--w);
+  aspect-ratio: 2 / 3;
+  margin-left: calc(var(--w) / -2);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgb(0 0 0 / 0.55);
+  transform:
+    translateX(calc(var(--i) * var(--w) * (0.62 + 0.5 * var(--p))))
+    translateY(calc(var(--a) * (34px - 26px * var(--p))))
+    rotate(calc(var(--i) * (7deg - 6deg * var(--p))))
+    scale(calc(1 - var(--a) * 0.05 * (1 - var(--p))));
+  z-index: calc(10 - var(--a) * 2);
+  transition: transform 0.6s var(--ease), box-shadow 0.4s var(--ease);
+  will-change: transform;
+}
+
+.fan__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fan__card:hover {
+  z-index: 20;
+  box-shadow: 0 40px 80px rgb(0 0 0 / 0.7);
+}
+
+.fan__lang {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgb(10 10 10 / 0.7);
+  backdrop-filter: blur(8px);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  color: #fafafa;
+}
+
+/* Language marquee */
+.marquee {
+  overflow: hidden;
+  margin-top: clamp(40px, 5vw, 64px);
+  padding: 18px 0;
+  border-block: 1px solid rgb(255 255 255 / 0.07);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.marquee__track {
+  display: flex;
+  gap: 64px;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+  font-size: clamp(20px, 2vw, 30px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #525252;
+  white-space: nowrap;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.sv-home .hero__stats {
+  border-top: 0;
+  margin-top: clamp(40px, 5vw, 64px);
+}
+
+.sv-home .hero__stat dt {
+  font-size: clamp(36px, 3.4vw, 54px);
+}
+
+.sv-home .hero__stat:first-child dt {
+  color: #fafafa;
+}
+
+.sv-home .hero__stat + .hero__stat {
+  border-left-color: rgb(255 255 255 / 0.08);
+}
+
+/* Manifesto: words light up as it scrolls past */
+.manifesto {
+  padding-block: clamp(80px, 11vw, 160px) clamp(40px, 5vw, 80px);
+}
+
+.manifesto__text {
+  --q: 0;
+  max-width: 30ch;
+  margin: 0 auto;
+  font-size: clamp(26px, 3vw, 46px);
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: -0.035em;
+  color: #fafafa;
+}
+
+.manifesto__text span {
+  opacity: clamp(0.16, calc((var(--q) * var(--n) * 1.15 - var(--w)) / 4), 1);
+  transition: opacity 0.25s linear;
+}
+
+/* Section heads and bento on the dark canvas */
+.sv-home .band__head {
+  margin-bottom: 36px;
+}
+
+.sv-home .band__note,
+.sv-home .text-link {
+  color: #8a8a8a;
+}
+
+.sv-home .bento__card {
+  border-radius: 20px;
+  background: #151515;
+  transition: transform 0.5s var(--ease);
+}
+
+.sv-home .bento__card:hover {
+  transform: translateY(-4px);
+}
+
+.sv-home .band__more {
+  justify-content: center;
+}
+
+.sv-home .step {
+  border-radius: 22px;
+  background: #121212;
+  border-color: rgb(255 255 255 / 0.07);
+}
+
+.sv-home .step__n {
+  color: #3a3a3a;
+}
+
+.sv-home .band--cta {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-top: 0;
+}
+
+.hero__glow--cta {
+  height: 100%;
+  opacity: 0.8;
+}
+
+/* Reveal: fade up, staggered */
+.sv-home [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s var(--ease) calc(var(--d, 0) * 90ms),
+    transform 0.9s var(--ease) calc(var(--d, 0) * 90ms);
+}
+
+.sv-home [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.hero__center [data-reveal]:nth-child(2) { --d: 1; }
+.hero__center [data-reveal]:nth-child(3) { --d: 2; }
+.hero__center [data-reveal]:nth-child(4) { --d: 3; }
+.hero__center [data-reveal]:nth-child(5) { --d: 4; }
+.hero__center [data-reveal]:nth-child(6) { --d: 5; }
+
+.sv-home.is-still .fan {
+  --p: 0.6;
+}
+
+.sv-home.is-still .marquee__track {
+  animation: none;
+}
+
+.sv-home.is-still .manifesto__text span {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .fan__card {
+    --w: clamp(120px, 30vw, 180px);
+  }
+
+  .fan {
+    height: clamp(220px, 60vw, 300px);
+  }
+}
+
+@media (max-width: 640px) {
+  .fan__card:nth-child(1),
+  .fan__card:nth-child(5) {
+    display: none;
+  }
+}
+
+.hero--center > .hero__glow {
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+}
+
+/* ---------- Hero name: calmer size, all white; job title in the accent ---------- */
+.hero--center .hero__name {
+  font-size: clamp(40px, 5.2vw, 84px);
+  line-height: 1;
+}
+
+.hero--center .hero__name em {
+  color: inherit;
+}
+
+.hero--center .hero__role {
+  color: var(--accent-bright);
+}
+
+/* =====================================================================
+   Nav: a slim floating glass pill (logo + name · plain links · CV)
+   ===================================================================== */
+.site-header,
+.site-header--dark {
+  top: 0;
+  height: auto;
+  padding: 12px var(--gutter) 0;
+  background: transparent;
+  border: 0;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  pointer-events: none;
+}
+
+.site-header__inner {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 880px;
+  height: auto;
+  margin: 0 auto;
+  padding: 6px 6px 6px 16px;
+  border: 1px solid rgb(255 255 255 / 0.09);
+  border-radius: 999px;
+  background: rgb(18 18 18 / 0.72);
+  -webkit-backdrop-filter: saturate(1.4) blur(18px);
+  backdrop-filter: saturate(1.4) blur(18px);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.25);
+  color: #fafafa;
+}
+
+.site-header .brand {
+  gap: 10px;
+}
+
+.site-header .brand__logo {
+  width: 24px;
+  filter: invert(1);
+}
+
+.site-header .brand__name {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #fafafa;
+}
+
+.site-header .brand__role {
+  display: none;
+}
+
+.site-header .view-nav,
+.site-header--dark .view-nav {
+  gap: 2px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.site-header .view-nav__link,
+.site-header--dark .view-nav__link {
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #a3a3a3;
+  background: none;
+}
+
+.site-header .view-nav__link:hover,
+.site-header--dark .view-nav__link:hover {
+  color: #fafafa;
+}
+
+.site-header .view-nav__link.is-active,
+.site-header--dark .view-nav__link.is-active {
+  background: rgb(255 255 255 / 0.1);
+  color: #fafafa;
+}
+
+.site-header .header-cv,
+.site-header--dark .header-cv {
+  padding: 8px 16px;
+  min-height: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #fafafa;
+  color: #0a0a0a;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.site-header .header-cv:hover,
+.site-header--dark .header-cv:hover {
+  background: #fff;
+  color: #0a0a0a;
+}
+
+/* Phones: brand + CV on top, the six links in a row underneath, same glass card */
+@media (max-width: 900px) {
+  .site-header,
+  .site-header--dark {
+    padding: 8px 10px 0;
+  }
+
+  .site-header__inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    row-gap: 6px;
+    padding: 8px;
+    border-radius: 22px;
+  }
+
+  .site-header .brand {
+    padding-left: 6px;
+  }
+
+  .site-header .view-nav,
+  .site-header--dark .view-nav {
+    grid-column: 1 / -1;
+    justify-content: space-between;
+  }
+
+  .site-header .view-nav__link,
+  .site-header--dark .view-nav__link {
+    padding: 7px clamp(4px, 1.6vw, 12px);
+    font-size: clamp(11.5px, 3.2vw, 14px);
+  }
+}
+
+/* Home: the whole page sits on the dark canvas, including behind the floating nav */
+html:has(.sv-home),
+body:has(.sv-home) {
+  background: #0a0a0a;
+}
+
+@media (max-width: 900px) {
+  .site-header__inner {
+    padding: 8px 6px;
+  }
+
+  .site-header .view-nav,
+  .site-header--dark .view-nav {
+    overflow: visible;
+  }
+
+  .site-header .view-nav__link,
+  .site-header--dark .view-nav__link {
+    flex: 0 1 auto;
+    padding: 7px clamp(3px, 1.1vw, 10px);
+    font-size: clamp(11px, 3vw, 14px);
+  }
+}
+
+/* "Currently" line: quiet, after the links, so the name leads the hero */
+.hero--center .hero__me {
+  margin-top: 26px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #737373;
+}
+
+.hero--center .hero__name {
+  margin-top: 0;
+}
+
+/* Nav: the current page is marked by its text colour only */
+.site-header .view-nav__link.is-active,
+.site-header--dark .view-nav__link.is-active {
+  background: none;
+  color: var(--accent-bright);
+}
+
+/* =====================================================================
+   Site-wide dark canvas (Savee style): every page shares the home look.
+   The light tokens are remapped, so components flip without new classes.
+   ===================================================================== */
+:root {
+  color-scheme: dark;
+  --paper: #0a0a0a;
+  --surface: #121212;
+  --surface-2: #1a1a1a;
+  --ink: #fafafa;
+  --ink-2: #d4d4d4;
+  --muted: #8a8a8a;
+  --faint: #5f5f5f;
+  --line: rgb(255 255 255 / 0.08);
+  --line-strong: rgb(255 255 255 / 0.16);
+  --accent: #c8553a;
+  --accent-ink: #f08a66;
+  --accent-soft: rgb(224 112 76 / 0.14);
+  --night: #0a0a0a;
+  --night-2: #121212;
+  --night-line: rgb(255 255 255 / 0.08);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+  --shadow-lg: 0 2px 4px rgb(0 0 0 / 0.4), 0 24px 48px -20px rgb(0 0 0 / 0.8);
+}
+
+html,
+body {
+  background: #0a0a0a;
+}
+
+body {
+  color: #d4d4d4;
+}
+
+/* Headings: Geist medium, tight, white */
+.view-title,
+.case-detail h1,
+.case-row__title,
+.project__title,
+.band__title,
+.grid-heading,
+.cert__title,
+.career__role,
+h1,
+h2,
+h3 {
+  letter-spacing: -0.035em;
+}
+
+.view-title,
+.case-detail h1,
+.band__title {
+  font-weight: 500;
+  color: #fafafa;
+}
+
+.view-title em,
+.band__title em {
+  font-style: normal;
+  color: var(--accent-bright);
+}
+
+/* Buttons and links that were drawn for a light page */
+.btn--ink,
+.btn--accent {
+  background: #fafafa;
+  color: #0a0a0a;
+  border-color: #fafafa;
+}
+
+.btn--ink:hover,
+.btn--accent:hover {
+  background: #fff;
+  color: #0a0a0a;
+}
+
+.btn--ghost {
+  border-color: rgb(255 255 255 / 0.22);
+  color: #fafafa;
+}
+
+.btn--ghost:hover {
+  border-color: #fafafa;
+}
+
+.text-link {
+  color: #fafafa;
+}
+
+.text-link:hover {
+  color: var(--accent-bright);
+}
+
+/* Cards and panels: soft dark surfaces with big radii */
+.case-row__media,
+.work-card__media,
+.cert,
+.checklist,
+.ba-card,
+.keyart__variant .media-open {
+  border-color: var(--line);
+}
+
+/* Scroll-linked reveal: content fades up as it enters (no JS; off for reduced motion) */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .case-row,
+    .work-card,
+    .ba-card,
+    .ba-lead,
+    .cert,
+    .story,
+    .project__variants,
+    .case-detail__story,
+    .career > *,
+    .cap,
+    .contact > * {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Active chips: white pill, dark text (ink is light on the dark canvas) */
+.view-head .chip.is-active,
+.work-filters .chip.is-active,
+.jump-sheet .chip.is-active {
+  background: #fafafa;
+  border-color: #fafafa;
+  color: #0a0a0a;
+}
+
+.view-head .chip.is-active .chip__count,
+.work-filters .chip.is-active .chip__count,
+.jump-sheet .chip.is-active .chip__count,
+.chip.is-active .chip__count {
+  color: #6b6b6b;
+}
+
+/* Tags and badges on images: dark glass pills */
+.play-badge,
+.work-card__kind,
+.ba-tag {
+  background: rgb(10 10 10 / 0.68);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: #fafafa;
+}
+
+/* Before/after handle stays white with dark arrows */
+.ba-handle span,
+.ba-handle span * {
+  color: #0a0a0a;
+}
+
+.ba-handle span::before {
+  color: #0a0a0a;
+}
+
+/* Primary buttons everywhere: the white pill (matches the home page) */
+.view--contact .btn--accent,
+.band--dark .btn--accent,
+.band__more .btn--accent,
+.hero .btn--accent {
+  background: #fafafa;
+  border-color: #fafafa;
+  color: #0a0a0a;
+}
+
+.view--contact .btn--accent:hover,
+.band--dark .btn--accent:hover,
+.band__more .btn--accent:hover,
+.hero .btn--accent:hover {
+  background: #fff;
+  color: #0a0a0a;
+}
+
+/* Home: a real portrait leads the hero (face, then name, then work) */
+.hero__portrait {
+  width: clamp(84px, 7vw, 104px);
+  height: clamp(84px, 7vw, 104px);
+  margin-bottom: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  background: #e9e6df;
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.14), 0 0 0 6px rgb(255 255 255 / 0.04), 0 18px 40px rgb(0 0 0 / 0.5);
+}
+
+/* Experience: the full portrait beside the intro */
+.experience__intro--portrait {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.42fr) minmax(0, 1fr);
+  gap: clamp(24px, 3vw, 44px);
+  align-items: start;
+}
+
+.xp-portrait {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
+  object-fit: cover;
+  object-position: 58% 18%;
+  background: #e9e6df;
+}
+
+@media (max-width: 640px) {
+  .experience__intro--portrait {
+    grid-template-columns: 1fr;
+  }
+
+  .xp-portrait {
+    max-width: 260px;
+  }
+}
+
+.experience__intro--portrait {
+  grid-template-columns: minmax(200px, 240px) minmax(0, 1fr);
+}
+
+.experience__intro--portrait > div {
+  display: grid;
+  gap: 14px;
+}
+
+.experience__intro--portrait > div p {
+  margin: 0;
+}
+
+/* Home bento: smaller tiles, more air between them */
+.sv-home .bento {
+  max-width: 1120px;
+  margin-inline: auto;
+  grid-auto-rows: clamp(170px, 14vw, 220px);
+  gap: clamp(16px, 1.8vw, 26px);
+}
+
+.sv-home .bento__card--full {
+  height: clamp(150px, 12vw, 190px);
+  align-self: center;
+}
+
+.sv-home .bento__text {
+  left: 18px;
+  right: 18px;
+  bottom: 16px;
+}
+
+.sv-home .bento__card.is-top .bento__text {
+  top: 16px;
+}
+
+.sv-home .bento__title {
+  font-size: clamp(16px, 1.25vw, 19px);
+  line-height: 1.25;
+}
+
+.sv-home .bento__card--xl .bento__title {
+  font-size: clamp(20px, 1.7vw, 26px);
+}
+
+.sv-home .band__head,
+.sv-home .band__more {
+  max-width: 1120px;
+  margin-inline: auto;
+}
+
+/* Home: justified rows; every tile keeps its image's own shape, so nothing is cropped */
+.bento-rows {
+  display: grid;
+  gap: clamp(16px, 1.8vw, 26px);
+  max-width: 1120px;
+  margin-inline: auto;
+}
+
+.bento-row {
+  display: flex;
+  gap: clamp(16px, 1.8vw, 26px);
+}
+
+.bento-row > .bento__card {
+  flex-basis: 0;
+  min-width: 0;
+  height: auto;
+}
+
+.bento-row > .bento__card img,
+.bento-row > .bento__card video {
+  object-fit: cover;
+}
+
+@media (max-width: 640px) {
+  /* Phones: the four-up row becomes two pairs; other rows stay as they are */
+  .bento-row {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .bento-rows {
+    gap: 10px;
+  }
+
+  .bento-row:first-child > .bento__card:first-child {
+    flex-basis: 100%;
+  }
+
+  .bento-row:first-child > .bento__card:not(:first-child) {
+    flex-basis: calc(33.333% - 7px);
+  }
+}
+
+@media (max-width: 640px) {
+  .bento-row > .bento__card {
+    flex-basis: 100%;
+  }
+
+  .bento-row:first-child > .bento__card:not(:first-child) {
+    flex-basis: calc(33.333% - 7px);
+  }
+
+  .bento-row > .bento__card[style*="0.6667"] {
+    flex-basis: 70%;
+    margin-inline: auto;
+  }
+}
+
+/* Narrow poster tile: title only, so the caption covers less of the art */
+.bento-row > .bento__card[style*="0.6667"] .bento__text .mono-caps {
+  display: none;
+}
+
+.bento-row > .bento__card[style*="0.6667"] .bento__title {
+  font-size: 15px;
+}
+
+@media (max-width: 640px) {
+  .bento-row > .bento__card[style*="0.5625"] .bento__text {
+    display: none;
+  }
+
+  .bento-row > .bento__card[style*="0.5625"] .bento__badge {
+    top: 8px;
+    left: 8px;
+  }
+}
+
+/* Language marquee: each language links to the project that shows it; hover pauses */
+.marquee__track a {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 12px;
+  color: #525252;
+  transition: color 0.3s var(--ease);
+}
+
+.marquee__to {
+  max-width: 0;
+  overflow: hidden;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0;
+  white-space: nowrap;
+  color: var(--accent-bright);
+  opacity: 0;
+  transition: max-width 0.45s var(--ease), opacity 0.3s var(--ease);
+}
+
+.marquee__track a:hover,
+.marquee__track a:focus-visible {
+  color: #fafafa;
+}
+
+.marquee__track a:hover .marquee__to,
+.marquee__track a:focus-visible .marquee__to {
+  max-width: 260px;
+  opacity: 1;
+}
+
+.marquee:hover .marquee__track,
+.marquee:focus-within .marquee__track {
+  animation-play-state: paused;
+}
+
+/* Language strip now sits between Selected work and the four steps */
+.sv-home > .marquee {
+  margin-top: 0;
+}
+
+/* Projects list: 16:9 frame, the whole image shown; other shapes sit on a blurred copy */
+.case-row__media {
+  aspect-ratio: 16 / 9;
+  isolation: isolate;
+}
+
+.case-row__media .case-row__blur {
+  position: absolute;
+  inset: -8%;
+  width: 116%;
+  height: 116%;
+  object-fit: cover;
+  filter: blur(28px) brightness(0.55) saturate(1.2);
+  z-index: -1;
+}
+
+.case-row__media .case-row__img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.case-row:hover .case-row__media .case-row__blur {
+  transform: none;
+}
+
+/* Selected work: a tighter, gallery-sized grid */
+.bento-rows {
+  max-width: 900px;
+  gap: 18px;
+}
+
+.bento-row {
+  gap: 18px;
+}
+
+.sv-home .band__head,
+.sv-home .band__more {
+  max-width: 900px;
+}
+
+.bento-row > .bento__card .bento__text {
+  left: 14px;
+  right: 14px;
+  bottom: 12px;
+  gap: 4px;
+}
+
+.bento-row > .bento__card.is-top .bento__text {
+  top: 12px;
+}
+
+.bento-row > .bento__card .bento__title {
+  font-size: 15px;
+}
+
+.bento-row > .bento__card .bento__text .mono-caps {
+  font-size: 10.5px;
+}
+
+.bento-row > .bento__card.is-top .bento__text {
+  bottom: auto;
+}
+
+/* Before / after: gallery-sized pairs */
+.ba-lead {
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+.ba-grid--wide {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .ba-grid--wide {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ba-row {
+    max-width: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .ba-grid--wide {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Before / after: one uniform card for every pair */
+.ba-grid--uniform {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+  margin-top: 28px;
+}
+
+.ba-grid--uniform .ba-frame {
+  aspect-ratio: 1 / 1;
+  background: #0d0d0e;
+}
+
+.ba-grid--uniform .ba-frame img,
+.ba-grid--uniform .ba-before img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ba-grid--uniform .work-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.ba-grid--uniform .more-btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+@media (max-width: 1100px) {
+  .ba-grid--uniform {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .ba-grid--uniform {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .ba-grid--uniform {
     grid-template-columns: 1fr;
   }
 }

@@ -3984,3 +3984,115 @@ font-size: var(--fs-sm);
 .bento {
   grid-auto-flow: row dense;
 }
+
+
+/* Review loop: proof line under each step */
+.step__proof {
+  margin-top: auto;
+  padding-top: 16px;
+  color: var(--accent-bright);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+}
+
+
+/* Case studies: a correction logged as a structured review record */
+.review-record {
+  width: 100%;
+  margin: 8px 0 20px;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+
+.review-record th,
+.review-record td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.review-record th {
+  width: 7.5em;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-caps);
+}
+
+
+
+/* With a proof line, headings sit under the number and the proof sinks to the bottom */
+.step h3 {
+  margin-top: 28px;
+}
+
+.step .step__proof {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+/* Before / after: the checklist applied to every asset */
+.checklist {
+  margin: 0 0 32px;
+  padding: 24px 28px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+}
+
+.checklist__title {
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+
+.checklist__list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: check;
+}
+
+.checklist__list li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  color: var(--ink-2);
+  counter-increment: check;
+}
+
+.checklist__list strong {
+  color: var(--ink);
+  font-size: var(--fs-base);
+  font-weight: 600;
+}
+
+.checklist__list strong::before {
+  content: counter(check, decimal-leading-zero) "  ";
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+}
+
+@media (max-width: 1100px) {
+  .checklist__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .checklist {
+    padding: 18px;
+  }
+
+  .checklist__list {
+    grid-template-columns: 1fr;
+  }
+}

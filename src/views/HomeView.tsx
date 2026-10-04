@@ -106,6 +106,7 @@ export function HomeView() {
                 <span className="step__n">{String(i + 1).padStart(2, "0")}</span>
                 <h3>{step.title}</h3>
                 <p>{step.short}</p>
+                <p className="step__proof">{step.proof}</p>
               </li>
             ))}
           </ol>

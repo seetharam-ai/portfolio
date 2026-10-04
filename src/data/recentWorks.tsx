@@ -85,17 +85,17 @@ export const recentWorks: RecentWork[] = [
       {
         label: "English",
         variants: [
-          { label: "Background", ratio: "16 / 9", src: `${SS}/en-16x9.jpg` },
+          { label: "Cover", ratio: "16 / 9", src: `${SS}/en-16x9.jpg` },
           { label: "Poster", ratio: "2 / 3", src: `${SS}/en-2x3.jpg` },
-          { label: "Cover", ratio: "1 / 1", src: `${SS}/en-1x1.jpg` },
+          { label: "Square", ratio: "1 / 1", src: `${SS}/en-1x1.jpg` },
         ],
       },
       {
         label: "Japanese",
         variants: [
-          { label: "Background (source)", ratio: "16 / 9", src: `${SS}/jp-16x9.jpg` },
+          { label: "Cover (source)", ratio: "16 / 9", src: `${SS}/jp-16x9.jpg` },
           { label: "Poster", ratio: "2 / 3", src: `${SS}/jp-2x3.jpg` },
-          { label: "Cover", ratio: "1 / 1", src: `${SS}/jp-1x1.jpg` },
+          { label: "Square", ratio: "1 / 1", src: `${SS}/jp-1x1.jpg` },
         ],
       },
     ],
@@ -108,7 +108,7 @@ export const recentWorks: RecentWork[] = [
         <p>
           A full localization package for <i>The Silent Service: The Battle of the Arctic Ocean</i>, the second film in
           the Prime Original series. Starting from the official Japanese 16:9 key art and trailer, I produced every
-          placement a title needs, in English and Japanese: Background 16:9, Poster 2:3, Cover 1:1 and 30-second 9:16
+          placement a title needs, in English and Japanese: Cover 16:9, Poster 2:3, Square 1:1 and 30-second 9:16
           vertical trailers.
         </p>
         <p className="fact-chips">
@@ -135,7 +135,7 @@ export const recentWorks: RecentWork[] = [
             visual weight; the cast, submarine and ice stay untouched.
           </li>
           <li>
-            <b>Poster 2:3 and Cover 1:1:</b> recomposed the wide art for tall and square frames: the cast grouped at
+            <b>Poster 2:3 and Square 1:1:</b> recomposed the wide art for tall and square frames: the cast grouped at
             the top, the submarine as the centre of action, and the title lockup moved to the lower third, finished
             in Photoshop.
           </li>
@@ -317,6 +317,30 @@ export const recentWorks: RecentWork[] = [
           { label: "Title animation", ratio: "9 / 16", src: `${SWEET}/en-title-anim-poster.jpg`, video: "videos/and-yet-sweet-en-title-anim.mp4" },
         ],
       },
+      {
+        label: "Box art — movies 3:4 · seasons 4:3",
+        variants: [
+          { label: "Box art JA", ratio: "3 / 4", src: `${SWEET}/jp-3x4.jpg` },
+          { label: "Box art EN", ratio: "3 / 4", src: `${SWEET}/en-3x4.jpg` },
+          { label: "Box art JA", ratio: "4 / 3", src: `${SWEET}/jp-4x3.jpg` },
+          { label: "Box art EN", ratio: "4 / 3", src: `${SWEET}/en-4x3.jpg` },
+        ],
+      },
+      {
+        label: "Background — textless, left side clear for the UI",
+        variants: [
+          { label: "Background", ratio: "16 / 9", src: `${SWEET}/background-16x9.jpg` },
+          { label: "Background · UI-side guide", ratio: "16 / 9", src: `${SWEET}/background-16x9-guide.jpg` },
+        ],
+      },
+      {
+        label: "Spec check — safe-zone guide overlays on",
+        variants: [
+          { label: "Cover JA · safe zone", ratio: "16 / 9", src: `${SWEET}/jp-16x9-guide.jpg` },
+          { label: "Poster JA · safe zone", ratio: "2 / 3", src: `${SWEET}/jp-2x3-guide.jpg` },
+          { label: "Poster EN · safe zone", ratio: "2 / 3", src: `${SWEET}/en-2x3-guide.jpg` },
+        ],
+      },
     ],
     body: (
       <>
@@ -331,7 +355,7 @@ export const recentWorks: RecentWork[] = [
             <b>Versions</b> Japanese title · English title
           </span>
           <span>
-            <b>Formats</b> 16:9 cover · 2:3 poster · 9:16 video
+            <b>Formats</b> Cover 16:9 · Background 16:9 · Poster 2:3 · Box art 3:4 &amp; 4:3 · 9:16 video
           </span>
           <span>
             <b>Tools</b> Photoshop · Illustrator · Topaz Gigapixel · Google Flow (Veo) · Premiere Pro
@@ -363,8 +387,11 @@ export const recentWorks: RecentWork[] = [
         </ul>
         <h4>Following the platform guidelines:</h4>
         <p>
-          Built to Prime Video’s artwork specifications (Japan): cover art 16:9 at 3840×2160 and poster art 2:3 at
-          2000×3000, each with the title displayed and under the 10 MB file limit.
+          Built to Prime Video’s artwork specifications (Japan): Cover 16:9 at 3840×2160 and Poster 2:3 at
+          2000×3000 with the title displayed, a textless Background 16:9 with the left side kept clear for the UI,
+          and Box art at 1920×2560 (movies) and 2560×1920 (seasons) — every file under the 10 MB limit. I checked
+          each asset with transparent guide overlays at delivery size (rows above): title margins measured 242 px
+          from the top of the Japanese cover (minimum 160 px) and 240–243 px on the posters (minimum 240 px).
         </p>
         <p className="project__note">
           Self-initiated spec exercise — not an official release. Film footage and stills © the rights holders.
@@ -441,7 +468,7 @@ export const recentWorks: RecentWork[] = [
         <p>
           A personal key-art project for a fictional prestige-drama original. I art-directed one master artwork and
           localized it for six markets — English, Spanish, Arabic (RTL), Hindi, Japanese (vertical) and Korean —
-          across Poster 2:3, Cover 1:1 and Background 16:9.
+          across Poster 2:3, Square 1:1 and Background 16:9.
         </p>
         <h4>My role:</h4>
         <p>
@@ -464,6 +491,36 @@ export const recentWorks: RecentWork[] = [
             for left-to-right and right-to-left layouts.
           </li>
         </ul>
+        <h4>Review record — Japanese poster:</h4>
+        <p>The same correction, logged as structured feedback a tool or team can learn from:</p>
+        <table className="review-record">
+          <tbody>
+            <tr>
+              <th>Asset</th>
+              <td>Poster 2:3 · Japanese</td>
+            </tr>
+            <tr>
+              <th>Issue</th>
+              <td>A direct text swap put the vertical title on the centre axis, over the face and the star</td>
+            </tr>
+            <tr>
+              <th>Rule</th>
+              <td>The title must not cover the main character’s face or the focal point</td>
+            </tr>
+            <tr>
+              <th>Measure</th>
+              <td>Focal-zone overlap 53,310 px</td>
+            </tr>
+            <tr>
+              <th>Fix</th>
+              <td>Title set vertically (tategaki) in Mincho, in the negative space of the hood, at the master’s visual weight</td>
+            </tr>
+            <tr>
+              <th>Result</th>
+              <td>Focal-zone overlap 0 px · compliant</td>
+            </tr>
+          </tbody>
+        </table>
         <h4>Tools Used:</h4>
         <p>Art direction, typography, Python, Pillow, Playwright</p>
         <a href={`${TLM}/breakdown-ja.jpg`} target="_blank" className="btn-link">

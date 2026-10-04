@@ -6,7 +6,7 @@ import { KeyArtCard, KeyArtVariants } from "../components/KeyArtCard";
 import { Storyboard } from "../components/Storyboard";
 import { Thumb } from "../components/Thumb";
 import { WorkCard } from "../components/WorkCard";
-import { corrections, figmaWork, keyArt, series, type BeforeAfter } from "../data/artwork";
+import { assetChecklist, corrections, figmaWork, keyArt, series, type BeforeAfter } from "../data/artwork";
 import { designTabs } from "../data/designWorks";
 import { genAiTabs } from "../data/genAiWorks";
 import { projectMeta } from "../data/projectMeta";
@@ -468,6 +468,17 @@ function Corrections() {
   return (
     <section aria-label="Artwork corrections">
       <h2 className="grid-heading">Artwork corrections — before & after</h2>
+      <div className="checklist">
+        <h3 className="mono-caps checklist__title">Checked on every asset</h3>
+        <ol className="checklist__list">
+          {assetChecklist.map((c) => (
+            <li key={c.title}>
+              <strong>{c.title}</strong>
+              <span>{c.text}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
       {corrections
         .filter((c) => c.lead)
         .map((c) => (

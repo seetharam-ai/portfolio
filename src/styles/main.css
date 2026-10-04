@@ -4033,3 +4033,66 @@ font-size: var(--fs-sm);
   margin-top: auto;
   padding-top: 16px;
 }
+
+/* Before / after: the checklist applied to every asset */
+.checklist {
+  margin: 0 0 32px;
+  padding: 24px 28px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+}
+
+.checklist__title {
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+
+.checklist__list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: check;
+}
+
+.checklist__list li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  color: var(--ink-2);
+  counter-increment: check;
+}
+
+.checklist__list strong {
+  color: var(--ink);
+  font-size: var(--fs-base);
+  font-weight: 600;
+}
+
+.checklist__list strong::before {
+  content: counter(check, decimal-leading-zero) "  ";
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+}
+
+@media (max-width: 1100px) {
+  .checklist__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .checklist {
+    padding: 18px;
+  }
+
+  .checklist__list {
+    grid-template-columns: 1fr;
+  }
+}

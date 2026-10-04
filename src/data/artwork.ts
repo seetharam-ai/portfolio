@@ -66,6 +66,18 @@ export const keyArt: KeyArtSet[] = [
   // },
 ];
 
+/** What gets checked on every asset — shown above the before / after pairs. */
+export const assetChecklist: { title: string; text: string }[] = [
+  { title: "Intent first", text: "Metadata, synopsis and references read before touching the art." },
+  { title: "Size & file", text: "Exact delivery size · JPG or PNG · RGB · ≤ 10 MB (title art ≤ 1 MB)." },
+  { title: "Safe zones", text: "Cover 160 / 60 / 240 px · Poster 240 / 80 px — checked with an overlay." },
+  { title: "Title & text", text: "Title shown on Cover and Poster · text ≥ 150 px at 3840×2160 · contrast ≥ 4.5:1." },
+  { title: "Faces clear", text: "No title or text over the main cast’s faces or the focal point." },
+  { title: "Background", text: "Textless · key detail on the right · left side clear for the UI." },
+  { title: "One cohesive image", text: "No borders, image-in-image, stretching or skewing." },
+  { title: "Language & consistency", text: "Script, spelling and cultural fit checked · same imagery across sizes and languages." },
+];
+
 export const corrections: BeforeAfter[] = [
   {
     title: "The Silent Service — Japanese key art localized to English (16:9)",

@@ -317,6 +317,30 @@ export const recentWorks: RecentWork[] = [
           { label: "Title animation", ratio: "9 / 16", src: `${SWEET}/en-title-anim-poster.jpg`, video: "videos/and-yet-sweet-en-title-anim.mp4" },
         ],
       },
+      {
+        label: "Box art — movies 3:4 · seasons 4:3",
+        variants: [
+          { label: "Box art JA", ratio: "3 / 4", src: `${SWEET}/jp-3x4.jpg` },
+          { label: "Box art EN", ratio: "3 / 4", src: `${SWEET}/en-3x4.jpg` },
+          { label: "Box art JA", ratio: "4 / 3", src: `${SWEET}/jp-4x3.jpg` },
+          { label: "Box art EN", ratio: "4 / 3", src: `${SWEET}/en-4x3.jpg` },
+        ],
+      },
+      {
+        label: "Background — textless, left side clear for the UI",
+        variants: [
+          { label: "Background", ratio: "16 / 9", src: `${SWEET}/background-16x9.jpg` },
+          { label: "Background · UI-side guide", ratio: "16 / 9", src: `${SWEET}/background-16x9-guide.jpg` },
+        ],
+      },
+      {
+        label: "Spec check — safe-zone guide overlays on",
+        variants: [
+          { label: "Cover JA · safe zone", ratio: "16 / 9", src: `${SWEET}/jp-16x9-guide.jpg` },
+          { label: "Poster JA · safe zone", ratio: "2 / 3", src: `${SWEET}/jp-2x3-guide.jpg` },
+          { label: "Poster EN · safe zone", ratio: "2 / 3", src: `${SWEET}/en-2x3-guide.jpg` },
+        ],
+      },
     ],
     body: (
       <>
@@ -331,7 +355,7 @@ export const recentWorks: RecentWork[] = [
             <b>Versions</b> Japanese title · English title
           </span>
           <span>
-            <b>Formats</b> 16:9 cover · 2:3 poster · 9:16 video
+            <b>Formats</b> Cover 16:9 · Background 16:9 · Poster 2:3 · Box art 3:4 &amp; 4:3 · 9:16 video
           </span>
           <span>
             <b>Tools</b> Photoshop · Illustrator · Topaz Gigapixel · Google Flow (Veo) · Premiere Pro
@@ -363,8 +387,11 @@ export const recentWorks: RecentWork[] = [
         </ul>
         <h4>Following the platform guidelines:</h4>
         <p>
-          Built to Prime Video’s artwork specifications (Japan): cover art 16:9 at 3840×2160 and poster art 2:3 at
-          2000×3000, each with the title displayed and under the 10 MB file limit.
+          Built to Prime Video’s artwork specifications (Japan): Cover 16:9 at 3840×2160 and Poster 2:3 at
+          2000×3000 with the title displayed, a textless Background 16:9 with the left side kept clear for the UI,
+          and Box art at 1920×2560 (movies) and 2560×1920 (seasons) — every file under the 10 MB limit. I checked
+          each asset with transparent guide overlays at delivery size (rows above): title margins measured 242 px
+          from the top of the Japanese cover (minimum 160 px) and 240–243 px on the posters (minimum 240 px).
         </p>
         <p className="project__note">
           Self-initiated spec exercise — not an official release. Film footage and stills © the rights holders.
@@ -441,7 +468,7 @@ export const recentWorks: RecentWork[] = [
         <p>
           A personal key-art project for a fictional prestige-drama original. I art-directed one master artwork and
           localized it for six markets — English, Spanish, Arabic (RTL), Hindi, Japanese (vertical) and Korean —
-          across Poster 2:3, Cover 1:1 and Background 16:9.
+          across Poster 2:3, Square 1:1 and Background 16:9.
         </p>
         <h4>My role:</h4>
         <p>

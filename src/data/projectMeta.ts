@@ -37,12 +37,13 @@ export const projectMeta: Record<string, ProjectMeta> = {
     kicker: "Key art localization",
     summary: "One master key art localized for six markets, including right-to-left Arabic and vertical Japanese.",
     tags: ["6 languages", "Typography", "Safe zones"],
-    cover: "images/artwork/key-art/the-last-meridian/poster-ja.jpg",
+    cover: "images/artwork/key-art/the-last-meridian/cover-16x9.jpg",
   },
   "gladiator-ashes-of-rome": {
     kicker: "Title localization",
     summary: "A poster title lockup localized into four languages, keeping the carved-stone treatment in every market.",
     tags: ["4 languages", "Title lockup", "Adobe Firefly"],
+    cover: "images/artwork/key-art/gladiator-ashes-of-rome/cover-16x9.jpg",
   },
   "control-zindagi": {
     kicker: "Film & TV artwork",
@@ -98,11 +99,13 @@ export const projectMeta: Record<string, ProjectMeta> = {
     kicker: "Asset restoration",
     summary: "A low-quality legacy asset rebuilt as a production-ready element, iteration by iteration.",
     tags: ["ComfyUI", "Flux2 Klein", "Qwen-VL"],
+    cover: "images/projects/balloon-fish/cover-16x9.jpg",
   },
   "consistent-character": {
     kicker: "Character consistency",
     summary: "A custom LoRA trained on my own face, generating one consistent character in any scene.",
     tags: ["Flux 2 Klein", "fal.ai", "ComfyUI"],
+    cover: "images/projects/lora-character/cover-16x9.jpg",
   },
   "built-an-ai-app-for-unlimited-ai-image-generation-using-agentic-ai-comfyui": {
     kicker: "Creative tooling",

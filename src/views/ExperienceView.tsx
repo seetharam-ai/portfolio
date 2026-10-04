@@ -29,12 +29,15 @@ export function ExperienceView() {
 
       <div className="xp-top">
         <div className="xp-top__main">
-          <div className="experience__intro">
-            <p className="experience__headline">{hero.intro.headline}</p>
-            {hero.intro.paragraphs.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-            <p className="experience__signoff">{hero.intro.signoff}</p>
+          <div className="experience__intro experience__intro--portrait">
+            <img className="xp-portrait" src={hero.photo} alt={hero.fullName} />
+            <div>
+              <p className="experience__headline">{hero.intro.headline}</p>
+              {hero.intro.paragraphs.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+              <p className="experience__signoff">{hero.intro.signoff}</p>
+            </div>
           </div>
 
           <section className="xp-section" aria-labelledby="xp-roles">

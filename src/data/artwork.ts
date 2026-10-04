@@ -229,6 +229,10 @@ export interface FeaturedItem {
   size: "xl" | "tall" | "wide" | "std" | "full";
   /** Caption at the top (when the image has its own title at the bottom). */
   captionTop?: boolean;
+  /** Width ÷ height of the media, so the tile shows it uncropped. */
+  ratio: number;
+  /** Row on the home page; tiles in a row share one height. */
+  row: number;
   /** Which part of the image stays in the crop (CSS object-position), e.g. "45% 50%". */
   focus?: string;
 }
@@ -241,6 +245,8 @@ export const homeFeatured: FeaturedItem[] = [
     badge: "Localization package · JP → EN",
     link: "work/projects/the-silent-service",
     size: "xl",
+    ratio: 1,
+    row: 1,
     captionTop: true,
   },
   {
@@ -251,6 +257,8 @@ export const homeFeatured: FeaturedItem[] = [
     badge: "9:16 · Reels & Shorts",
     link: "work/projects/the-silent-service",
     size: "tall",
+    ratio: 0.5625,
+    row: 1,
   },
   {
     kind: "video",
@@ -260,6 +268,8 @@ export const homeFeatured: FeaturedItem[] = [
     badge: "9:16 · 4 language versions",
     link: "work/projects/ip-man-kung-fu-legend",
     size: "tall",
+    ratio: 0.5625,
+    row: 1,
   },
   {
     kind: "video",
@@ -269,6 +279,8 @@ export const homeFeatured: FeaturedItem[] = [
     badge: "9:16 · Edit & sound",
     link: "work/projects/and-yet-you-are-so-sweet",
     size: "tall",
+    ratio: 0.5625,
+    row: 1,
   },
   {
     kind: "image",
@@ -277,24 +289,30 @@ export const homeFeatured: FeaturedItem[] = [
     badge: "Prime Video specs · EN · HI · TA · TE",
     link: "work/projects/ip-man-kung-fu-legend",
     size: "wide",
+    ratio: 1.7778,
+    row: 2,
   },
   {
     kind: "image",
-    src: "images/artwork/key-art/control-zindagi/poster-2x3.jpg",
-    title: "Control Zindagi",
-    badge: "Film & TV artwork",
-    link: "work/projects/control-zindagi",
-    size: "tall",
-    captionTop: true,
-  },
-  {
-    kind: "image",
-    src: "images/artwork/key-art/and-yet-sweet/en-16x9.jpg",
+    src: "images/artwork/key-art/and-yet-sweet/en-2x3.jpg",
     title: "And Yet, You Are So Sweet",
     badge: "Prime Video specs · JA · EN",
     link: "work/projects/and-yet-you-are-so-sweet",
-    focus: "50% 100%",
+    size: "tall",
+    ratio: 0.6667,
+    row: 2,
+  },
+  {
+    kind: "image",
+    src: "images/artwork/key-art/control-zindagi/background-16x9.jpg",
+    title: "Control Zindagi",
+    badge: "Film & TV artwork",
+    link: "work/projects/control-zindagi",
     size: "wide",
+    ratio: 1.7917,
+    row: 2,
+    captionTop: true,
+    focus: "50% 100%",
   },
   {
     kind: "image",
@@ -303,6 +321,8 @@ export const homeFeatured: FeaturedItem[] = [
     badge: "Studio & agency · before / after",
     link: "work/before-after",
     size: "full",
+    ratio: 4.0507,
+    row: 3,
   },
   {
     kind: "image",
@@ -311,5 +331,7 @@ export const homeFeatured: FeaturedItem[] = [
     badge: "Key art localization · EN · ES · AR · HI · JA · KO",
     link: "work/projects/the-last-meridian",
     size: "full",
+    ratio: 4.0571,
+    row: 4,
   },
 ];

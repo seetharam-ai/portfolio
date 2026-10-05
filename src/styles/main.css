@@ -5470,3 +5470,85 @@ h3 {
     font-size: 13px;
   }
 }
+
+/* Marquee: each project once, its languages always visible beside it */
+.marquee__langs {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0;
+  white-space: nowrap;
+  color: var(--accent-bright);
+  opacity: 0.75;
+  transition: opacity 0.3s var(--ease);
+}
+
+.marquee__track a:hover .marquee__langs,
+.marquee__track a:focus-visible .marquee__langs {
+  opacity: 1;
+}
+
+/* Home: the small evidence lines, made easier to read */
+.sv-home .step .step__proof {
+  color: var(--accent-bright);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.sv-home .band__note {
+  color: #a19d96;
+}
+
+.sv-home .hero__meta span {
+  color: #a3a3a3;
+}
+
+/* Home: the steps section already ends with generous space, so Contact starts closer */
+.sv-home .band--cta {
+  padding-top: 64px;
+}
+
+/* Home: one quiet line under the grid saying the real titles are spec work */
+.sv-home .band__disclaimer {
+  max-width: 900px;
+  margin: 20px auto 0;
+  font-size: 12.5px;
+  color: #8a8a8a;
+}
+
+/* Home: the "Currently" line, brighter so it reads at a glance */
+.sv-home .hero__me span {
+  color: #a3a3a3;
+}
+
+/* Home: where the impact numbers come from */
+.sv-home .hero__source {
+  margin: 16px 0 0;
+  font-size: 12.5px;
+  color: #8a8a8a;
+}
+
+/* Steps: every proof line gets two lines of room, so one-line and two-line
+   proofs start at the same height in every card */
+.sv-home .step .step__proof {
+  min-height: calc(2 * 1.5em + 16px);
+}
+
+/* Narrow video tiles: label and title each get two lines of room, so their
+   captions line up whether the text wraps or not */
+.bento-row > .bento__card[style*="0.5625"] .bento__text .mono-caps {
+  display: block;
+  min-height: calc(2 * 1.35em);
+  line-height: 1.35;
+}
+
+.bento-row > .bento__card[style*="0.5625"] .bento__title {
+  display: block;
+  min-height: calc(2 * 1.25em);
+}
+
+/* Phones: the two-column step cards are narrow, so proofs get three lines of room */
+@media (max-width: 640px) {
+  .sv-home .step .step__proof {
+    min-height: calc(3 * 1.5em + 16px);
+  }
+}

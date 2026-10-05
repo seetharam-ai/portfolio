@@ -22,7 +22,7 @@ export const hero = {
   focus: ["Key art & localization", "Video & storytelling", "Creative tech & AI", "Project management"],
   /** Home intro: a bold opening line, short paragraphs, then a bold sign-off. */
   intro: {
-    headline: "I produce and correct artwork and video to a global quality bar — and set the standard others calibrate to.",
+    headline: "I produce and refine artwork and video to a global quality bar — and help define the standards reviewers work to.",
     paragraphs: [
       "I’ve produced and corrected customer-facing content for global audiences, built quality standards used by 300+ creators and reviewers, and translated creative judgment into SOPs, UAT, and actionable tool feedback.",
       "Today, I bring that experience to key art, posters and localized title artwork — using AI to accelerate exploration and production while keeping the final judgment human.",
@@ -51,7 +51,7 @@ export const hero = {
 /** Headline numbers shown on the home view (taken from the career history). */
 export const stats = [
   { value: "10+", label: "Years in image editing, design & multimedia" },
-  { value: "35%", label: "Fewer content defects · ~$18M cost avoidance" },
+  { value: "35%", label: "Fewer content defects through a program I led" },
   { value: "80%", label: "Assets auto-published via a QA tool I launched" },
   { value: "300+", label: "Creators & reviewers calibrated to my standards" },
 ];
@@ -215,16 +215,16 @@ export const journey: Job[] = [
     org: "Amazon",
     location: "Hyderabad",
     period: "2024 – 2025",
-    highlight: { value: "$18M", label: "annual cost avoidance" },
+    highlight: { value: "35%", label: "fewer content defects" },
     summary:
-      "Owned the quality benchmark for customer-facing visuals and ran its programs end to end: 35% fewer defects (~$18M cost avoidance) and a self-service QA tool taken from framework through UAT to 80% self-service publication.",
+      "Owned the quality benchmark for customer-facing visuals and ran its programs end to end: 35% fewer defects and a self-service QA tool taken from framework through UAT to 80% self-service publication.",
     logo: "images/amazon-logo-black.png",
     logoAlt: "Amazon Logo",
     details: [
       "Project & program management: ran the Defect Elimination Program and the Self-Service QA Tool launch end to end — from framework and cross-functional partners (SDE, product, CX) to UAT, production rollout and adoption — tracked through weekly quality reviews and WBR reporting, with Lean Six Sigma (DMAIC) root-cause analysis.",
       "Quality benchmark owner: set the working quality standard for customer-facing visual assets across global marketplaces; authored SOPs, quality benchmarks and QA checklists adopted by international production and review teams as the calibration reference.",
-      "Defect Elimination Program: led skill-gap analysis, weekly quality deep-dives and targeted training to raise first-time approval rates — 35% defect reduction, 18+ hours of weekly rework removed and ~$18M in annual cost avoidance.",
-      "Self-Service QA Tool (SQT) – UAT & rollout: designed the end-to-end review framework, partnered with SDEs on features, owned UAT and production rollout, and drove adoption — 80% self-service publication, QA costs cut by 75% and $1M in annual OPEX saved.",
+      "Defect Elimination Program: led skill-gap analysis, weekly quality deep-dives and targeted training to raise first-time approval rates — 35% defect reduction and 18+ hours of weekly rework removed.",
+      "Self-Service QA Tool (SQT) – UAT & rollout: designed the end-to-end review framework, partnered with SDEs on features, owned UAT and production rollout, and drove adoption — 80% self-service publication and QA costs cut by 75%.",
       "Cross-functional craft feedback: owned pre- and post-publication visual QA for immersive experiences (View in 3D, Virtual Try-On, View in Your Room) on Web, iOS and Android; turned visual defects into structured, reproducible feedback for SDE and CX teams to fix compression, latency and fidelity issues upstream.",
       "Premium brand launches: owned creative quality and publishing for high-profile launches including Nike, Saks, Michael Kors and Amazon Private Labels, balancing brand guidelines with marketplace standards under tight timelines.",
     ],

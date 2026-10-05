@@ -74,6 +74,12 @@ export const projectMeta: Record<string, ProjectMeta> = {
     tags: ["Writer · director · editor", "After Effects · Mocha", "VFX"],
     cover: "images/projects/nike-fyg/final-comp.jpg",
   },
+  "benchmarking-ai-models-for-image-editing": {
+    kicker: "AI model evaluation · freelance",
+    summary: "Eight image-edit models, one outfit and one prompt: every output reviewed against the products, with defects, speed and cost logged.",
+    tags: ["8 models · 1K & 2K", "Defect log", "fal.ai"],
+    cover: "images/projects/try-on-benchmark/cover-16x9.jpg",
+  },
   "setting-the-quality-bar-for-visual-content-at-scale": {
     kicker: "Quality leadership · Amazon",
     summary: "Owning what “correct” and “compelling” mean for visual content, and making it repeatable for people and tools.",

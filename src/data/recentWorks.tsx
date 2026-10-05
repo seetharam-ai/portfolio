@@ -26,6 +26,12 @@ export interface RecentWork {
   variantSets?: { label: string; variants: KeyArtSet["variants"] }[];
   /** Vertical (9:16) videos shown side by side. */
   verticalVideos?: { src: string; poster: string; label: string }[];
+  /** Heading above the storyboard (default “Process”). */
+  stepsTitle?: string;
+  /** The storyboard compares outputs side by side, so no step is marked as final. */
+  stepsCompare?: boolean;
+  /** Text shown after the storyboard, e.g. results and findings. */
+  after?: ReactNode;
   /** Full-width video player shown under the text. */
   video?: { src: string; poster: string };
 }
@@ -35,7 +41,7 @@ const TLM = "images/artwork/key-art/the-last-meridian";
 const GLAD = "images/artwork/key-art/gladiator-ashes-of-rome";
 const LORA = "images/projects/lora-character";
 const SOP_PDF = "pdfs/AI-Image-Edit-SOP-Seetha-Ram.pdf";
-const SOP_PSD = "https://drive.google.com/file/d/1q36mPlPjtBWZLu23-oBn60MtWqHRiGs4/view?usp=drive_link";
+const SOP_PSD = "https://drive.google.com/file/d/1dtdZlNNSF927KXDXZ19btgPcO87dNNfY/view?usp=sharing";
 const SOP_IMG = "images/projects/retouch-sop";
 const APPAREL = "images/projects/apparel-transfer";
 const FISH = "images/projects/balloon-fish";
@@ -47,6 +53,8 @@ const NIKE = "images/projects/nike-fyg";
 const SS = "images/artwork/key-art/silent-service";
 const IPM = "images/artwork/key-art/ip-man";
 const SWEET = "images/artwork/key-art/and-yet-sweet";
+const BENCH = "images/projects/try-on-benchmark";
+const BENCH_DECK = "https://drive.google.com/file/d/1S-CmE9S9_S8tD-mCZTEeLQbp6GWytHNz/view?usp=sharing";
 const PRODUCT_JSON = `{
   "items": [
     {
@@ -75,7 +83,6 @@ const PRODUCT_JSON = `{
     }
   ]
 }`;
-const SOP_DOC = "https://docs.google.com/presentation/d/1qMyX-A2n5SopCU_rMpzwdhn--JJfMTRc/edit";
 
 export const recentWorks: RecentWork[] = [
   {
@@ -424,6 +431,221 @@ export const recentWorks: RecentWork[] = [
     ],
   },
   {
+    title: "Benchmarking AI Models for Image Editing — 8 models, one outfit, one prompt",
+    stacked: true,
+    storyFrame: "1 / 1",
+    stepsTitle: "Outputs reviewed",
+    stepsCompare: true,
+    body: (
+      <>
+        <p>
+          Freelance work for a creative studio and ad agency. Before choosing a model for fashion try-on production, I
+          benchmarked the latest image-edit models on fal.ai with the same four references (a model, a top, a skirt and
+          sandals) and the same prompt, at 1K and 2K. I reviewed every output against the product references and
+          logged each defect, render time and cost in a spreadsheet, with visual samples in a review deck.
+        </p>
+        <p className="fact-chips">
+          <span>
+            <b>Models</b> 8 tested · 1 single-garment
+          </span>
+          <span>
+            <b>Inputs</b> 4 references · 1 prompt
+          </span>
+          <span>
+            <b>Outputs</b> 1K &amp; 2K
+          </span>
+          <span>
+            <b>Platform</b> fal.ai
+          </span>
+        </p>
+        <h4>The prompt (same for every model):</h4>
+        <p>
+          “Dress the person from @image1 in the top from @image2, the bottom from @image3, and the footwear from
+          @image4. Ensure realistic fitting, natural blending of all garments onto the body contours, and preservation
+          of all specific textures and designs.”
+        </p>
+        <h4>What I checked on every output:</h4>
+        <ul>
+          <li>Pose and identity kept from the model reference</li>
+          <li>Garment shape and construction: neckline, buttons, bow, peplum</li>
+          <li>Fit and length on the body</li>
+          <li>Fabric color and jacquard pattern against the product photo</li>
+          <li>Footwear, and nothing added that isn’t in the references</li>
+        </ul>
+      </>
+    ),
+    steps: [
+      {
+        label: "Inputs",
+        caption: "The model reference plus three products: one-shoulder jacquard top, jacquard skirt and pearl sandals.",
+        src: `${BENCH}/inputs.jpg`,
+        alt: "Inputs — model in a velvet suit, a red jacquard top, a jacquard skirt and pearl sandals",
+      },
+      {
+        label: "Nano Banana 2 · 2K",
+        caption: "Closest match to the products: color, jacquard pattern, peplum and bow.",
+        issues: ["Top buttons missing", "Skirt length not defined (shorter)"],
+        src: `${BENCH}/nano-banana-2.jpg`,
+        alt: "Nano Banana 2 output — closest garment match, skirt shorter",
+      },
+      {
+        label: "Seedream v5 Pro · 2K",
+        caption: "Fewest defects at 2K and the most construction detail; the fabric renders darker.",
+        issues: ["Shoulder bumps on top"],
+        src: `${BENCH}/seedream-v5-pro.jpg`,
+        alt: "Seedream v5 Pro output — detailed garment, darker fabric",
+      },
+      {
+        label: "GPT Image 2.5 Sunburst · 2K",
+        caption: "Most 1K issues fixed at 2K.",
+        issues: ["Shoulders elevated"],
+        src: `${BENCH}/gpt-image-sunburst.jpg`,
+        alt: "GPT Image 2.5 Sunburst output",
+      },
+      {
+        label: "GPT Image 2.5 Flare · 2K",
+        caption: "Issues stayed at 2K.",
+        issues: ["Top buttons missing", "Belly area hollow", "Shoulders elevated"],
+        src: `${BENCH}/gpt-image-flare.jpg`,
+        alt: "GPT Image 2.5 Flare output",
+      },
+      {
+        label: "Flux 2 Pro · 1920×1080",
+        caption: "2048 px failed on the input size limit, so 2K ran at 1920×1080.",
+        issues: [
+          "Shoulders elevated and shape distorted",
+          "Bangles added that aren’t in any reference",
+          "Fabric color darker than the product",
+          "Skirt length not defined",
+        ],
+        src: `${BENCH}/flux-2-pro.jpg`,
+        alt: "Flux 2 Pro output — added bangles, darker fabric",
+      },
+      {
+        label: "Seedream 4.5 · 2K",
+        caption: "Cheapest at $0.04, but the pose changed to a back view.",
+        issues: ["Pose changed", "Top buttons missing"],
+        src: `${BENCH}/seedream-v4-5.jpg`,
+        alt: "Seedream 4.5 output — pose changed to a back view",
+      },
+      {
+        label: "Grok Imagine v2 · 2K",
+        caption: "Fastest at 1K (0.9 min), with the most visible mismatches.",
+        issues: ["Pose changed", "Top buttons missing", "Footwear mismatch"],
+        src: `${BENCH}/grok-imagine-v2.jpg`,
+        alt: "Grok Imagine v2 output — pose and footwear changed",
+      },
+    ],
+    after: (
+      <>
+        <h4>Results at a glance:</h4>
+        <div className="bench-table-wrap">
+          <table className="bench-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Issues 1K → 2K</th>
+                <th>Time 1K / 2K (min)</th>
+                <th>Cost 1K / 2K</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Nano Banana 2</td>
+                <td>2 → 2</td>
+                <td>1.35 / 1.21</td>
+                <td>$0.08 / $0.12</td>
+              </tr>
+              <tr>
+                <td>Seedream v5 Pro</td>
+                <td>4 → 1</td>
+                <td>1.63 / 2.43</td>
+                <td>$0.08 / $0.15</td>
+              </tr>
+              <tr>
+                <td>GPT Image 2.5 Sunburst</td>
+                <td>3 → 1</td>
+                <td>1.63 / 1.58</td>
+                <td>$0.10 / $0.15</td>
+              </tr>
+              <tr>
+                <td>GPT Image 2.5 Flare</td>
+                <td>3 → 3</td>
+                <td>1.18 / 1.20</td>
+                <td>$0.10 / $0.15</td>
+              </tr>
+              <tr>
+                <td>Flux 2 Pro</td>
+                <td>3 → 4</td>
+                <td>1.25 / 1.13</td>
+                <td>$0.09 / $0.11</td>
+              </tr>
+              <tr>
+                <td>Seedream 4.5</td>
+                <td>2 → 2</td>
+                <td>1.36 / 1.30</td>
+                <td>$0.04 / $0.04</td>
+              </tr>
+              <tr>
+                <td>Grok Imagine v2</td>
+                <td>4 → 3</td>
+                <td>0.90 / 1.21</td>
+                <td>$0.09 / $0.11</td>
+              </tr>
+              <tr>
+                <td>Qwen Image 3</td>
+                <td colSpan={3}>Failed: accepts at most 3 reference images, 10 MB each</td>
+              </tr>
+              <tr>
+                <td>Google Virtual Try-On</td>
+                <td colSpan={3}>Single-garment try-on only (no prompt) · 0.68 min · $0.08 at 1K</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h4>Findings:</h4>
+        <ul>
+          <li>Fine detail goes first: 6 of 7 models dropped the top’s buttons at 1K.</li>
+          <li>
+            2K is not a fix in itself: it cleared most issues for Seedream v5 Pro (4 → 1) and GPT Sunburst (3 → 1),
+            but not for the others.
+          </li>
+          <li>
+            The cheapest (Seedream 4.5) and the fastest (Grok Imagine v2) changed the model’s pose, which a try-on
+            can’t accept.
+          </li>
+          <li>Flux 2 Pro invented jewelry that isn’t in any reference.</li>
+          <li>
+            Platform limits decide the workflow: Qwen Image 3 takes only three references, so a four-piece outfit
+            can’t run in one pass.
+          </li>
+        </ul>
+        <h4>Recommendation:</h4>
+        <ul>
+          <li>
+            <b>Garment fidelity and value:</b> Nano Banana 2 — the closest color, pattern and silhouette at $0.08 (1K).
+            Watch skirt length and small details such as buttons.
+          </li>
+          <li>
+            <b>Construction detail at 2K:</b> Seedream v5 Pro — the fewest defects at 2K; check the fabric color
+            against the product.
+          </li>
+          <li>
+            <b>Avoid for try-on:</b> models that change the pose (Seedream 4.5, Grok Imagine v2).
+          </li>
+        </ul>
+        <h4>Tools Used:</h4>
+        <p>fal.ai, Excel (results log), PowerPoint (review deck)</p>
+        <p className="credit-note">
+          Reference images are publicly available product photos, used for model evaluation only; © their owners.
+        </p>
+        <a href={BENCH_DECK} target="_blank" className="btn-link">
+          View the review deck (PDF) ↗
+        </a>
+      </>
+    ),
+  },
+  {
     title: "Setting the quality bar for visual content at scale — Amazon",
     stacked: true,
     body: (
@@ -453,8 +675,8 @@ export const recentWorks: RecentWork[] = [
         </ul>
         <h4>Sample standard</h4>
         <p>My AI-assisted retouching &amp; upscaling SOP shows how I document a quality bar for others to follow.</p>
-        <a href={SOP_DOC} target="_blank" className="btn-link">
-          View SOP document ↗
+        <a href={SOP_PDF} target="_blank" className="btn-link">
+          View the SOP (PDF) ↗
         </a>
       </>
     ),
@@ -1074,7 +1296,7 @@ export const recentWorks: RecentWork[] = [
           A professional product image quality assessment tool that uses Claude AI to compare raw product
           images against AI-generated versions and provide detailed fidelity analysis.{" "}
           <a
-            href="https://drive.google.com/file/d/164dKVIdJmO3pDiJArObP417zgcnWtGHM/view"
+            href="https://drive.google.com/file/d/1BZQOKvqXJctBdIqzw7u3savVMvJqDff8/view?usp=sharing"
             target="_blank"
             className="btn-link"
           >

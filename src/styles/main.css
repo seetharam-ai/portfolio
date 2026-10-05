@@ -5552,3 +5552,48 @@ h3 {
     min-height: calc(3 * 1.5em + 16px);
   }
 }
+
+/* Benchmark results: a compact multi-column table that scrolls sideways on phones */
+.bench-table-wrap {
+  overflow-x: auto;
+  margin: 8px 0 20px;
+}
+
+.bench-table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+
+.bench-table th,
+.bench-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.bench-table th {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-caps);
+}
+
+.bench-table td:first-child {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.credit-note {
+  font-size: var(--fs-xs);
+  color: var(--muted);
+}
+
+/* Comparison storyboards: every number looks the same (no "final" step) */
+.storyboard--compare .story:last-child .story__num {
+  background: var(--ink);
+}

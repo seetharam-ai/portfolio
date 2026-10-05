@@ -405,8 +405,15 @@ function CaseStudy({ work, index }: { work: RecentWork; index: number }) {
 
       {work.steps && (
         <section className="case-detail__process" aria-label="Process">
-          <h3 className="mono-caps">Process</h3>
-          <Storyboard steps={work.steps} frame={work.storyFrame} />
+          <h3 className="mono-caps">{work.stepsTitle ?? "Process"}</h3>
+          <Storyboard steps={work.steps} frame={work.storyFrame} compare={work.stepsCompare} />
+        </section>
+      )}
+
+      {work.after && (
+        <section className="case-detail__story" aria-label="Results">
+          <h3 className="mono-caps">Results</h3>
+          <div className="prose">{work.after}</div>
         </section>
       )}
 

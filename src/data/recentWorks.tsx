@@ -134,7 +134,7 @@ export const recentWorks: RecentWork[] = [
           </li>
           <li>
             <b>Poster 2:3 and Square 1:1:</b> recomposed the wide art for tall and square frames: the cast grouped at
-            the top, the submarine as the centre of action, and the title lockup moved to the lower third, finished
+            the top, the submarine as the center of action, and the title lockup moved to the lower third, finished
             in Photoshop.
           </li>
           <li>
@@ -366,7 +366,7 @@ export const recentWorks: RecentWork[] = [
             so the artwork carries the film’s light, sweet tone.
           </li>
           <li>
-            <b>Key art (Photoshop):</b> built two scenes — the couple on an old boat by the harbour at dusk, and the
+            <b>Key art (Photoshop):</b> built two scenes — the couple on an old boat by the harbor at dusk, and the
             shared-drink close-up — from a mix of film stills and AI-assisted background work, upscaled with Topaz
             Gigapixel and finished in Photoshop.
           </li>
@@ -399,7 +399,7 @@ export const recentWorks: RecentWork[] = [
     steps: [
       {
         label: "Scene pass 1",
-        caption: "Exploring the harbour setting for the poster.",
+        caption: "Exploring the harbor setting for the poster.",
         src: `${SWEET}/scene-pass-1.jpg`,
         alt: "Scene pass — beach with boats",
       },
@@ -417,9 +417,9 @@ export const recentWorks: RecentWork[] = [
       },
       {
         label: "Placement test",
-        caption: "Testing the Japanese title’s size and position against the sky before the final colour.",
+        caption: "Testing the Japanese title’s size and position against the sky before the final color.",
         src: `${SWEET}/title-placement-test.jpg`,
-        alt: "Poster with the Japanese title in a test colour",
+        alt: "Poster with the Japanese title in a test color",
       },
     ],
   },
@@ -499,7 +499,7 @@ export const recentWorks: RecentWork[] = [
             </tr>
             <tr>
               <th>Issue</th>
-              <td>A direct text swap put the vertical title on the centre axis, over the face and the star</td>
+              <td>A direct text swap put the vertical title on the center axis, over the face and the star</td>
             </tr>
             <tr>
               <th>Rule</th>
@@ -620,7 +620,7 @@ export const recentWorks: RecentWork[] = [
             clothes against the night, and the tagline “Every trip has a darker destination”.
           </li>
           <li>
-            <b>Poster:</b> the five friends as an ensemble line-up, centred, with the neon-red title lockup in the lower
+            <b>Poster:</b> the five friends as an ensemble line-up, centered, with the neon-red title lockup in the lower
             third and the moon balancing the top.
           </li>
           <li>
@@ -629,7 +629,7 @@ export const recentWorks: RecentWork[] = [
           </li>
           <li>
             <b>Background:</b> the group brought close together, with a car speeding through the night behind them to
-            hint at the ending, and the title held low across the centre.
+            hint at the ending, and the title held low across the center.
           </li>
         </ul>
         <h4>The narrative plan (pre-production):</h4>
@@ -730,13 +730,13 @@ export const recentWorks: RecentWork[] = [
             into that space.
           </li>
           <li>
-            <b>2:3 browse poster:</b> Recomposed for a tall frame. The queen moves to the centre line, the title sits in
+            <b>2:3 browse poster:</b> Recomposed for a tall frame. The queen moves to the center line, the title sits in
             open sky at the top, and the tagline and date sit on the marble at the bottom. The subject stays clear of
             both text bands, so it still reads at thumbnail size in the grid.
           </li>
           <li>
             <b>1:1 featured tile:</b> A tight crop on the upper torso. Her eyes sit on the upper-third line with a direct
-            gaze to camera, and the crown keeps full headroom. The sceptre adds a diagonal. The frame is about emotion at
+            gaze to camera, and the crown keeps full headroom. The scepter adds a diagonal. The frame is about emotion at
             carousel size.
           </li>
         </ul>
@@ -925,7 +925,7 @@ export const recentWorks: RecentWork[] = [
             one-arm story for its emotion.
           </li>
           <li>
-            <b>Pre-production:</b> screenplay with camera views, pre-visualisation sketches, mood photos, location
+            <b>Pre-production:</b> screenplay with camera views, pre-visualization sketches, mood photos, location
             scouting, costumes, references and a test shoot for the hand effect.
           </li>
           <li>
@@ -958,10 +958,10 @@ export const recentWorks: RecentWork[] = [
         alt: "Handwritten concept notes for the Find Your Greatness voice-over",
       },
       {
-        label: "Pre-visualisation",
+        label: "Pre-visualization",
         caption: "Screenplay sketched shot by shot with camera views.",
         src: `${NIKE}/previs.jpg`,
-        alt: "Hand-drawn pre-visualisation storyboard",
+        alt: "Hand-drawn pre-visualization storyboard",
       },
       {
         label: "Test shoot",
@@ -1213,7 +1213,6 @@ export const recentWorks: RecentWork[] = [
     ),
     images: [
       { src: `${LORA}/lora-10.jpg`, alt: "LoRA output — fantasy armour at sunset" },
-      { src: `${LORA}/lora-09.jpg`, alt: "LoRA output — superhero suit on a city rooftop" },
       { src: `${LORA}/lora-11.jpg`, alt: "LoRA output — climbing a rock face" },
       { src: `${LORA}/lora-12.jpg`, alt: "LoRA output — Paris street in a camel coat" },
       { src: `${LORA}/lora-03.jpg`, alt: "LoRA output — silver hair and headphones" },
@@ -1225,6 +1224,7 @@ export const recentWorks: RecentWork[] = [
       { src: `${LORA}/lora-04.jpg`, alt: "LoRA output — standing on a yellow backdrop in a SEE THAT AI tee" },
       { src: `${LORA}/lora-08.jpg`, alt: "LoRA output — red sweater, studio portrait" },
       { src: `${LORA}/lora-13.jpg`, alt: "LoRA output — casual outfit on a beige backdrop" },
+      { src: `${LORA}/lora-09.jpg`, alt: "LoRA output — superhero suit on a city rooftop" },
     ],
   },
   {

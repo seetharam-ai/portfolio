@@ -17,7 +17,7 @@ const FAN = [
 
 /** How I work today: the one line that lights up on scroll (the full intro lives on the Experience page). */
 const TODAY =
-  "My work spans key art, posters, and localized title artwork, combining AI-assisted production with a strong focus on visual quality, storytelling, and creative intent.";
+  "My work spans filmmaking, video production, key art, posters, and localized title artwork, combining visual storytelling with AI-assisted production and a strong focus on creative quality and intent.";
 
 /** Languages the portfolio's artwork is localized into, in their own scripts. */
 const LANGS = [
@@ -242,6 +242,10 @@ function useScrollMotion(rootRef: React.RefObject<HTMLDivElement | null>) {
     const update = () => {
       raf = 0;
       const vh = window.innerHeight;
+      // Safety net: anything a fast scroll skipped past is shown.
+      reveals.forEach((el) => {
+        if (!el.classList.contains("is-in") && el.getBoundingClientRect().top < vh) el.classList.add("is-in");
+      });
       if (fan) {
         const r = fan.getBoundingClientRect();
         fan.style.setProperty("--p", Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.9))).toFixed(3));

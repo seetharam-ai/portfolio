@@ -110,7 +110,7 @@ export const corrections: BeforeAfter[] = [
   {
     title: "And Yet, You Are So Sweet — title placement test to final poster (2:3)",
     description:
-      "The vertical Japanese title first placed in a test colour to check its size and position against the sky, then finished in white for contrast on the final 2000×3000 poster.",
+      "The vertical Japanese title first placed in a test color to check its size and position against the sky, then finished in white for contrast on the final 2000×3000 poster.",
     before: "images/artwork/key-art/and-yet-sweet/title-placement-test.jpg",
     after: "images/artwork/key-art/and-yet-sweet/jp-2x3.jpg",
     ratio: 2 / 3,
@@ -119,7 +119,7 @@ export const corrections: BeforeAfter[] = [
   {
     title: "The Last Meridian — Japanese title localization",
     description:
-      "A direct text swap dropped the vertical title onto the centre axis, covering the face and the star. Moved into the negative space of the hood and set in Mincho: focal-zone overlap cut from 53,310 px to 0 px.",
+      "A direct text swap dropped the vertical title onto the center axis, covering the face and the star. Moved into the negative space of the hood and set in Mincho: focal-zone overlap cut from 53,310 px to 0 px.",
     before: "images/artwork/before-after/last-meridian-ja-before.jpg",
     after: "images/artwork/before-after/last-meridian-ja-after.jpg",
     ratio: 2 / 3,
@@ -207,7 +207,7 @@ export const figmaWork: FigmaWork[] = [
   {
     title: "Sentier — agency website concept: about (practice piece)",
     description:
-      "The about section: team photography masked into the four brand shapes (circle, triangle, square, circle) from the logo, each with its own colour outline.",
+      "The about section: team photography masked into the four brand shapes (circle, triangle, square, circle) from the logo, each with its own color outline.",
     src: "images/artwork/figma/sentier-about.jpg",
     link: "https://www.figma.com/design/GSuKS7B1Sc6F47ty1nsu3C/WS?node-id=0-1",
   },
@@ -296,7 +296,7 @@ export const homeFeatured: FeaturedItem[] = [
     kind: "image",
     src: "images/artwork/key-art/and-yet-sweet/en-2x3.jpg",
     title: "And Yet, You Are So Sweet",
-    badge: "Prime Video specs · JA · EN",
+    badge: "Key art · JA · EN",
     link: "work/projects/and-yet-you-are-so-sweet",
     size: "tall",
     ratio: 0.6667,

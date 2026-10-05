@@ -43,7 +43,7 @@ const adobeDesign: GalleryEntry[] = [
   // ── Photoshop ──
   image("Banner Design", photoshop + "ps-bannerdesign.png", "Banner Design",
     "Creative banner composition and layout design."),
-  image("Color Transformation", photoshop + "ps-colortranformation.png", "Color Transformation",
+  image("Color Transformation", photoshop + "ps-colortransformation.png", "Color Transformation",
     "Advanced color grading and tonal adjustment work."),
   image("Digital Painting", photoshop + "ps-digitalpainting.png", "Digital Painting",
     "Digital artistry and brushwork illustration."),
@@ -97,9 +97,9 @@ const videoProduction: GalleryEntry[] = [
     "Concept, direction and editing by Seetha Ram. Produced for an Amazon internal event, 2016.",
   ),
   youtube(
-    "Control Zindhagi — short film",
+    "Control Zindagi — short film",
     "https://www.youtube.com/embed/18ofs9Gq0sY?si=AmuyG6MSCc3h93Y3",
-    "Control Zindhagi — short film",
+    "Control Zindagi — short film",
     <>
       Written, directed and edited by Seetha Ram <br />
       Produced for an Amazon internal event, 2019.

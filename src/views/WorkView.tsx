@@ -476,7 +476,7 @@ function Corrections() {
     <section aria-label="Artwork corrections">
       <h2 className="grid-heading">Artwork corrections — before & after</h2>
       <div className="checklist">
-        <h3 className="mono-caps checklist__title">Checked on every asset</h3>
+        <h3 className="mono-caps checklist__title">What I check on every asset</h3>
         <ol className="checklist__list">
           {assetChecklist.map((c) => (
             <li key={c.title}>

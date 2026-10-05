@@ -77,7 +77,7 @@ function Media({ media, title, onOpen }: { media: EntryMedia; title: string; onO
           camera-controls=""
           ar=""
           shadow-intensity="1"
-          style={{ width: "100%", height: "100%", background: "#f6f4f0" }}
+          style={{ width: "100%", height: "100%", background: "#161616" }}
         />
       );
     case "youtube":

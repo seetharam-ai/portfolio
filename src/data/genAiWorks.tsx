@@ -99,15 +99,15 @@ const works2d: GalleryEntry[] = [
   ),
   image(
     "Flux texture transfer",
-    snap("flux2 klien - texture transfer.png"),
+    snap("flux2 klein - texture transfer.png"),
     "Sophisticated texture and material style transfer between diverse subjects using latent space manipulation.",
     "Flux 2 Klein texture transfer",
   ),
   image(
     "Flux 2 Klein renders",
-    "images/comfyui-outputs/Flux_klien.png",
-    "The same boy and dog kept recognisable across six scenes with Flux 2 Klein: the characters stay consistent while the setting changes.",
-    "Flux_klien",
+    "images/comfyui-outputs/Flux_klein.png",
+    "The same boy and dog kept recognizable across six scenes with Flux 2 Klein: the characters stay consistent while the setting changes.",
+    "Flux_klein",
   ),
   image(
     "Qwen cloud workflow",
@@ -354,7 +354,7 @@ const works3d: GalleryEntry[] = [
 const worksAudio: GalleryEntry[] = [
   audio(
     "AI voice assistant — ElevenLabs",
-    "audio/elevanlabs_audio.mp3",
+    "audio/elevenlabs_audio.mp3",
     <>
       <b>TTS:</b> Hi! I’m Seetha Ram’s upgraded voice assistant. My voice is powered by ElevenLabs and
       generated using ComfyUI. Excited to work with you!

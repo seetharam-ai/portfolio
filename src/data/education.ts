@@ -76,9 +76,9 @@ export const eduCertItems: EduCertItem[] = [
     isCredentialId: false,
     group: "AI & technical",
     issued: "Sep 2025",
-    href: "certificates/Seethat_essential of promt engineering.pdf",
+    href: "certificates/Seethat_essential of prompt engineering.pdf",
     image: "certificates/aws.png",
-    alt: "aws-essential-of-promt-engineering",
+    alt: "aws-essential-of-prompt-engineering",
   },
   {
     kind: "cert",

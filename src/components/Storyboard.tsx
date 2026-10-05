@@ -21,12 +21,21 @@ export interface StoryStep {
 }
 
 /** A process shown step by step: full image in a uniform frame + the context behind it. */
-export function Storyboard({ steps, frame = "9 / 16" }: { steps: StoryStep[]; frame?: string }) {
+export function Storyboard({
+  steps,
+  frame = "9 / 16",
+  compare = false,
+}: {
+  steps: StoryStep[];
+  frame?: string;
+  /** Side-by-side comparison: no step is marked as the final one. */
+  compare?: boolean;
+}) {
   const openLightbox = useLightbox();
   const items: LightboxItem[] = steps.map((s) => ({ type: "img", src: s.src }));
 
   return (
-    <ol className="storyboard" style={{ gridTemplateColumns: `repeat(${columnsFor(steps.length)}, minmax(0, 1fr))` }}>
+    <ol className={compare ? "storyboard storyboard--compare" : "storyboard"} style={{ gridTemplateColumns: `repeat(${columnsFor(steps.length)}, minmax(0, 1fr))` }}>
       {steps.map((step, i) => (
         <li key={step.src} className="story">
           <button className="story__frame media-open" style={{ aspectRatio: frame }} onClick={() => openLightbox(items, i)}>

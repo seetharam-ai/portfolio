@@ -10,7 +10,7 @@ export const views = [
 
 export type ViewId = (typeof views)[number]["id"];
 
-const CV_URL = "https://drive.google.com/file/d/1kGvXn2G3ezUDVLRpYphCGDkVA69Lj3zo/view?usp=sharing";
+const CV_URL = "https://drive.google.com/file/d/1r-d2_dV67F5e15ssOPm2RyGTVgx3jV3N/view?usp=sharing";
 const LINKEDIN_URL = "https://www.linkedin.com/in/seetha-rama-swamy-thota";
 const GITHUB_URL = "https://github.com/seetharam-ai";
 
@@ -199,12 +199,13 @@ export const journey: Job[] = [
     period: "2026 – Present",
     highlight: { value: "8", label: "campaign looks to final" },
     summary:
-      "AI-assisted artwork finishing with a human craft call on every output; 8 footwear-campaign looks taken from art direction to final with a studio and ad agency.",
+      "AI-assisted artwork finishing with a human craft call on every output; with a studio and ad agency, 8 footwear-campaign looks taken to final and 8 image-edit models benchmarked for fashion try-on.",
     logo: "images/sr-logo.png",
     logoAlt: "SR Logo",
     details: [
       "AI-assisted artwork finishing: produce and refine commercial-grade imagery with Photoshop Generative Fill/Expand, Firefly and diffusion models, keeping a human craft decision on every output. Authored an AI retouch-and-upscale SOP that sets when and how AI is applied without altering colors, shapes, framing or subject identity.",
       "Studio & agency collaboration: partnered with a creative studio and ad agency on a footwear brand campaign, taking 8 looks from art direction to final approved artwork — Gemini Nano Banana 2 and Nano Banana Pro for base imagery, composited and finished in Photoshop, detail refined with Flux 2 Pro — validating every look against the art direction and brand intent.",
+      "AI model benchmarking: for the same studio and agency, benchmarked 8 image-edit models on fal.ai for fashion try-on with one outfit and one fixed prompt at 1K and 2K; reviewed every output against the product references, logged each defect, render time and cost, and recommended a model per use — Nano Banana 2 for garment fidelity and value, Seedream v5 Pro for construction detail at 2K.",
       "Quality evaluation: evaluate AI-generated imagery for fidelity, composition, lighting and artifacts (distorted geometry, false shadows, spatial inconsistencies, hallucinated elements); built an AI Image QA Agent prototype that turns reviewer criteria into consistent, structured evaluation signal.",
       "Workflows & prompt frameworks: built 10+ reusable ComfyUI workflows and prompt frameworks that cut prompt iteration time by 50% and improved output consistency across projects.",
     ],
@@ -315,7 +316,6 @@ export const socialLinks: { href: string; icon: string; alt: string }[] = [
   { href: LINKEDIN_URL, icon: "icons/social/linkedin.png", alt: "LinkedIn" },
   { href: "https://x.com/tsrs8777", icon: "icons/social/twitter.png", alt: "Twitter" },
   { href: "https://www.instagram.com/sr_complicated/", icon: "icons/social/instagram.png", alt: "Instagram" },
-  { href: "https://www.facebook.com/seetharam8777/", icon: "icons/social/facebook.png", alt: "Facebook" },
   { href: "https://www.youtube.com/@SeethaRamaSwamyThota", icon: "icons/social/youtube.png", alt: "Youtube" },
   { href: "https://discord.com/users/698506764110528555", icon: "icons/social/discord.png", alt: "discord" },
 ];

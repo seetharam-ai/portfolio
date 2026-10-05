@@ -19,16 +19,13 @@ const FAN = [
 const TODAY =
   "My work spans filmmaking, video production, key art, posters, and localized title artwork, combining visual storytelling with AI-assisted production and a strong focus on creative quality and intent.";
 
-/** Languages the portfolio's artwork is localized into, in their own scripts. */
+/** Each localized project once, with the languages it ships in (in their own scripts). */
 const LANGS = [
-  { name: "English", project: "The Silent Service", link: "work/projects/the-silent-service" },
-  { name: "日本語", project: "And Yet, You Are So Sweet", link: "work/projects/and-yet-you-are-so-sweet" },
-  { name: "العربية", project: "The Last Meridian", link: "work/projects/the-last-meridian" },
-  { name: "हिन्दी", project: "Ip Man: Kung Fu Legend", link: "work/projects/ip-man-kung-fu-legend" },
-  { name: "Español", project: "The Last Meridian", link: "work/projects/the-last-meridian" },
-  { name: "한국어", project: "The Last Meridian", link: "work/projects/the-last-meridian" },
-  { name: "தமிழ்", project: "Ip Man: Kung Fu Legend", link: "work/projects/ip-man-kung-fu-legend" },
-  { name: "తెలుగు", project: "Ip Man: Kung Fu Legend", link: "work/projects/ip-man-kung-fu-legend" },
+  { project: "The Last Meridian", langs: "Español · العربية · हिन्दी · 日本語 · 한국어", link: "work/projects/the-last-meridian" },
+  { project: "Ip Man: Kung Fu Legend", langs: "हिन्दी · தமிழ் · తెలుగు", link: "work/projects/ip-man-kung-fu-legend" },
+  { project: "The Silent Service", langs: "日本語 → English", link: "work/projects/the-silent-service" },
+  { project: "Gladiator: Ashes of Rome", langs: "Español · العربية · 日本語", link: "work/projects/gladiator-ashes-of-rome" },
+  { project: "And Yet, You Are So Sweet", langs: "日本語 · English", link: "work/projects/and-yet-you-are-so-sweet" },
 ];
 
 /**
@@ -101,6 +98,9 @@ export function HomeView() {
               </div>
             ))}
           </dl>
+          <p className="hero__source" data-reveal>
+            35%, 80% and 300+ are from my QA lead and SME roles at Amazon, 2021–2025.
+          </p>
         </div>
       </header>
 
@@ -137,6 +137,9 @@ export function HomeView() {
               </div>
             ))}
           </div>
+          <p className="band__disclaimer" data-reveal>
+            Real titles shown are self-initiated spec work, not official releases.
+          </p>
           <div className="band__more" data-reveal>
             <a href={href("work", "projects")} className="btn btn--light">
               View all case studies <span aria-hidden>→</span>
@@ -156,12 +159,12 @@ export function HomeView() {
               <a
                 key={i}
                 href={`#${l.link}`}
-                title={`${l.name} — ${l.project}`}
+                title={`${l.project} — ${l.langs}`}
                 aria-hidden={copy || undefined}
                 tabIndex={copy ? -1 : undefined}
               >
-                {l.name}
-                <span className="marquee__to">{l.project} →</span>
+                {l.project}
+                <span className="marquee__langs">{l.langs}</span>
               </a>
             );
           })}

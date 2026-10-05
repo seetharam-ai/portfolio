@@ -435,14 +435,14 @@ export const recentWorks: RecentWork[] = [
         <h4>Standards others calibrate to</h4>
         <ul>
           <li>Developed scalable creative standards for 3D assets and established global video production SOPs used across international studios.</li>
-          <li>Led global quality improvement initiatives that reduced content defects by 35%, contributing to ~$18M in annual cost avoidance.</li>
+          <li>Led global quality improvement initiatives that reduced content defects by 35%.</li>
           <li>Managed and mentored 70+ QA specialists across locations — training reviewers to a shared bar.</li>
         </ul>
         <h4>Judgment turned into tool improvements</h4>
         <ul>
           <li>
             Designed and launched the Self-Service QA Tool, building it with engineering and leading its UAT: 80% of
-            assets published without manual intervention, ~$1M in annual savings.
+            assets published without manual intervention.
           </li>
           <li>
             Led UAT for the redesigned QA applications, feeding structured feedback to engineering and UX before

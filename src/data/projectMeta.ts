@@ -74,6 +74,12 @@ export const projectMeta: Record<string, ProjectMeta> = {
     tags: ["Writer · director · editor", "After Effects · Mocha", "VFX"],
     cover: "images/projects/nike-fyg/final-comp.jpg",
   },
+  "great-absence": {
+    kicker: "Key art · photo manipulation",
+    summary: "A minimalist double-exposure key art for a Japanese drama about memory and loss, in Japanese, English and textless versions.",
+    tags: ["EN · JA titles", "16:9 · 2:3 · 3:4", "Photoshop · Illustrator"],
+    cover: "images/artwork/key-art/great-absence/en-16x9.jpg",
+  },
   "benchmarking-ai-models-for-image-editing": {
     kicker: "AI model evaluation · freelance",
     summary: "Eight image-edit models, one outfit and one prompt: every output reviewed against the products, with defects, speed and cost logged.",

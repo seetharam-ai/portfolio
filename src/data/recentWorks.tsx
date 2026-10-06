@@ -53,6 +53,7 @@ const NIKE = "images/projects/nike-fyg";
 const SS = "images/artwork/key-art/silent-service";
 const IPM = "images/artwork/key-art/ip-man";
 const SWEET = "images/artwork/key-art/and-yet-sweet";
+const GA = "images/artwork/key-art/great-absence";
 const BENCH = "images/projects/try-on-benchmark";
 const BENCH_DECK = "https://drive.google.com/file/d/1S-CmE9S9_S8tD-mCZTEeLQbp6GWytHNz/view?usp=sharing";
 const PRODUCT_JSON = `{
@@ -427,6 +428,132 @@ export const recentWorks: RecentWork[] = [
         caption: "Testing the Japanese title’s size and position against the sky before the final color.",
         src: `${SWEET}/title-placement-test.jpg`,
         alt: "Poster with the Japanese title in a test color",
+      },
+    ],
+  },
+  {
+    title: "Great Absence — double-exposure key art in Japanese & English",
+    stacked: true,
+    storyFrame: "16 / 9",
+    variantSets: [
+      {
+        label: "English title",
+        variants: [
+          { label: "Cover art", ratio: "16 / 9", src: `${GA}/en-16x9.jpg` },
+          { label: "Poster art", ratio: "2 / 3", src: `${GA}/en-2x3.jpg` },
+          { label: "Box art", ratio: "3 / 4", src: `${GA}/en-3x4.jpg` },
+        ],
+      },
+      {
+        label: "Japanese title — horizontal and vertical (tategaki) options",
+        variants: [
+          { label: "Cover art", ratio: "16 / 9", src: `${GA}/jp-16x9.jpg` },
+          { label: "Cover art · vertical", ratio: "16 / 9", src: `${GA}/jp-16x9-vertical.jpg` },
+          { label: "Poster art", ratio: "2 / 3", src: `${GA}/jp-2x3.jpg` },
+          { label: "Box art", ratio: "3 / 4", src: `${GA}/jp-3x4.jpg` },
+        ],
+      },
+      {
+        label: "Textless — left side clear for the UI",
+        variants: [
+          { label: "Background", ratio: "16 / 9", src: `${GA}/background-16x9.jpg` },
+          { label: "Poster · textless", ratio: "2 / 3", src: `${GA}/background-2x3.jpg` },
+        ],
+      },
+      {
+        label: "Safe-zone check at delivery size",
+        variants: [
+          { label: "Cover EN · safe zone", ratio: "16 / 9", src: `${GA}/en-16x9-guide.jpg` },
+          { label: "Cover JA · safe zone", ratio: "16 / 9", src: `${GA}/jp-16x9-guide.jpg` },
+          { label: "Background · UI side", ratio: "16 / 9", src: `${GA}/background-16x9-guide.jpg` },
+          { label: "Poster EN · safe zone", ratio: "2 / 3", src: `${GA}/en-2x3-guide.jpg` },
+          { label: "Poster JA · safe zone", ratio: "2 / 3", src: `${GA}/jp-2x3-guide.jpg` },
+        ],
+      },
+    ],
+    body: (
+      <>
+        <p>
+          A minimalist key-art package for the Japanese drama <i>Great Absence</i> (<span lang="ja">大いなる不在</span>).
+          After researching the film’s concept and theme, I built a double exposure around memory and loss: the
+          story sits inside the silhouette of one man’s head, on a quiet cream ground, with Japanese and English
+          titles and a textless version for every placement.
+        </p>
+        <p className="fact-chips">
+          <span>
+            <b>Versions</b> English title · Japanese title · textless
+          </span>
+          <span>
+            <b>Formats</b> Cover 16:9 · Poster 2:3 · Box art 3:4 · Background 16:9
+          </span>
+          <span>
+            <b>Tools</b> Nano Banana · Photoshop · Illustrator
+          </span>
+        </p>
+        <h4>What I did:</h4>
+        <ul>
+          <li>
+            <b>Brainstorming with references:</b> cropped the characters’ faces from the film’s trailer and gave them
+            to Nano Banana as references, with a minimal-art design reference to steer the style toward a clean,
+            quiet result.
+          </li>
+          <li>
+            <b>Concept frame:</b> the first concept frame set the idea and the layout — title on the left, portrait
+            on the right — and became the base for the final artwork.
+          </li>
+          <li>
+            <b>Photo manipulation (Photoshop):</b> manipulated the chosen image to match the film’s theme, then
+            refit it to each placement’s dimensions and standards.
+          </li>
+          <li>
+            <b>Typography (Illustrator):</b> chose the title font after researching the film’s concept and theme,
+            converted the titles from graphics to vectors, and set the Japanese title both horizontally and
+            vertically. Mood boards were also built in Illustrator.
+          </li>
+        </ul>
+        <h4>Following the platform guidelines:</h4>
+        <p>
+          Delivered at Prime Video’s artwork sizes: Cover 16:9 at 3840×2160 and Poster 2:3 at 2000×3000 with the
+          title, Box art 3:4 at 1920×2560, and a textless Background 16:9 with the left side kept clear for the UI —
+          every file under 10 MB. Each placement was checked with guide overlays at delivery size (rows above): the
+          English poster title sits 330 px from the top (minimum 240 px).
+        </p>
+        <p className="project__note">
+          Self-initiated spec exercise — not an official release. Film footage and stills © the rights holders.
+        </p>
+      </>
+    ),
+    steps: [
+      {
+        label: "Concept frame",
+        caption: "The first concept: the story held inside his silhouette, title on the left. It became the base for the final.",
+        src: `${GA}/concept-frame.jpg`,
+        alt: "First concept frame — illustrated double exposure with a thin English title",
+      },
+      {
+        label: "Brainstorm with face references",
+        caption: "Faces cropped from the trailer as references for Nano Banana, steered by a minimal-art design reference.",
+        src: `${GA}/brainstorm.jpg`,
+        alt: "Four double-exposure explorations generated from trailer face references",
+      },
+      {
+        label: "Title exploration",
+        caption: "Testing weight, case and position against the portrait before settling on a light serif.",
+        src: `${GA}/title-exploration.jpg`,
+        alt: "Four title treatments on the cover layout",
+      },
+      {
+        label: "Title vectors (Illustrator)",
+        caption: "The English title and the Japanese title, horizontal and vertical, converted to vectors.",
+        src: `${GA}/title-vectors.jpg`,
+        alt: "English and Japanese title vectors",
+      },
+      {
+        label: "Final cover art",
+        caption: "Photo-manipulated portrait, minimal ground and the final title, refit to every placement.",
+        pass: "Every title inside the safe zone",
+        src: `${GA}/en-16x9.jpg`,
+        alt: "Great Absence final cover art in English",
       },
     ],
   },

@@ -315,15 +315,14 @@ export const homeFeatured: FeaturedItem[] = [
   },
   {
     kind: "image",
-    src: "images/artwork/key-art/control-zindagi/background-16x9.jpg",
+    src: "images/artwork/key-art/control-zindagi/cover-16x9.jpg",
     title: "Control Zindagi",
     badge: "Film & TV artwork",
     link: "work/projects/control-zindagi",
     size: "wide",
-    ratio: 1.7917,
+    ratio: 1.7778,
     row: 3,
     captionTop: true,
-    focus: "50% 100%",
   },
   {
     kind: "image",

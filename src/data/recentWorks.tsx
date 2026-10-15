@@ -979,7 +979,7 @@ export const recentWorks: RecentWork[] = [
         <ul>
           <li>
             <b>From posed to the story’s turning point:</b> the five friends packed into the open van, staring out in
-            shock, with shattered glass and skid marks on the road. The poster now sells the tension, not just the cast.
+            shock above the empty road. The poster now sells the tension, not just the cast.
           </li>
           <li>
             <b>Title:</b> the thin neon outline became a bold, distressed red lockup that stays readable at thumbnail

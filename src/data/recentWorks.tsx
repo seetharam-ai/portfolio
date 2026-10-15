@@ -927,13 +927,25 @@ export const recentWorks: RecentWork[] = [
     imageGrid: true,
   },
   {
-    title: "Control Zindagi — key art for my short film (poster, vertical, background)",
+    title: "Control Zindagi — key art for my short film (cover, poster, square)",
     stacked: true,
     storyFrame: "16 / 9",
-    variants: [
-      { label: "Poster", ratio: "2 / 3", src: `${CZ}/poster-2x3.jpg` },
-      { label: "Vertical", ratio: "9 / 16", src: `${CZ}/vertical-9x16.jpg` },
-      { label: "Background", ratio: "16 / 9", src: `${CZ}/background-16x9.jpg` },
+    variantSets: [
+      {
+        label: "Final — round 2",
+        variants: [
+          { label: "Cover art", ratio: "16 / 9", src: `${CZ}/cover-16x9.jpg` },
+          { label: "Poster art", ratio: "2 / 3", src: `${CZ}/poster-2x3-v2.jpg` },
+          { label: "Square", ratio: "1 / 1", src: `${CZ}/square-1x1.jpg` },
+        ],
+      },
+      {
+        label: "Round 1 — first concept",
+        variants: [
+          { label: "Background", ratio: "16 / 9", src: `${CZ}/background-16x9.jpg` },
+          { label: "Poster", ratio: "2 / 3", src: `${CZ}/poster-2x3.jpg` },
+        ],
+      },
     ],
     body: (
       <>
@@ -941,7 +953,8 @@ export const recentWorks: RecentWork[] = [
           Film and TV artwork for <i>Control Zindagi</i> (“Control Life”), a road-safety short film I wrote, directed
           and edited. It won at Amazon Bash 2019, Amazon’s internal film competition. A group of friends set off on a road trip from
           Warangal to Hyderabad for a wedding, until a crash on the highway ends the journey. I then designed a key-art
-          package for the film across three placements, pitched as a neo-noir mystery.
+          package for the film in two rounds: a first concept, then a revised set built around the moment the trip
+          goes wrong.
         </p>
         <p className="fact-chips">
           <span>
@@ -951,10 +964,10 @@ export const recentWorks: RecentWork[] = [
             <b>My role</b> Writer, director, editor (cuts, sound &amp; AV mix) · key art
           </span>
           <span>
-            <b>Formats</b> 2:3 · 9:16 · 16:9
+            <b>Formats</b> Cover 16:9 · Poster 2:3 · Square 1:1
           </span>
           <span>
-            <b>Artwork</b> Adobe Firefly (Gemini Flash)
+            <b>Rounds</b> 2 · concept → revision
           </span>
         </p>
         <h4>Starting from the title’s intent:</h4>
@@ -962,25 +975,31 @@ export const recentWorks: RecentWork[] = [
           Before designing, I compiled a title overview (synopsis, themes, credits, audience and references) and
           designed the artwork from that brief, so the key art matches the film’s story, tone and message.
         </p>
-        <h4>Art direction:</h4>
+        <h4>Round 2 — what changed and why:</h4>
         <ul>
           <li>
-            <b>Mood:</b> the carefree trip turned ominous: a midnight-blue forest under a full moon, the friends’ bright
-            clothes against the night, and the tagline “Every trip has a darker destination”.
+            <b>From posed to the story’s turning point:</b> the five friends packed into the open van, staring out in
+            shock, with shattered glass and skid marks on the road. The poster now sells the tension, not just the cast.
           </li>
           <li>
-            <b>Poster:</b> the five friends as an ensemble line-up, centered, with the neon-red title lockup in the lower
-            third and the moon balancing the top.
+            <b>Title:</b> the thin neon outline became a bold, distressed red lockup that stays readable at thumbnail
+            size.
           </li>
           <li>
-            <b>Vertical:</b> reframed for a tall mobile frame. The group sits smaller with more sky and forest, so the
-            tagline and title keep clear margins.
+            <b>Clean of callouts:</b> dropped the “A Network Original Drama” line and the tagline. Streaming key art
+            keeps only the title, with no network or format callouts.
           </li>
           <li>
-            <b>Background:</b> the group brought close together, with a car speeding through the night behind them to
-            hint at the ending, and the title held low across the center.
+            <b>One family across placements:</b> the same cast, title and palette in Cover 16:9 (title on the left,
+            cast on the right), Poster 2:3 and Square 1:1.
           </li>
         </ul>
+        <h4>Round 1 — first concept:</h4>
+        <p>
+          Generated in Adobe Firefly (Gemini Flash): the carefree trip turned ominous, with a midnight-blue forest under
+          a full moon, the friends in bright clothes, a neon-red title and the tagline “Every trip has a darker
+          destination”.
+        </p>
         <h4>The narrative plan (pre-production):</h4>
         <p>
           Before the shoot I wrote a scene-by-scene plan, working title <i>CTRL Z</i>, listing the cast, props (a red
@@ -1296,6 +1315,9 @@ export const recentWorks: RecentWork[] = [
         </p>
         <a href="https://www.behance.net/gallery/57088535/NIKE-Find-Your-Greatness-Campaign" target="_blank" className="btn-link">
           Watch the ad on Behance ↗
+        </a>
+        <a href="https://drive.google.com/file/d/1jtb7-EYZCDJHv4_9CisUjJmD_TtKqzAG/view?usp=sharing" target="_blank" className="btn-link">
+          View the complete case study (PDF) ↗
         </a>
       </>
     ),

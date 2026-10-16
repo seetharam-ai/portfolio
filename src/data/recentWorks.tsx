@@ -558,6 +558,177 @@ export const recentWorks: RecentWork[] = [
     ],
   },
   {
+    title: "Control Zindagi — Key art for my short film · three rounds",
+    stacked: true,
+    storyFrame: "16 / 9",
+    gallery: true,
+    galleryTitle: "From the shoot",
+    images: [
+      { src: `${CZ}/shoot-jump.jpg`, alt: "The cast jumping on a hilltop during the shoot" },
+      { src: `${CZ}/shoot-hands-up.jpg`, alt: "The five friends cheering on the fort wall" },
+      { src: `${CZ}/shoot-fort-wall.jpg`, alt: "The cast sitting on the fort wall above the town" },
+      { src: `${CZ}/shoot-viewpoint.jpg`, alt: "The five friends looking out over the town from the viewpoint" },
+      { src: `${CZ}/shoot-highway.jpg`, alt: "The cast on the highway location" },
+      { src: `${CZ}/shoot-car.jpg`, alt: "A car on the road location during the shoot" },
+    ],
+    variantSets: [
+      {
+        label: "Final — round 3",
+        variants: [
+          { label: "Cover art", ratio: "16 / 9", src: `${CZ}/r3-cover-16x9.jpg` },
+          { label: "Poster art", ratio: "2 / 3", src: `${CZ}/r3-poster-2x3.jpg` },
+          { label: "Square", ratio: "1 / 1", src: `${CZ}/r3-square-1x1.jpg` },
+        ],
+      },
+      {
+        label: "Round 2 — the ensemble",
+        variants: [
+          { label: "Cover art", ratio: "16 / 9", src: `${CZ}/cover-16x9.jpg` },
+          { label: "Poster art", ratio: "2 / 3", src: `${CZ}/poster-2x3-v2.jpg` },
+          { label: "Square", ratio: "1 / 1", src: `${CZ}/square-1x1.jpg` },
+        ],
+      },
+      {
+        label: "Round 1 — first concept",
+        variants: [
+          { label: "Background", ratio: "16 / 9", src: `${CZ}/background-16x9.jpg` },
+          { label: "Poster", ratio: "2 / 3", src: `${CZ}/poster-2x3.jpg` },
+        ],
+      },
+      {
+        label: "The film’s own title cards",
+        variants: [
+          { label: "“Don’t drink and drive”", ratio: "16 / 9", src: `${CZ}/film-title-1.jpg` },
+          { label: "“There is no Ctrl Z in life”", ratio: "16 / 9", src: `${CZ}/film-title-2.jpg` },
+          { label: "Title card", ratio: "16 / 9", src: `${CZ}/film-title-3.jpg` },
+        ],
+      },
+    ],
+    body: (
+      <>
+        <p>
+          Film and TV artwork for <i>Control Zindagi</i> (“Control Life”), a road-safety short film I wrote, directed
+          and edited. It won at Amazon Bash 2019, Amazon’s internal film competition. A group of friends set off on a road trip from
+          Warangal to Hyderabad for a wedding, until a crash on the highway ends the journey. I then designed a key-art
+          package for the film in three rounds: a first concept, an ensemble set built around the moment the trip goes
+          wrong, and a final set made from a frame of the film itself.
+        </p>
+        <p className="fact-chips">
+          <span>
+            <b>Award</b> Amazon Bash 2019
+          </span>
+          <span>
+            <b>My role</b> Writer, director, editor (cuts, sound &amp; AV mix) · key art
+          </span>
+          <span>
+            <b>Formats</b> Cover 16:9 · Poster 2:3 · Square 1:1
+          </span>
+          <span>
+            <b>Rounds</b> 3 · concept → ensemble → film frame
+          </span>
+        </p>
+        <h4>Starting from the title’s intent:</h4>
+        <p>
+          Before designing, I compiled a title overview (synopsis, themes, credits, audience and references) and
+          designed the artwork from that brief, so the key art matches the film’s story, tone and message.
+        </p>
+        <h4>Round 3 — the final, from the film itself:</h4>
+        <ul>
+          <li>
+            <b>Real footage:</b> started from a frame of the film’s car scene, so the poster shows the actual cast and
+            the actual moment of panic, not a generated stand-in.
+          </li>
+          <li>
+            <b>Clean-up (Adobe Firefly, Gemini Flash):</b> removed the other passengers and kept her face and
+            expression unchanged, leaving one clear focal point.
+          </li>
+          <li>
+            <b>Retouch at 4K (Photoshop):</b> cleaned the skin and balanced the light without changing the expression.
+          </li>
+          <li>
+            <b>Title:</b> the distressed red lockup, made brighter — about 4.8:1 against the background, above the
+            4.5:1 contrast minimum.
+          </li>
+          <li>
+            <b>Checked at delivery size:</b> safe-zone overlays on the Cover 16:9, Poster 2:3 and Square 1:1.
+          </li>
+        </ul>
+        <h4>Round 2 — the ensemble:</h4>
+        <ul>
+          <li>
+            <b>From posed to the story’s turning point:</b> the five friends packed into the open van, staring out in
+            shock above the empty road. The poster now sells the tension, not just the cast.
+          </li>
+          <li>
+            <b>Title:</b> the thin neon outline became a bold, distressed red lockup that stays readable at thumbnail
+            size.
+          </li>
+          <li>
+            <b>Clean of callouts:</b> dropped the “A Network Original Drama” line and the tagline. Streaming key art
+            keeps only the title, with no network or format callouts.
+          </li>
+          <li>
+            <b>One family across placements:</b> the same cast, title and palette in Cover 16:9 (title on the left,
+            cast on the right), Poster 2:3 and Square 1:1.
+          </li>
+        </ul>
+        <h4>Round 1 — first concept:</h4>
+        <p>
+          Generated in Adobe Firefly (Gemini Flash): the carefree trip turned ominous, with a midnight-blue forest under
+          a full moon, the friends in bright clothes, a neon-red title and the tagline “Every trip has a darker
+          destination”.
+        </p>
+        <h4>The film:</h4>
+        <p>
+          Before the shoot I wrote a scene-by-scene plan (working title <i>CTRL Z</i>) with the cast, props and a
+          shot list for every scene. The story turns from fun to consequence: five friends on a highway road trip find
+          beer in the trunk, the car crashes, and the film rewinds to that moment, closing on “There is no Ctrl Z in
+          life”.
+        </p>
+        <p>
+          <b>Credits:</b> Written, directed &amp; edited by Seetha Rama Swamy · Cinematography: Namish Kashyap · Story:
+          Dheeraj Jha
+        </p>
+        <a href="https://www.youtube.com/watch?v=18ofs9Gq0sY" target="_blank" className="btn-link">
+          Watch the film on YouTube ↗
+        </a>
+      </>
+    ),
+    steps: [
+      {
+        label: "Round 3 · film frame",
+        caption: "A frame from the film’s car scene: the moment of panic, with the actual cast.",
+        src: `${CZ}/r3-step-film-frame.jpg`,
+        alt: "Frame from the film — the friends in the car",
+      },
+      {
+        label: "Clean-up (Firefly)",
+        caption: "The other passengers removed; her face and expression kept unchanged.",
+        src: `${CZ}/r3-step-cleanup.jpg`,
+        alt: "Cleaned-up frame with only her in the car",
+      },
+      {
+        label: "Retouch at 4K",
+        caption: "Skin and light refined in Photoshop, without changing the expression.",
+        src: `${CZ}/r3-step-retouch.jpg`,
+        alt: "Retouched 4K image",
+      },
+      {
+        label: "Title treatment",
+        caption: "The distressed red lockup, brightened to pass the 4.5:1 contrast minimum.",
+        src: `${CZ}/r3-step-title.jpg`,
+        alt: "Control Zindagi title treatment",
+      },
+      {
+        label: "Safe-zone check",
+        caption: "Cover 16:9 checked with the guide overlay at 3840×2160.",
+        pass: "Title inside the safe zone · contrast about 4.8:1",
+        src: `${CZ}/r3-step-safe-zone.jpg`,
+        alt: "Cover art with the safe-zone guide overlay",
+      },
+    ],
+  },
+  {
     title: "Benchmarking AI Models for Image Editing — 8 models, one outfit, one prompt",
     stacked: true,
     storyFrame: "1 / 1",
@@ -925,144 +1096,6 @@ export const recentWorks: RecentWork[] = [
       { src: `${GLAD}/poster-ja.jpg`, alt: "Gladiator: Ashes of Rome poster — Japanese", label: "JA" },
     ],
     imageGrid: true,
-  },
-  {
-    title: "Control Zindagi — key art for my short film (cover, poster, square)",
-    stacked: true,
-    storyFrame: "16 / 9",
-    variantSets: [
-      {
-        label: "Final — round 2",
-        variants: [
-          { label: "Cover art", ratio: "16 / 9", src: `${CZ}/cover-16x9.jpg` },
-          { label: "Poster art", ratio: "2 / 3", src: `${CZ}/poster-2x3-v2.jpg` },
-          { label: "Square", ratio: "1 / 1", src: `${CZ}/square-1x1.jpg` },
-        ],
-      },
-      {
-        label: "Round 1 — first concept",
-        variants: [
-          { label: "Background", ratio: "16 / 9", src: `${CZ}/background-16x9.jpg` },
-          { label: "Poster", ratio: "2 / 3", src: `${CZ}/poster-2x3.jpg` },
-        ],
-      },
-    ],
-    body: (
-      <>
-        <p>
-          Film and TV artwork for <i>Control Zindagi</i> (“Control Life”), a road-safety short film I wrote, directed
-          and edited. It won at Amazon Bash 2019, Amazon’s internal film competition. A group of friends set off on a road trip from
-          Warangal to Hyderabad for a wedding, until a crash on the highway ends the journey. I then designed a key-art
-          package for the film in two rounds: a first concept, then a revised set built around the moment the trip
-          goes wrong.
-        </p>
-        <p className="fact-chips">
-          <span>
-            <b>Award</b> Amazon Bash 2019
-          </span>
-          <span>
-            <b>My role</b> Writer, director, editor (cuts, sound &amp; AV mix) · key art
-          </span>
-          <span>
-            <b>Formats</b> Cover 16:9 · Poster 2:3 · Square 1:1
-          </span>
-          <span>
-            <b>Rounds</b> 2 · concept → revision
-          </span>
-        </p>
-        <h4>Starting from the title’s intent:</h4>
-        <p>
-          Before designing, I compiled a title overview (synopsis, themes, credits, audience and references) and
-          designed the artwork from that brief, so the key art matches the film’s story, tone and message.
-        </p>
-        <h4>Round 2 — what changed and why:</h4>
-        <ul>
-          <li>
-            <b>From posed to the story’s turning point:</b> the five friends packed into the open van, staring out in
-            shock above the empty road. The poster now sells the tension, not just the cast.
-          </li>
-          <li>
-            <b>Title:</b> the thin neon outline became a bold, distressed red lockup that stays readable at thumbnail
-            size.
-          </li>
-          <li>
-            <b>Clean of callouts:</b> dropped the “A Network Original Drama” line and the tagline. Streaming key art
-            keeps only the title, with no network or format callouts.
-          </li>
-          <li>
-            <b>One family across placements:</b> the same cast, title and palette in Cover 16:9 (title on the left,
-            cast on the right), Poster 2:3 and Square 1:1.
-          </li>
-        </ul>
-        <h4>Round 1 — first concept:</h4>
-        <p>
-          Generated in Adobe Firefly (Gemini Flash): the carefree trip turned ominous, with a midnight-blue forest under
-          a full moon, the friends in bright clothes, a neon-red title and the tagline “Every trip has a darker
-          destination”.
-        </p>
-        <h4>The narrative plan (pre-production):</h4>
-        <p>
-          Before the shoot I wrote a scene-by-scene plan, working title <i>CTRL Z</i>, listing the cast, props (a red
-          car, a box of beer bottles) and a shot list for every scene. The story is built to turn from fun to
-          consequence, then rewind:
-        </p>
-        <ol>
-          <li>
-            <b>The invite:</b> a WhatsApp group chat (“Today is Sneha’s marriage, we need to reach Hyderabad by
-            evening”), with each friend replying in character.
-          </li>
-          <li>
-            <b>Five introductions:</b> each friend is introduced in their own space, mid-routine (yoga, work on a
-            laptop, a workout, still asleep), and the car picks them up one by one; the late sleeper is the running gag.
-          </li>
-          <li>
-            <b>The highway song:</b> wide road shots and in-car moments cut to the song: cheering, a shared dance step,
-            waving out of the windows, a stop at a mountain view.
-          </li>
-          <li>
-            <b>Engine trouble:</b> the song ends and the tone shifts to suspense and comedy. Sent for the tool kit, one
-            friend opens the trunk and finds the beer.
-          </li>
-          <li>
-            <b>The choice:</b> each friend takes a bottle, the party song plays and the car speeds towards Hyderabad,
-            past the city board and onto a flyover, until the car flips.
-          </li>
-          <li>
-            <b>Breaking news:</b> a news reader on green screen reports that drunk passengers met with an accident.
-          </li>
-          <li>
-            <b>Rewind:</b> the film rewinds to the moment the trunk opened, and closes on “There is no Ctrl Z in life”.
-          </li>
-        </ol>
-        <p>
-          <b>Credits:</b> Written, directed &amp; edited by Seetha Rama Swamy · Cinematography: Namish Kashyap · Story:
-          Dheeraj Jha
-        </p>
-        <a href="https://www.youtube.com/watch?v=18ofs9Gq0sY" target="_blank" className="btn-link">
-          Watch the film on YouTube ↗
-        </a>
-      </>
-    ),
-    steps: [
-      {
-        label: "Film title sequence",
-        caption: "“Don’t drink and drive”: the film’s closing message, in red stencil type on asphalt.",
-        src: `${CZ}/film-title-1.jpg`,
-        alt: "Film title card — Don't drink and drive",
-      },
-      {
-        label: "Film title sequence",
-        caption: "“There is no Ctrl Z in life”: the line the title plays on.",
-        src: `${CZ}/film-title-2.jpg`,
-        alt: "Film title card — There is no Ctrl Z in life",
-      },
-      {
-        label: "Film title card",
-        caption: "“Control Zindagi”, subtitled “Control Life”, the film’s own title treatment.",
-        src: `${CZ}/film-title-3.jpg`,
-        alt: "Film title card — Control Zindagi",
-      },
-    ],
   },
   {
     title: "The Queen of Florence — one key art, three Prime Video placements",

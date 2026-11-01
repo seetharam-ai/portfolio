@@ -5,7 +5,7 @@ export interface Cert {
   credential: string;
   /** When true the credential is prefixed with "Credential ID". */
   isCredentialId: boolean;
-  group: "AI & technical" | "Design & professional";
+  group: "AI & technical" | "Design & professional" | "AWS training";
   issued: string;
   /** Certificate file or page. */
   href: string;
@@ -32,19 +32,9 @@ export interface Education {
 
 export type EduCertItem = Cert | Education;
 
-// Order follows the CV: AI & technical first, then design & professional.
+// Rendered in this order: each group becomes a section (in order of first appearance),
+// and cards within a group run from highest to lowest HR impact. AWS courses sit last in their own group.
 export const eduCertItems: EduCertItem[] = [
-  {
-    kind: "cert",
-    title: "Building AI Agents with RAG and LangChain",
-    credential: "17d5742fd58c4b2baf1360f3dae75fd4",
-    isCredentialId: true,
-    group: "AI & technical",
-    issued: "Nov 2026",
-    href: "https://courses.emeritus.skillsnetwork.site/certificates/17d5742fd58c4b2baf1360f3dae75fd4",
-    image: "certificates/IBM.png",
-    alt: "IBM Skills Network",
-  },
   {
     kind: "cert",
     title: "Generative AI in Adobe Creative Cloud",
@@ -59,7 +49,29 @@ export const eduCertItems: EduCertItem[] = [
   },
   {
     kind: "cert",
-    title: "ComfyUI workflow creation and diffusion models mastery",
+    title: "Building AI Agents with RAG and LangChain",
+    credential: "17d5742fd58c4b2baf1360f3dae75fd4",
+    isCredentialId: true,
+    group: "AI & technical",
+    issued: "Nov 2026",
+    href: "https://courses.emeritus.skillsnetwork.site/certificates/17d5742fd58c4b2baf1360f3dae75fd4",
+    image: "certificates/IBM.png",
+    alt: "IBM Skills Network",
+  },
+  {
+    kind: "cert",
+    title: "Generative AI for Business and Professionals",
+    credential: "4d2155f4558d40aabbaa17509e7c62ab",
+    isCredentialId: true,
+    group: "AI & technical",
+    issued: "Jul 2026",
+    href: "https://courses.emeritus.skillsnetwork.site/certificates/4d2155f4558d40aabbaa17509e7c62ab",
+    image: "certificates/IBM.png",
+    alt: "IBM AI",
+  },
+  {
+    kind: "cert",
+    title: "GenAI with ComfyUI",
     credential: "UC-d4ae5b47-24e5-47c6-b538-434f9e1d4874",
     isCredentialId: true,
     group: "AI & technical",
@@ -82,39 +94,6 @@ export const eduCertItems: EduCertItem[] = [
   },
   {
     kind: "cert",
-    title: "Essentials of Prompt Engineering",
-    credential: "AWS Certified",
-    isCredentialId: false,
-    group: "AI & technical",
-    issued: "Sep 2025",
-    href: "certificates/Seethat_essential of prompt engineering.pdf",
-    image: "certificates/aws.png",
-    alt: "aws-essential-of-prompt-engineering",
-  },
-  {
-    kind: "cert",
-    title: "Generative AI Foundations",
-    credential: "AWS Certified",
-    isCredentialId: false,
-    group: "AI & technical",
-    issued: "Sep 2025",
-    href: "certificates/Gen AI Foundations.pdf",
-    image: "certificates/aws.png",
-    alt: "aws-gen-ai-foundations",
-  },
-  {
-    kind: "cert",
-    title: "Generative AI for Business and Professionals",
-    credential: "4d2155f4558d40aabbaa17509e7c62ab",
-    isCredentialId: true,
-    group: "AI & technical",
-    issued: "Jul 2026",
-    href: "https://courses.emeritus.skillsnetwork.site/certificates/4d2155f4558d40aabbaa17509e7c62ab",
-    image: "certificates/IBM.png",
-    alt: "IBM AI",
-  },
-  {
-    kind: "cert",
     title: "Full stack generative AI & Agentic AI with Python",
     credential: "UC-150023c4-6689-4d8f-be9d-510b7aa588ce",
     isCredentialId: true,
@@ -127,7 +106,7 @@ export const eduCertItems: EduCertItem[] = [
   },
   {
     kind: "cert",
-    title: "Python boot camp for Programmers",
+    title: "The Complete Python Bootcamp From Zero to Hero in Python",
     credential: "UC-ea370278-f73e-4f08-be1f-c440b15927dc",
     isCredentialId: true,
     group: "AI & technical",
@@ -135,7 +114,7 @@ export const eduCertItems: EduCertItem[] = [
     href: "certificates/Python_UC-ea370278-f73e-4f08-be1f-c440b15927dc.pdf",
     verify: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-ea370278-f73e-4f08-be1f-c440b15927dc.pdf",
     image: "certificates/python_bootcamp_zero_to_hero.png",
-    alt: "Python boot camp for Programmers",
+    alt: "The Complete Python Bootcamp",
   },
   {
     kind: "cert",
@@ -176,6 +155,50 @@ export const eduCertItems: EduCertItem[] = [
     ],
     image: "icons/social/linkedin.png",
     alt: "LinkedIn Learning",
+  },
+  {
+    kind: "cert",
+    title: "Building Generative AI Applications Using Amazon Bedrock (Includes Labs)",
+    credential: "AWS Certified",
+    isCredentialId: false,
+    group: "AWS training",
+    issued: "Sep 2026",
+    href: "certificates/AWS - Building Generative AI Applications Using Amazon Bedrock.pdf",
+    image: "certificates/aws.png",
+    alt: "aws-building-gen-ai-apps-amazon-bedrock",
+  },
+  {
+    kind: "cert",
+    title: "Introduction to Generative AI - Art of the Possible",
+    credential: "AWS Certified",
+    isCredentialId: false,
+    group: "AWS training",
+    issued: "Sep 2026",
+    href: "certificates/AWS - Introduction to Generative AI - Art of the Possible.pdf",
+    image: "certificates/aws.png",
+    alt: "aws-intro-gen-ai-art-of-the-possible",
+  },
+  {
+    kind: "cert",
+    title: "Amazon Bedrock Getting Started",
+    credential: "AWS Certified",
+    isCredentialId: false,
+    group: "AWS training",
+    issued: "Mar 2024",
+    href: "certificates/AWS - Amazon Bedrock Getting Started.pdf",
+    image: "certificates/aws.png",
+    alt: "aws-amazon-bedrock-getting-started",
+  },
+  {
+    kind: "cert",
+    title: "Generative AI for Executives",
+    credential: "AWS Certified",
+    isCredentialId: false,
+    group: "AWS training",
+    issued: "May 2024",
+    href: "certificates/AWS - Generative AI for Executives.pdf",
+    image: "certificates/aws.png",
+    alt: "aws-gen-ai-for-executives",
   },
   {
     kind: "education",

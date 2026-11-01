@@ -146,8 +146,8 @@ export const eduCertItems: EduCertItem[] = [
     issued: "Dec 2025",
     href: "certificates/Google_UX_Design_Coursera 7BP7JEOKWLV6.pdf",
     verify: "https://www.coursera.org/account/accomplishments/professional-cert/certificate/7BP7JEOKWLV6",
-    image: "certificates/google-ux-design-professional-certificate-v-3.png",
-    alt: "Google UX",
+    image: "certificates/google-g.png",
+    alt: "Google",
   },
   {
     kind: "cert",
@@ -158,8 +158,8 @@ export const eduCertItems: EduCertItem[] = [
     issued: "Nov 2025",
     href: "certificates/Google_Project_Management_Coursera ISI5YF8CP0EE.pdf",
     verify: "https://www.coursera.org/account/accomplishments/professional-cert/certificate/ISI5YF8CP0EE",
-    image: "certificates/google-project-management-professional-certificate-.1.png",
-    alt: "Google PM",
+    image: "certificates/google-g.png",
+    alt: "Google",
   },
   {
     kind: "cert",

@@ -13,6 +13,8 @@ export type ViewId = (typeof views)[number]["id"];
 const CV_URL = "https://drive.google.com/file/d/1r-d2_dV67F5e15ssOPm2RyGTVgx3jV3N/view?usp=sharing";
 const LINKEDIN_URL = "https://www.linkedin.com/in/seetha-rama-swamy-thota";
 const GITHUB_URL = "https://github.com/seetharam-ai";
+/** Public Credly profile: verified digital badges for the certifications. */
+export const CREDLY_URL = "https://www.credly.com/users/seetha-rama-swamy-thota/badges/credly";
 
 export const hero = {
   fullName: "Seetha Rama Swamy Thota",
@@ -314,6 +316,7 @@ export const socialLinks: { href: string; icon: string; alt: string }[] = [
   { href: "https://www.behance.net/seetharamaswamy", icon: "icons/social/behance.png", alt: "Behance" },
   { href: GITHUB_URL, icon: "icons/social/github.png", alt: "GitHub" },
   { href: LINKEDIN_URL, icon: "icons/social/linkedin.png", alt: "LinkedIn" },
+  { href: CREDLY_URL, icon: "icons/social/credly.svg", alt: "Credly" },
   { href: "https://x.com/tsrs8777", icon: "icons/social/twitter.png", alt: "Twitter" },
   { href: "https://www.instagram.com/sr_complicated/", icon: "icons/social/instagram.png", alt: "Instagram" },
   { href: "https://www.youtube.com/@SeethaRamaSwamyThota", icon: "icons/social/youtube.png", alt: "Youtube" },

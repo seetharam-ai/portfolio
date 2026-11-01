@@ -5597,3 +5597,44 @@ h3 {
 .storyboard--compare .story:last-child .story__num {
   background: var(--ink);
 }
+
+/* Credentials header: the summary note with the Credly profile link under it */
+.view-head__aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.credly-link {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  transition: border-color 0.2s, transform 0.2s var(--ease);
+}
+
+.credly-link:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.credly-link__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.credly-link__name {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.credly-link:hover .credly-link__name {
+  color: var(--accent);
+}

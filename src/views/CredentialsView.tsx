@@ -1,4 +1,5 @@
 import { certs, type Cert } from "../data/education";
+import { CREDLY_URL } from "../data/site";
 
 const groups = [...new Set(certs.map((c) => c.group))];
 
@@ -12,10 +13,18 @@ export function CredentialsView() {
             Always <em>learning</em>
           </h1>
         </div>
-        <p className="view-note">
-          {certs.length} certifications across Gen AI, prompt engineering, UX, project management, Lean Six Sigma and
-          Python.
-        </p>
+        <div className="view-head__aside">
+          <p className="view-note">
+            {certs.length} certifications across Gen AI, AI agents, prompt engineering, UX, project management, Lean Six
+            Sigma and Python.
+          </p>
+          <a href={CREDLY_URL} target="_blank" className="credly-link">
+            <span className="credly-link__label">Verified badges</span>
+            <span className="credly-link__name">
+              View my Credly profile <span aria-hidden>↗</span>
+            </span>
+          </a>
+        </div>
       </div>
 
       {groups.map((g) => (

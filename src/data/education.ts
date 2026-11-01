@@ -36,6 +36,17 @@ export type EduCertItem = Cert | Education;
 export const eduCertItems: EduCertItem[] = [
   {
     kind: "cert",
+    title: "Building AI Agents with RAG and LangChain",
+    credential: "17d5742fd58c4b2baf1360f3dae75fd4",
+    isCredentialId: true,
+    group: "AI & technical",
+    issued: "Nov 2026",
+    href: "https://courses.emeritus.skillsnetwork.site/certificates/17d5742fd58c4b2baf1360f3dae75fd4",
+    image: "certificates/IBM.png",
+    alt: "IBM Skills Network",
+  },
+  {
+    kind: "cert",
     title: "Generative AI in Adobe Creative Cloud",
     credential: "BSPPQXXEJ40S",
     isCredentialId: true,

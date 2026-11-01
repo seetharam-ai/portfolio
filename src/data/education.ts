@@ -159,7 +159,7 @@ export const eduCertItems: EduCertItem[] = [
   {
     kind: "cert",
     title: "Building Generative AI Applications Using Amazon Bedrock (Includes Labs)",
-    credential: "AWS Certified",
+    credential: "AWS Training & Certification",
     isCredentialId: false,
     group: "AWS training",
     issued: "Sep 2026",
@@ -170,7 +170,7 @@ export const eduCertItems: EduCertItem[] = [
   {
     kind: "cert",
     title: "Introduction to Generative AI - Art of the Possible",
-    credential: "AWS Certified",
+    credential: "AWS Training & Certification",
     isCredentialId: false,
     group: "AWS training",
     issued: "Sep 2026",
@@ -181,7 +181,7 @@ export const eduCertItems: EduCertItem[] = [
   {
     kind: "cert",
     title: "Amazon Bedrock Getting Started",
-    credential: "AWS Certified",
+    credential: "AWS Training & Certification",
     isCredentialId: false,
     group: "AWS training",
     issued: "Mar 2024",
@@ -192,7 +192,7 @@ export const eduCertItems: EduCertItem[] = [
   {
     kind: "cert",
     title: "Generative AI for Executives",
-    credential: "AWS Certified",
+    credential: "AWS Training & Certification",
     isCredentialId: false,
     group: "AWS training",
     issued: "May 2024",
